@@ -1,0 +1,2480 @@
+```html
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0"
+    >
+
+    <meta
+        name="description"
+        content="Make Me Glam Admin Bookings"
+    >
+
+    <title>
+        Bookings | Make Me Glam Admin
+    </title>
+
+
+    <!-- GOOGLE FONTS -->
+
+    <link
+        rel="preconnect"
+        href="https://fonts.googleapis.com"
+    >
+
+    <link
+        rel="preconnect"
+        href="https://fonts.gstatic.com"
+        crossorigin
+    >
+
+    <link
+        href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600;700&family=DM+Sans:wght@300;400;500;600;700&display=swap"
+        rel="stylesheet"
+    >
+
+
+    <style>
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+
+        :root {
+
+            --black: #171717;
+            --white: #ffffff;
+            --cream: #f7f2ec;
+            --ivory: #faf8f5;
+            --gold: #b89b5e;
+            --border: #e4ddd4;
+            --muted: #777777;
+
+            --danger: #9b3d3d;
+            --success: #477447;
+
+            --sidebar-width: 250px;
+
+        }
+
+
+        body {
+
+            min-height: 100vh;
+
+            background: var(--cream);
+
+            color: var(--black);
+
+            font-family:
+                "DM Sans",
+                sans-serif;
+
+        }
+
+
+        a {
+
+            text-decoration: none;
+
+            color: inherit;
+
+        }
+
+
+        button,
+        select {
+
+            font-family:
+                "DM Sans",
+                sans-serif;
+
+        }
+
+
+        /* =====================================================
+           LAYOUT
+        ====================================================== */
+
+        .admin-layout {
+
+            min-height: 100vh;
+
+            display: flex;
+
+        }
+
+
+        /* =====================================================
+           SIDEBAR
+        ====================================================== */
+
+        .sidebar {
+
+            position: fixed;
+
+            top: 0;
+            left: 0;
+
+            width: var(--sidebar-width);
+
+            height: 100vh;
+
+            background: var(--black);
+
+            color: var(--white);
+
+            display: flex;
+
+            flex-direction: column;
+
+            z-index: 1000;
+
+        }
+
+
+        .sidebar-brand {
+
+            padding: 30px 25px;
+
+            border-bottom:
+                1px solid rgba(255,255,255,0.1);
+
+        }
+
+
+        .brand-main {
+
+            display: block;
+
+            font-family:
+                "Cormorant Garamond",
+                serif;
+
+            font-size: 30px;
+
+            font-weight: 600;
+
+            letter-spacing: 0.08em;
+
+        }
+
+
+        .brand-sub {
+
+            display: block;
+
+            margin-top: 4px;
+
+            color: var(--gold);
+
+            font-size: 8px;
+
+            font-weight: 700;
+
+            letter-spacing: 0.18em;
+
+        }
+
+
+        /* =====================================================
+           NAVIGATION
+        ====================================================== */
+
+        .sidebar-nav {
+
+            flex: 1;
+
+            padding: 25px 15px;
+
+            overflow-y: auto;
+
+        }
+
+
+        .nav-section-title {
+
+            margin:
+                0 10px 12px;
+
+            color: #777;
+
+            font-size: 9px;
+
+            font-weight: 700;
+
+            letter-spacing: 0.15em;
+
+            text-transform: uppercase;
+
+        }
+
+
+        .nav-link {
+
+            display: flex;
+
+            align-items: center;
+
+            gap: 12px;
+
+            width: 100%;
+
+            padding: 13px 12px;
+
+            margin-bottom: 4px;
+
+            color: #cfcfcf;
+
+            font-size: 12px;
+
+            transition: 0.25s ease;
+
+        }
+
+
+        .nav-link:hover {
+
+            background:
+                rgba(255,255,255,0.06);
+
+            color: var(--white);
+
+        }
+
+
+        .nav-link.active {
+
+            background: var(--gold);
+
+            color: var(--white);
+
+        }
+
+
+        .nav-icon {
+
+            width: 20px;
+
+            text-align: center;
+
+            font-size: 14px;
+
+        }
+
+
+        /* =====================================================
+           SIDEBAR FOOTER
+        ====================================================== */
+
+        .sidebar-footer {
+
+            padding: 15px;
+
+            border-top:
+                1px solid rgba(255,255,255,0.1);
+
+        }
+
+
+        .admin-user {
+
+            padding: 10px 12px;
+
+            margin-bottom: 8px;
+
+        }
+
+
+        .admin-user-name {
+
+            color: var(--white);
+
+            font-size: 12px;
+
+            font-weight: 600;
+
+        }
+
+
+        .admin-user-email {
+
+            margin-top: 3px;
+
+            color: #888;
+
+            font-size: 10px;
+
+            word-break: break-word;
+
+        }
+
+
+        .logout-button {
+
+            width: 100%;
+
+            padding: 12px;
+
+            border:
+                1px solid rgba(255,255,255,0.15);
+
+            background: transparent;
+
+            color: #ccc;
+
+            font-size: 10px;
+
+            font-weight: 700;
+
+            letter-spacing: 0.12em;
+
+            text-transform: uppercase;
+
+            cursor: pointer;
+
+            transition: 0.25s ease;
+
+        }
+
+
+        .logout-button:hover {
+
+            background: var(--danger);
+
+            border-color: var(--danger);
+
+            color: white;
+
+        }
+
+
+        /* =====================================================
+           MAIN
+        ====================================================== */
+
+        .main-content {
+
+            width:
+                calc(100% - var(--sidebar-width));
+
+            margin-left:
+                var(--sidebar-width);
+
+            min-height: 100vh;
+
+        }
+
+
+        /* =====================================================
+           TOPBAR
+        ====================================================== */
+
+        .topbar {
+
+            min-height: 80px;
+
+            padding: 0 40px;
+
+            background: var(--white);
+
+            border-bottom:
+                1px solid var(--border);
+
+            display: flex;
+
+            align-items: center;
+
+            justify-content: space-between;
+
+            gap: 20px;
+
+        }
+
+
+        .topbar-left {
+
+            display: flex;
+
+            align-items: center;
+
+            gap: 15px;
+
+        }
+
+
+        .topbar-title {
+
+            font-family:
+                "Cormorant Garamond",
+                serif;
+
+            font-size: 34px;
+
+            font-weight: 500;
+
+        }
+
+
+        .topbar-right {
+
+            display: flex;
+
+            align-items: center;
+
+            gap: 15px;
+
+        }
+
+
+        .date-text {
+
+            color: var(--muted);
+
+            font-size: 11px;
+
+        }
+
+
+        .admin-badge {
+
+            padding: 7px 12px;
+
+            background: var(--ivory);
+
+            border:
+                1px solid var(--border);
+
+            color: var(--gold);
+
+            font-size: 9px;
+
+            font-weight: 700;
+
+            letter-spacing: 0.1em;
+
+            text-transform: uppercase;
+
+        }
+
+
+        /* =====================================================
+           MOBILE BUTTON
+        ====================================================== */
+
+        .mobile-menu-button {
+
+            display: none;
+
+            width: 40px;
+
+            height: 40px;
+
+            border:
+                1px solid var(--border);
+
+            background: var(--white);
+
+            cursor: pointer;
+
+        }
+
+
+        /* =====================================================
+           CONTENT
+        ====================================================== */
+
+        .page-content {
+
+            padding: 40px;
+
+        }
+
+
+        .page-heading {
+
+            margin-bottom: 30px;
+
+        }
+
+
+        .eyebrow {
+
+            color: var(--gold);
+
+            font-size: 9px;
+
+            font-weight: 700;
+
+            letter-spacing: 0.18em;
+
+            text-transform: uppercase;
+
+        }
+
+
+        .page-heading h1 {
+
+            margin-top: 8px;
+
+            font-family:
+                "Cormorant Garamond",
+                serif;
+
+            font-size: 48px;
+
+            font-weight: 500;
+
+        }
+
+
+        .page-heading p {
+
+            margin-top: 8px;
+
+            color: var(--muted);
+
+            font-size: 13px;
+
+        }
+
+
+        /* =====================================================
+           TOOLBAR
+        ====================================================== */
+
+        .toolbar {
+
+            padding: 20px;
+
+            margin-bottom: 20px;
+
+            background: var(--white);
+
+            border:
+                1px solid var(--border);
+
+            display: flex;
+
+            align-items: center;
+
+            justify-content: space-between;
+
+            gap: 15px;
+
+            flex-wrap: wrap;
+
+        }
+
+
+        .toolbar-left {
+
+            display: flex;
+
+            align-items: center;
+
+            gap: 10px;
+
+            flex-wrap: wrap;
+
+        }
+
+
+        .filter-select {
+
+            min-width: 160px;
+
+            padding: 11px 13px;
+
+            border:
+                1px solid var(--border);
+
+            background: var(--ivory);
+
+            color: var(--black);
+
+            font-size: 11px;
+
+            outline: none;
+
+        }
+
+
+        .refresh-button {
+
+            padding: 11px 18px;
+
+            border: none;
+
+            background: var(--black);
+
+            color: white;
+
+            font-size: 9px;
+
+            font-weight: 700;
+
+            letter-spacing: 0.1em;
+
+            text-transform: uppercase;
+
+            cursor: pointer;
+
+            transition: 0.25s ease;
+
+        }
+
+
+        .refresh-button:hover {
+
+            background: var(--gold);
+
+        }
+
+
+        .booking-count {
+
+            color: var(--muted);
+
+            font-size: 11px;
+
+        }
+
+
+        /* =====================================================
+           TABLE PANEL
+        ====================================================== */
+
+        .panel {
+
+            background: var(--white);
+
+            border:
+                1px solid var(--border);
+
+        }
+
+
+        .table-wrapper {
+
+            width: 100%;
+
+            overflow-x: auto;
+
+        }
+
+
+        table {
+
+            width: 100%;
+
+            min-width: 1050px;
+
+            border-collapse: collapse;
+
+        }
+
+
+        th {
+
+            padding: 15px 18px;
+
+            background: var(--ivory);
+
+            color: var(--muted);
+
+            font-size: 9px;
+
+            font-weight: 700;
+
+            letter-spacing: 0.1em;
+
+            text-align: left;
+
+            text-transform: uppercase;
+
+            white-space: nowrap;
+
+        }
+
+
+        td {
+
+            padding: 16px 18px;
+
+            border-bottom:
+                1px solid var(--border);
+
+            color: var(--black);
+
+            font-size: 11px;
+
+            vertical-align: middle;
+
+        }
+
+
+        tbody tr:hover {
+
+            background: #fcfaf7;
+
+        }
+
+
+        .customer-name {
+
+            font-weight: 600;
+
+        }
+
+
+        .customer-contact {
+
+            margin-top: 4px;
+
+            color: var(--muted);
+
+            font-size: 9px;
+
+        }
+
+
+        .booking-number {
+
+            color: var(--gold);
+
+            font-size: 10px;
+
+            font-weight: 700;
+
+        }
+
+
+        .service-name {
+
+            font-weight: 600;
+
+        }
+
+
+        .staff-name {
+
+            color: var(--muted);
+
+            margin-top: 3px;
+
+            font-size: 9px;
+
+        }
+
+
+        .date-value {
+
+            font-weight: 600;
+
+        }
+
+
+        .time-value {
+
+            margin-top: 3px;
+
+            color: var(--muted);
+
+            font-size: 9px;
+
+        }
+
+
+        /* =====================================================
+           STATUS
+        ====================================================== */
+
+        .status {
+
+            display: inline-block;
+
+            padding: 6px 9px;
+
+            font-size: 8px;
+
+            font-weight: 700;
+
+            letter-spacing: 0.08em;
+
+            text-transform: uppercase;
+
+        }
+
+
+        .status.pending {
+
+            background: #fff5df;
+
+            color: #98701e;
+
+        }
+
+
+        .status.confirmed {
+
+            background: #edf7ed;
+
+            color: var(--success);
+
+        }
+
+
+        .status.cancelled {
+
+            background: #fff0f0;
+
+            color: var(--danger);
+
+        }
+
+
+        .status.completed {
+
+            background: #eeeaf8;
+
+            color: #64518a;
+
+        }
+
+
+        /* =====================================================
+           ACTION
+        ====================================================== */
+
+        .status-select {
+
+            min-width: 125px;
+
+            padding: 8px 10px;
+
+            border:
+                1px solid var(--border);
+
+            background: var(--white);
+
+            color: var(--black);
+
+            font-size: 10px;
+
+            outline: none;
+
+            cursor: pointer;
+
+        }
+
+
+        .status-select:focus {
+
+            border-color: var(--gold);
+
+        }
+
+
+        /* =====================================================
+           EMPTY / LOADING
+        ====================================================== */
+
+        .loading-state,
+        .empty-state,
+        .error-state {
+
+            padding: 60px 20px;
+
+            text-align: center;
+
+            color: var(--muted);
+
+            font-size: 12px;
+
+        }
+
+
+        .error-state {
+
+            color: var(--danger);
+
+        }
+
+
+        /* =====================================================
+           MESSAGE
+        ====================================================== */
+
+        .page-message {
+
+            position: fixed;
+
+            right: 25px;
+
+            bottom: 25px;
+
+            max-width: 350px;
+
+            padding: 15px 18px;
+
+            background: var(--black);
+
+            color: white;
+
+            font-size: 11px;
+
+            line-height: 1.5;
+
+            opacity: 0;
+
+            pointer-events: none;
+
+            transform:
+                translateY(10px);
+
+            transition: 0.25s ease;
+
+            z-index: 2000;
+
+        }
+
+
+        .page-message.show {
+
+            opacity: 1;
+
+            transform:
+                translateY(0);
+
+        }
+
+
+        .page-message.success {
+
+            border-left:
+                3px solid var(--success);
+
+        }
+
+
+        .page-message.error {
+
+            border-left:
+                3px solid var(--danger);
+
+        }
+
+
+        /* =====================================================
+           RESPONSIVE
+        ====================================================== */
+
+        @media (max-width: 900px) {
+
+            .sidebar {
+
+                transform:
+                    translateX(-100%);
+
+                transition: 0.3s ease;
+
+            }
+
+
+            .sidebar.open {
+
+                transform:
+                    translateX(0);
+
+            }
+
+
+            .main-content {
+
+                width: 100%;
+
+                margin-left: 0;
+
+            }
+
+
+            .mobile-menu-button {
+
+                display: block;
+
+            }
+
+
+            .topbar {
+
+                padding: 0 20px;
+
+            }
+
+
+            .page-content {
+
+                padding: 25px 20px;
+
+            }
+
+        }
+
+
+        @media (max-width: 600px) {
+
+            .topbar {
+
+                min-height: 70px;
+
+            }
+
+
+            .topbar-title {
+
+                font-size: 28px;
+
+            }
+
+
+            .date-text {
+
+                display: none;
+
+            }
+
+
+            .admin-badge {
+
+                display: none;
+
+            }
+
+
+            .page-heading h1 {
+
+                font-size: 40px;
+
+            }
+
+        }
+
+    </style>
+
+</head>
+
+
+<body>
+
+
+<div class="admin-layout">
+
+
+    <!-- =====================================================
+         SIDEBAR
+    ====================================================== -->
+
+    <aside
+        class="sidebar"
+        id="sidebar"
+    >
+
+        <div class="sidebar-brand">
+
+            <span class="brand-main">
+                MAKE ME GLAM
+            </span>
+
+            <span class="brand-sub">
+                ADMINISTRATION PANEL
+            </span>
+
+        </div>
+
+
+        <nav class="sidebar-nav">
+
+            <div class="nav-section-title">
+                Main
+            </div>
+
+
+            <a
+                href="dashboard.html"
+                class="nav-link"
+            >
+
+                <span class="nav-icon">
+                    ◈
+                </span>
+
+                Dashboard
+
+            </a>
+
+
+            <a
+                href="bookings.html"
+                class="nav-link active"
+            >
+
+                <span class="nav-icon">
+                    ◫
+                </span>
+
+                Bookings
+
+            </a>
+
+
+            <a
+                href="enrollments.html"
+                class="nav-link"
+            >
+
+                <span class="nav-icon">
+                    ◇
+                </span>
+
+                Enrollments
+
+            </a>
+
+
+            <div
+                class="nav-section-title"
+                style="margin-top:25px;"
+            >
+                Management
+            </div>
+
+
+            <a
+                href="courses.html"
+                class="nav-link"
+            >
+
+                <span class="nav-icon">
+                    ✦
+                </span>
+
+                Courses
+
+            </a>
+
+
+            <a
+                href="services.html"
+                class="nav-link"
+            >
+
+                <span class="nav-icon">
+                    ♢
+                </span>
+
+                Services
+
+            </a>
+
+
+            <a
+                href="staff.html"
+                class="nav-link"
+            >
+
+                <span class="nav-icon">
+                    ♙
+                </span>
+
+                Staff
+
+            </a>
+
+
+            <a
+                href="customers.html"
+                class="nav-link"
+            >
+
+                <span class="nav-icon">
+                    ♧
+                </span>
+
+                Customers
+
+            </a>
+
+
+            <a
+                href="gallery.html"
+                class="nav-link"
+            >
+
+                <span class="nav-icon">
+                    ▧
+                </span>
+
+                Gallery
+
+            </a>
+
+
+            <a
+                href="contacts.html"
+                class="nav-link"
+            >
+
+                <span class="nav-icon">
+                    ✉
+                </span>
+
+                Contacts
+
+            </a>
+
+
+            <div
+                class="nav-section-title"
+                style="margin-top:25px;"
+            >
+                System
+            </div>
+
+
+            <a
+                href="settings.html"
+                class="nav-link"
+            >
+
+                <span class="nav-icon">
+                    ⚙
+                </span>
+
+                Settings
+
+            </a>
+
+        </nav>
+
+
+        <div class="sidebar-footer">
+
+            <div class="admin-user">
+
+                <div
+                    class="admin-user-name"
+                    id="adminName"
+                >
+                    Admin
+                </div>
+
+                <div
+                    class="admin-user-email"
+                    id="adminEmail"
+                >
+                    admin@makemeglam.com
+                </div>
+
+            </div>
+
+
+            <button
+                class="logout-button"
+                id="logoutButton"
+            >
+                Logout
+            </button>
+
+        </div>
+
+    </aside>
+
+
+    <!-- =====================================================
+         MAIN
+    ====================================================== -->
+
+    <div class="main-content">
+
+
+        <!-- TOPBAR -->
+
+        <header class="topbar">
+
+            <div class="topbar-left">
+
+                <button
+                    class="mobile-menu-button"
+                    id="mobileMenuButton"
+                    aria-label="Open menu"
+                >
+                    ☰
+                </button>
+
+
+                <h1 class="topbar-title">
+                    Bookings
+                </h1>
+
+            </div>
+
+
+            <div class="topbar-right">
+
+                <span
+                    class="date-text"
+                    id="currentDate"
+                ></span>
+
+
+                <span class="admin-badge">
+                    Administrator
+                </span>
+
+            </div>
+
+        </header>
+
+
+        <!-- PAGE -->
+
+        <main class="page-content">
+
+
+            <section class="page-heading">
+
+                <p class="eyebrow">
+                    MAKE ME GLAM · BOOKINGS
+                </p>
+
+
+                <h1>
+                    Appointments
+                </h1>
+
+
+                <p>
+                    Manage customer appointments,
+                    staff assignments and booking status.
+                </p>
+
+            </section>
+
+
+            <!-- TOOLBAR -->
+
+            <section class="toolbar">
+
+                <div class="toolbar-left">
+
+                    <select
+                        class="filter-select"
+                        id="statusFilter"
+                    >
+
+                        <option value="all">
+                            All Bookings
+                        </option>
+
+                        <option value="pending">
+                            Pending
+                        </option>
+
+                        <option value="confirmed">
+                            Confirmed
+                        </option>
+
+                        <option value="completed">
+                            Completed
+                        </option>
+
+                        <option value="cancelled">
+                            Cancelled
+                        </option>
+
+                    </select>
+
+
+                    <button
+                        class="refresh-button"
+                        id="refreshButton"
+                    >
+                        Refresh
+                    </button>
+
+                </div>
+
+
+                <div
+                    class="booking-count"
+                    id="bookingCount"
+                >
+                    Loading...
+                </div>
+
+            </section>
+
+
+            <!-- BOOKINGS TABLE -->
+
+            <section class="panel">
+
+                <div
+                    class="table-wrapper"
+                    id="bookingsWrapper"
+                >
+
+                    <div class="loading-state">
+                        Loading bookings...
+                    </div>
+
+                </div>
+
+            </section>
+
+        </main>
+
+    </div>
+
+</div>
+
+
+<!-- MESSAGE -->
+
+<div
+    class="page-message"
+    id="pageMessage"
+></div>
+
+
+<script>
+
+    // =====================================================
+    // API
+    // =====================================================
+
+    const API_BASE_URL =
+        "http://localhost:5000/api";
+
+
+    // =====================================================
+    // AUTH CHECK
+    // =====================================================
+
+    const adminToken =
+        localStorage.getItem(
+            "adminToken"
+        );
+
+
+    if (!adminToken) {
+
+        window.location.href =
+            "index.html";
+
+    }
+
+
+    // =====================================================
+    // ADMIN DATA
+    // =====================================================
+
+    const adminData =
+        JSON.parse(
+            localStorage.getItem(
+                "adminData"
+            ) || "{}"
+        );
+
+
+    const adminName =
+        document.querySelector(
+            "#adminName"
+        );
+
+
+    const adminEmail =
+        document.querySelector(
+            "#adminEmail"
+        );
+
+
+    if (adminData.name) {
+
+        adminName.textContent =
+            adminData.name;
+
+    }
+
+
+    if (adminData.email) {
+
+        adminEmail.textContent =
+            adminData.email;
+
+    }
+
+
+    // =====================================================
+    // DATE
+    // =====================================================
+
+    document.querySelector(
+        "#currentDate"
+    ).textContent =
+        new Date().toLocaleDateString(
+            "en-IN",
+            {
+                weekday: "short",
+                day: "2-digit",
+                month: "short",
+                year: "numeric"
+            }
+        );
+
+
+    // =====================================================
+    // LOGOUT
+    // =====================================================
+
+    document.querySelector(
+        "#logoutButton"
+    ).addEventListener(
+        "click",
+        function () {
+
+            localStorage.removeItem(
+                "adminToken"
+            );
+
+            localStorage.removeItem(
+                "adminData"
+            );
+
+            window.location.href =
+                "index.html";
+
+        }
+    );
+
+
+    // =====================================================
+    // MOBILE MENU
+    // =====================================================
+
+    const sidebar =
+        document.querySelector(
+            "#sidebar"
+        );
+
+
+    document.querySelector(
+        "#mobileMenuButton"
+    ).addEventListener(
+        "click",
+        function () {
+
+            sidebar.classList.toggle(
+                "open"
+            );
+
+        }
+    );
+
+
+    // =====================================================
+    // VARIABLES
+    // =====================================================
+
+    let allBookings = [];
+
+
+    // =====================================================
+    // MESSAGE
+    // =====================================================
+
+    function showMessage(
+        message,
+        type
+    ) {
+
+        const element =
+            document.querySelector(
+                "#pageMessage"
+            );
+
+
+        element.textContent =
+            message;
+
+
+        element.className =
+            `page-message show ${type}`;
+
+
+        setTimeout(
+            function () {
+
+                element.className =
+                    "page-message";
+
+            },
+            3000
+        );
+
+    }
+
+
+    // =====================================================
+    // LOAD BOOKINGS
+    // =====================================================
+
+    async function loadBookings() {
+
+        const wrapper =
+            document.querySelector(
+                "#bookingsWrapper"
+            );
+
+
+        wrapper.innerHTML = `
+
+            <div class="loading-state">
+                Loading bookings...
+            </div>
+
+        `;
+
+
+        try {
+
+            const response =
+                await fetch(
+                    `${API_BASE_URL}/bookings`,
+                    {
+                        method: "GET",
+
+                        headers: {
+
+                            "Content-Type":
+                                "application/json",
+
+                            "Authorization":
+                                `Bearer ${adminToken}`
+
+                        }
+
+                    }
+                );
+
+
+            const result =
+                await response.json();
+
+
+            console.log(
+                "Bookings API:",
+                result
+            );
+
+
+            // =================================================
+            // TOKEN EXPIRED
+            // =================================================
+
+            if (
+                response.status === 401 ||
+                response.status === 403
+            ) {
+
+                localStorage.removeItem(
+                    "adminToken"
+                );
+
+                localStorage.removeItem(
+                    "adminData"
+                );
+
+                window.location.href =
+                    "index.html";
+
+                return;
+
+            }
+
+
+            if (
+                !response.ok ||
+                !result.success
+            ) {
+
+                throw new Error(
+                    result.message ||
+                    "Unable to load bookings."
+                );
+
+            }
+
+
+            allBookings =
+                Array.isArray(result.data)
+                    ? result.data
+                    : [];
+
+
+            renderBookings();
+
+
+        } catch (error) {
+
+            console.error(
+                "Bookings loading error:",
+                error
+            );
+
+
+            wrapper.innerHTML = `
+
+                <div class="error-state">
+
+                    Unable to load bookings.
+
+                    <br><br>
+
+                    ${escapeHTML(
+                        error.message
+                    )}
+
+                </div>
+
+            `;
+
+
+            document.querySelector(
+                "#bookingCount"
+            ).textContent =
+                "Unable to load";
+
+        }
+
+    }
+
+
+    // =====================================================
+    // FILTER
+    // =====================================================
+
+    document.querySelector(
+        "#statusFilter"
+    ).addEventListener(
+        "change",
+        function () {
+
+            renderBookings();
+
+        }
+    );
+
+
+    // =====================================================
+    // RENDER BOOKINGS
+    // =====================================================
+
+    function renderBookings() {
+
+        const wrapper =
+            document.querySelector(
+                "#bookingsWrapper"
+            );
+
+
+        const filter =
+            document.querySelector(
+                "#statusFilter"
+            ).value;
+
+
+        let bookings =
+            allBookings;
+
+
+        if (filter !== "all") {
+
+            bookings =
+                allBookings.filter(
+                    function (booking) {
+
+                        return String(
+                            booking.status || ""
+                        ).toLowerCase() === filter;
+
+                    }
+                );
+
+        }
+
+
+        document.querySelector(
+            "#bookingCount"
+        ).textContent =
+            `${bookings.length} booking${bookings.length === 1 ? "" : "s"}`;
+
+
+        if (
+            bookings.length === 0
+        ) {
+
+            wrapper.innerHTML = `
+
+                <div class="empty-state">
+
+                    No bookings found.
+
+                </div>
+
+            `;
+
+            return;
+
+        }
+
+
+        let rows = "";
+
+
+        bookings.forEach(
+            function (booking) {
+
+                const status =
+                    String(
+                        booking.status ||
+                        "pending"
+                    ).toLowerCase();
+
+
+                const paymentStatus =
+                    String(
+                        booking.payment_status ||
+                        "pending"
+                    ).toLowerCase();
+
+
+                rows += `
+
+                    <tr>
+
+                        <td>
+
+                            <div class="customer-name">
+
+                                ${escapeHTML(
+                                    booking.customer_name
+                                )}
+
+                            </div>
+
+                            <div class="customer-contact">
+
+                                ${escapeHTML(
+                                    booking.customer_phone
+                                )}
+
+                            </div>
+
+                            ${
+                                booking.customer_email
+                                    ? `
+                                        <div class="customer-contact">
+                                            ${escapeHTML(
+                                                booking.customer_email
+                                            )}
+                                        </div>
+                                      `
+                                    : ""
+                            }
+
+                        </td>
+
+
+                        <td>
+
+                            <div class="booking-number">
+
+                                ${escapeHTML(
+                                    booking.booking_number
+                                )}
+
+                            </div>
+
+                        </td>
+
+
+                        <td>
+
+                            <div class="service-name">
+
+                                ${escapeHTML(
+                                    booking.service_name ||
+                                    "—"
+                                )}
+
+                            </div>
+
+                            <div class="staff-name">
+
+                                Staff:
+                                ${escapeHTML(
+                                    booking.staff_name ||
+                                    "—"
+                                )}
+
+                            </div>
+
+                        </td>
+
+
+                        <td>
+
+                            <div class="date-value">
+
+                                ${escapeHTML(
+                                    formatDate(
+                                        booking.booking_date
+                                    )
+                                )}
+
+                            </div>
+
+                            <div class="time-value">
+
+                                ${escapeHTML(
+                                    formatTime(
+                                        booking.booking_time
+                                    )
+                                )}
+
+                            </div>
+
+                        </td>
+
+
+                        <td>
+
+                            <span
+                                class="status ${escapeHTML(
+                                    paymentStatus
+                                )}"
+                            >
+
+                                ${escapeHTML(
+                                    paymentStatus
+                                )}
+
+                            </span>
+
+                        </td>
+
+
+                        <td>
+
+                            <span
+                                class="status ${escapeHTML(
+                                    status
+                                )}"
+                            >
+
+                                ${escapeHTML(
+                                    status
+                                )}
+
+                            </span>
+
+                        </td>
+
+
+                        <td>
+
+                            <select
+                                class="status-select"
+                                data-booking-id="${escapeHTML(
+                                    booking.id
+                                )}"
+                                data-current-status="${escapeHTML(
+                                    status
+                                )}"
+                            >
+
+                                <option
+                                    value="pending"
+                                    ${
+                                        status === "pending"
+                                            ? "selected"
+                                            : ""
+                                    }
+                                >
+                                    Pending
+                                </option>
+
+                                <option
+                                    value="confirmed"
+                                    ${
+                                        status === "confirmed"
+                                            ? "selected"
+                                            : ""
+                                    }
+                                >
+                                    Confirmed
+                                </option>
+
+                                <option
+                                    value="completed"
+                                    ${
+                                        status === "completed"
+                                            ? "selected"
+                                            : ""
+                                    }
+                                >
+                                    Completed
+                                </option>
+
+                                <option
+                                    value="cancelled"
+                                    ${
+                                        status === "cancelled"
+                                            ? "selected"
+                                            : ""
+                                    }
+                                >
+                                    Cancelled
+                                </option>
+
+                            </select>
+
+                        </td>
+
+                    </tr>
+
+                `;
+
+            }
+        );
+
+
+        wrapper.innerHTML = `
+
+            <table>
+
+                <thead>
+
+                    <tr>
+
+                        <th>
+                            Customer
+                        </th>
+
+                        <th>
+                            Booking
+                        </th>
+
+                        <th>
+                            Service / Staff
+                        </th>
+
+                        <th>
+                            Date / Time
+                        </th>
+
+                        <th>
+                            Payment
+                        </th>
+
+                        <th>
+                            Status
+                        </th>
+
+                        <th>
+                            Action
+                        </th>
+
+                    </tr>
+
+                </thead>
+
+
+                <tbody>
+
+                    ${rows}
+
+                </tbody>
+
+            </table>
+
+        `;
+
+
+        // =================================================
+        // STATUS CHANGE EVENTS
+        // =================================================
+
+        document
+            .querySelectorAll(
+                ".status-select"
+            )
+            .forEach(
+                function (select) {
+
+                    select.addEventListener(
+                        "change",
+                        function () {
+
+                            const bookingId =
+                                this.dataset.bookingId;
+
+                            const oldStatus =
+                                this.dataset.currentStatus;
+
+                            const newStatus =
+                                this.value;
+
+
+                            updateBookingStatus(
+                                bookingId,
+                                newStatus,
+                                oldStatus,
+                                this
+                            );
+
+                        }
+                    );
+
+                }
+            );
+
+    }
+
+
+    // =====================================================
+    // UPDATE STATUS
+    // =====================================================
+
+    async function updateBookingStatus(
+        bookingId,
+        newStatus,
+        oldStatus,
+        selectElement
+    ) {
+
+        try {
+
+            selectElement.disabled =
+                true;
+
+
+            const response =
+                await fetch(
+                    `${API_BASE_URL}/bookings/${encodeURIComponent(
+                        bookingId
+                    )}/status`,
+                    {
+                        method: "PATCH",
+
+                        headers: {
+
+                            "Content-Type":
+                                "application/json",
+
+                            "Authorization":
+                                `Bearer ${adminToken}`
+
+                        },
+
+                        body: JSON.stringify({
+
+                            status:
+                                newStatus
+
+                        })
+
+                    }
+                );
+
+
+            const result =
+                await response.json();
+
+
+            if (
+                response.status === 401 ||
+                response.status === 403
+            ) {
+
+                localStorage.removeItem(
+                    "adminToken"
+                );
+
+                localStorage.removeItem(
+                    "adminData"
+                );
+
+                window.location.href =
+                    "index.html";
+
+                return;
+
+            }
+
+
+            if (
+                !response.ok ||
+                !result.success
+            ) {
+
+                throw new Error(
+                    result.message ||
+                    "Failed to update booking status."
+                );
+
+            }
+
+
+            // Update local data
+
+            const booking =
+                allBookings.find(
+                    function (item) {
+
+                        return String(
+                            item.id
+                        ) === String(
+                            bookingId
+                        );
+
+                    }
+                );
+
+
+            if (booking) {
+
+                booking.status =
+                    newStatus;
+
+            }
+
+
+            showMessage(
+                "Booking status updated successfully.",
+                "success"
+            );
+
+
+            renderBookings();
+
+
+        } catch (error) {
+
+            console.error(
+                "Status update error:",
+                error
+            );
+
+
+            selectElement.value =
+                oldStatus;
+
+
+            selectElement.disabled =
+                false;
+
+
+            showMessage(
+                error.message ||
+                "Unable to update booking status.",
+                "error"
+            );
+
+        }
+
+    }
+
+
+    // =====================================================
+    // DATE FORMAT
+    // =====================================================
+
+    function formatDate(
+        value
+    ) {
+
+        if (!value) {
+
+            return "—";
+
+        }
+
+
+        const date =
+            new Date(
+                `${value}T00:00:00`
+            );
+
+
+        if (
+            Number.isNaN(
+                date.getTime()
+            )
+        ) {
+
+            return value;
+
+        }
+
+
+        return date.toLocaleDateString(
+            "en-IN",
+            {
+                day: "2-digit",
+                month: "short",
+                year: "numeric"
+            }
+        );
+
+    }
+
+
+    // =====================================================
+    // TIME FORMAT
+    // =====================================================
+
+    function formatTime(
+        value
+    ) {
+
+        if (!value) {
+
+            return "—";
+
+        }
+
+
+        const parts =
+            String(value).split(":");
+
+
+        if (
+            parts.length < 2
+        ) {
+
+            return value;
+
+        }
+
+
+        let hours =
+            Number(parts[0]);
+
+
+        const minutes =
+            parts[1];
+
+
+        const suffix =
+            hours >= 12
+                ? "PM"
+                : "AM";
+
+
+        hours =
+            hours % 12 || 12;
+
+
+        return `${hours}:${minutes} ${suffix}`;
+
+    }
+
+
+    // =====================================================
+    // ESCAPE HTML
+    // =====================================================
+
+    function escapeHTML(
+        value
+    ) {
+
+        if (
+            value === null ||
+            value === undefined
+        ) {
+
+            return "";
+
+        }
+
+
+        return String(value)
+
+            .replace(
+                /&/g,
+                "&amp;"
+            )
+
+            .replace(
+                /</g,
+                "&lt;"
+            )
+
+            .replace(
+                />/g,
+                "&gt;"
+            )
+
+            .replace(
+                /"/g,
+                "&quot;"
+            )
+
+            .replace(
+                /'/g,
+                "&#039;"
+            );
+
+    }
+
+
+    // =====================================================
+    // REFRESH
+    // =====================================================
+
+    document.querySelector(
+        "#refreshButton"
+    ).addEventListener(
+        "click",
+        function () {
+
+            loadBookings();
+
+        }
+    );
+
+
+    // =====================================================
+    // START BOOKINGS PAGE
+    // =====================================================
+
+    loadBookings();
+
+</script>
+
+</body>
+
+</html>
+```

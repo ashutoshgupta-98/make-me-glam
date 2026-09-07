@@ -1,0 +1,1362 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <meta name="description"
+        content="Book your beauty appointment at Make Me Glam Makeup Studio in Gole Market, Mahanagar, Lucknow.">
+
+    <title>
+        Book Appointment | Make Me Glam
+    </title>
+
+
+    <!-- GOOGLE FONTS -->
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+    <link
+        href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600;700&family=DM+Sans:wght@300;400;500;600;700&display=swap"
+        rel="stylesheet">
+
+
+    <!-- MAIN CSS -->
+
+    <link rel="stylesheet" href="css/style.css">
+
+
+    <style>
+        /* ==========================================
+           BOOKING PAGE
+        ========================================== */
+
+        .booking-hero {
+
+            min-height: 55svh;
+
+            display: flex;
+
+            align-items: center;
+
+            color: var(--white);
+
+            background:
+                linear-gradient(90deg,
+                    rgba(18, 15, 13, 0.88),
+                    rgba(18, 15, 13, 0.40)),
+                url("https://images.unsplash.com/photo-1487412720507-e7ab37603c6f?auto=format&fit=crop&w=2200&q=85") center / cover;
+
+        }
+
+
+        .booking-hero-content {
+
+            padding-top: 80px;
+
+        }
+
+
+        .booking-hero .eyebrow {
+
+            color: var(--gold-light);
+
+        }
+
+
+        .booking-hero h1 {
+
+            max-width: 900px;
+
+            font-size:
+                clamp(65px,
+                    9vw,
+                    125px);
+
+            line-height: 0.95;
+
+        }
+
+
+        .booking-hero p:not(.eyebrow) {
+
+            max-width: 550px;
+
+            margin-top: 25px;
+
+            color:
+                rgba(255,
+                    255,
+                    255,
+                    0.75);
+
+            font-size: 14px;
+
+            line-height: 1.9;
+
+        }
+
+
+        /* ==========================================
+           BOOKING SECTION
+        ========================================== */
+
+        .booking-section {
+
+            background:
+                var(--ivory);
+
+        }
+
+
+        .booking-grid {
+
+            display: grid;
+
+            grid-template-columns:
+                0.75fr 1.25fr;
+
+            gap: 80px;
+
+            align-items: start;
+
+        }
+
+
+        .booking-intro {
+
+            position: sticky;
+
+            top: 120px;
+
+        }
+
+
+        .booking-intro h2 {
+
+            max-width: 550px;
+
+        }
+
+
+        .booking-intro p:not(.eyebrow) {
+
+            max-width: 480px;
+
+            margin-top: 25px;
+
+            color: var(--muted);
+
+            font-size: 14px;
+
+            line-height: 1.9;
+
+        }
+
+
+        .booking-form {
+
+            padding: 40px;
+
+            background: var(--cream);
+
+            border:
+                1px solid var(--border);
+
+        }
+
+
+        .form-row {
+
+            display: grid;
+
+            grid-template-columns:
+                repeat(2, 1fr);
+
+            gap: 18px;
+
+        }
+
+
+        .form-group {
+
+            margin-bottom: 20px;
+
+        }
+
+
+        .form-group label {
+
+            display: block;
+
+            margin-bottom: 8px;
+
+            color: var(--black);
+
+            font-size: 10px;
+
+            font-weight: 700;
+
+            letter-spacing: 0.12em;
+
+            text-transform: uppercase;
+
+        }
+
+
+        .form-group input,
+        .form-group select,
+        .form-group textarea {
+
+            width: 100%;
+
+            padding: 15px;
+
+            background: var(--ivory);
+
+            color: var(--black);
+
+            border:
+                1px solid var(--border);
+
+            outline: none;
+
+            font-family: var(--sans);
+
+            font-size: 13px;
+
+        }
+
+
+        .form-group textarea {
+
+            min-height: 120px;
+
+            resize: vertical;
+
+        }
+
+
+        .form-group input:focus,
+        .form-group select:focus,
+        .form-group textarea:focus {
+
+            border-color:
+                var(--gold);
+
+            box-shadow:
+                0 0 0 3px rgba(174,
+                    137,
+                    76,
+                    0.10);
+
+        }
+
+
+        .booking-submit {
+
+            width: 100%;
+
+            padding: 17px;
+
+            border: 0;
+
+            background:
+                var(--black);
+
+            color:
+                var(--white);
+
+            cursor: pointer;
+
+            font-family:
+                var(--sans);
+
+            font-size: 10px;
+
+            font-weight: 700;
+
+            letter-spacing:
+                0.15em;
+
+            text-transform:
+                uppercase;
+
+            transition:
+                var(--transition);
+
+        }
+
+
+        .booking-submit:hover {
+
+            background:
+                var(--gold);
+
+        }
+
+
+        .booking-submit:disabled {
+
+            opacity: 0.6;
+
+            cursor: not-allowed;
+
+        }
+
+
+        .booking-message {
+
+            display: none;
+
+            margin-top: 20px;
+
+            padding: 15px;
+
+            font-size: 13px;
+
+            line-height: 1.6;
+
+        }
+
+
+        .booking-message.show {
+
+            display: block;
+
+        }
+
+
+        .booking-success {
+
+            background:
+                rgba(40,
+                    140,
+                    80,
+                    0.10);
+
+            border:
+                1px solid rgba(40,
+                    140,
+                    80,
+                    0.25);
+
+        }
+
+
+        .booking-error {
+
+            background:
+                rgba(180,
+                    50,
+                    50,
+                    0.10);
+
+            border:
+                1px solid rgba(180,
+                    50,
+                    50,
+                    0.25);
+
+        }
+
+
+        /* ==========================================
+           INFO CARDS
+        ========================================== */
+
+        .booking-info {
+
+            margin-top: 35px;
+
+            display: grid;
+
+            gap: 12px;
+
+        }
+
+
+        .booking-info-card {
+
+            padding: 20px;
+
+            background:
+                var(--cream);
+
+            border:
+                1px solid var(--border);
+
+        }
+
+
+        .booking-info-card span {
+
+            display: block;
+
+            color:
+                var(--gold);
+
+            font-size: 9px;
+
+            font-weight: 700;
+
+            letter-spacing:
+                0.15em;
+
+            text-transform:
+                uppercase;
+
+        }
+
+
+        .booking-info-card strong {
+
+            display: block;
+
+            margin-top: 7px;
+
+            font-size: 16px;
+
+        }
+
+
+        /* ==========================================
+           RESPONSIVE
+        ========================================== */
+
+        @media (max-width: 1000px) {
+
+            .booking-grid {
+
+                grid-template-columns: 1fr;
+
+                gap: 50px;
+
+            }
+
+
+            .booking-intro {
+
+                position: static;
+
+            }
+
+        }
+
+
+        @media (max-width: 700px) {
+
+            .form-row {
+
+                grid-template-columns: 1fr;
+
+                gap: 0;
+
+            }
+
+
+            .booking-form {
+
+                padding: 25px;
+
+            }
+
+
+            .booking-hero {
+
+                min-height: 600px;
+
+            }
+
+        }
+    </style>
+
+</head>
+
+
+<body>
+
+
+    <!-- ==========================================
+         HEADER
+    ========================================== -->
+
+    <header class="site-header" id="siteHeader">
+
+        <div class="container nav-container">
+
+            <a href="index.html" class="brand-logo">
+
+                <span class="brand-main">
+                    MAKE ME GLAM
+                </span>
+
+                <span class="brand-sub">
+                    MAKEUP STUDIO & ACADEMY
+                </span>
+
+            </a>
+
+
+            <nav class="main-nav" id="mainNav">
+
+                <a href="index.html" class="nav-link">
+                    Home
+                </a>
+
+                <a href="about.html" class="nav-link">
+                    About
+                </a>
+
+                <a href="services.html" class="nav-link">
+                    Services
+                </a>
+
+                <a href="courses.html" class="nav-link">
+                    Courses
+                </a>
+
+                <a href="gallery.html" class="nav-link">
+                    Gallery
+                </a>
+
+                <a href="index.html#reviews" class="nav-link">
+                    Reviews
+                </a>
+
+                <a href="contact.html" class="nav-link">
+                    Contact
+                </a>
+
+                <a href="booking.html" class="nav-cta active">
+                    Book Now
+                </a>
+
+            </nav>
+
+
+            <button class="menu-toggle" id="menuToggle" aria-label="Open navigation menu">
+
+                <span></span>
+                <span></span>
+                <span></span>
+
+            </button>
+
+        </div>
+
+    </header>
+
+
+
+    <main>
+
+
+        <!-- ==========================================
+             HERO
+        ========================================== -->
+
+        <section class="booking-hero">
+
+            <div class="container booking-hero-content reveal">
+
+                <p class="eyebrow">
+                    MAKE ME GLAM · APPOINTMENT
+                </p>
+
+
+                <h1>
+
+                    Book Your
+                    <br>
+
+                    <em>Beauty Experience.</em>
+
+                </h1>
+
+
+                <p>
+
+                    Choose your service, select your preferred
+                    artist and date, and let us take care of
+                    the rest.
+
+                </p>
+
+            </div>
+
+        </section>
+
+
+
+        <!-- ==========================================
+             BOOKING FORM
+        ========================================== -->
+
+        <section class="booking-section section">
+
+            <div class="container">
+
+                <div class="booking-grid">
+
+
+                    <!-- INTRO -->
+
+                    <div class="booking-intro reveal">
+
+                        <p class="eyebrow">
+                            BOOK AN APPOINTMENT
+                        </p>
+
+
+                        <h2>
+
+                            Your
+                            <em>Glow</em>
+                            Starts Here.
+
+                        </h2>
+
+
+                        <p>
+
+                            Complete the appointment form and
+                            our team will confirm your booking.
+                            Please select your preferred service,
+                            artist, date and time.
+
+                        </p>
+
+
+                        <div class="booking-info">
+
+
+                            <div class="booking-info-card">
+
+                                <span>
+                                    Studio
+                                </span>
+
+                                <strong>
+                                   S14, Gole Market, Mahanagar
+                                </strong>
+
+                            </div>
+
+
+                            <div class="booking-info-card">
+
+                                <span>
+                                    Opening Hours
+                                </span>
+
+                                <strong>
+                                    10:00 AM – 8:00 PM
+                                </strong>
+
+                            </div>
+
+
+                            <div class="booking-info-card">
+
+                                <span>
+                                    Need Help?
+                                </span>
+
+                                <strong>
+                                    +91 97943 57490
+                                </strong>
+
+                            </div>
+
+                        </div>
+
+                    </div>
+
+
+
+                    <!-- FORM -->
+
+                    <form class="booking-form reveal" id="bookingForm">
+
+
+                        <!-- CUSTOMER -->
+
+                        <div class="form-row">
+
+                            <div class="form-group">
+
+                                <label for="customerName">
+                                    Full Name
+                                </label>
+
+                                <input type="text" id="customerName" name="customer_name" placeholder="Enter your name"
+                                    required>
+
+                            </div>
+
+
+                            <div class="form-group">
+
+                                <label for="customerPhone">
+                                    Phone Number
+                                </label>
+
+                                <input type="tel" id="customerPhone" name="customer_phone"
+                                    placeholder="Enter phone number" required>
+
+                            </div>
+
+                        </div>
+
+
+
+                        <!-- EMAIL -->
+
+                        <div class="form-group">
+
+                            <label for="customerEmail">
+                                Email Address
+                            </label>
+
+                            <input type="email" id="customerEmail" name="customer_email"
+                                placeholder="Enter email address">
+
+                        </div>
+
+
+
+                        <!-- SERVICE -->
+
+                        <div class="form-group">
+
+                            <label for="service">
+                                Select Service
+                            </label>
+
+                            <select id="service" name="service_id" required>
+
+                                <option value="">
+                                    Loading services...
+                                </option>
+
+                            </select>
+
+                        </div>
+
+
+
+                        <!-- STAFF -->
+
+                        <div class="form-group">
+
+                            <label for="staff">
+                                Preferred Makeup Artist
+                            </label>
+
+                            <select id="staff" name="staff_id">
+
+                                <option value="">
+                                    Loading artists...
+                                </option>
+
+                            </select>
+
+                        </div>
+
+
+
+                        <!-- DATE + TIME -->
+
+                        <div class="form-row">
+
+                            <div class="form-group">
+
+                                <label for="bookingDate">
+                                    Appointment Date
+                                </label>
+
+                                <input type="date" id="bookingDate" name="booking_date" required>
+
+                            </div>
+
+
+                            <div class="form-group">
+
+                                <label for="bookingTime">
+                                    Appointment Time
+                                </label>
+
+                                <input type="time" id="bookingTime" name="booking_time" required>
+
+                            </div>
+
+                        </div>
+
+
+
+                        <!-- NOTES -->
+
+                        <div class="form-group">
+
+                            <label for="notes">
+                                Additional Notes
+                            </label>
+
+                            <textarea id="notes" name="notes" placeholder="Any special requirements..."></textarea>
+
+                        </div>
+
+
+
+                        <!-- SUBMIT -->
+
+                        <button type="submit" class="booking-submit" id="bookingSubmit">
+                            Request Appointment
+                        </button>
+
+
+                        <div class="booking-message" id="bookingMessage"></div>
+
+
+                    </form>
+
+                </div>
+
+            </div>
+
+        </section>
+
+    </main>
+
+
+
+    <!-- ==========================================
+         FOOTER
+    ========================================== -->
+
+    <footer class="site-footer">
+
+        <div class="container">
+
+            <div class="footer-grid">
+
+
+                <div class="footer-brand">
+
+                    <a href="index.html" class="brand-logo footer-logo">
+
+                        <span class="brand-main">
+                            MAKE ME GLAM
+                        </span>
+
+                        <span class="brand-sub">
+                            MAKEUP STUDIO & ACADEMY
+                        </span>
+
+                    </a>
+
+                    <p>
+                        Where artistry meets your beauty.
+                    </p>
+
+                </div>
+
+
+                <div class="footer-column">
+
+                    <h4>
+                        Explore
+                    </h4>
+
+                    <a href="about.html">
+                        About
+                    </a>
+
+                    <a href="services.html">
+                        Services
+                    </a>
+
+                    <a href="courses.html">
+                        Courses
+                    </a>
+
+                    <a href="gallery.html">
+                        Gallery
+                    </a>
+
+                </div>
+
+
+                <div class="footer-column">
+
+                    <h4>
+                        Quick Links
+                    </h4>
+
+                    <a href="booking.html">
+                        Book Appointment
+                    </a>
+
+                    <a href="contact.html">
+                        Contact
+                    </a>
+
+                </div>
+
+
+                <div class="footer-column">
+
+                    <h4>
+                        Connect
+                    </h4>
+
+                    <div class="footer-phone">
+
+                        <a href="tel:+919794357490">
+                            +91 97943 57490
+                        </a>
+
+                        <span>|</span>
+
+                        <a href="tel:+916393060630">
+                            +91 63930 60630
+                        </a>
+
+                    </div>
+
+                    <a href="https://wa.me/919794357490" target="_blank" rel="noopener noreferrer">
+                        WhatsApp
+                    </a>
+
+                </div>
+
+
+            </div>
+
+
+            <div class="footer-bottom">
+
+                <span>
+                    © 2026 Make Me Glam.
+                    All Rights Reserved.
+                </span>
+
+            </div>
+
+        </div>
+
+    </footer>
+
+
+
+    <!-- ==========================================
+         MAIN JS
+    ========================================== -->
+
+    <script src="js/main.js"></script>
+
+
+    <!-- ==========================================
+         BOOKING JS
+    ========================================== -->
+
+    <script>
+
+        const BOOKING_API =
+            "http://localhost:5000/api";
+
+
+        const bookingForm =
+            document.querySelector("#bookingForm");
+
+        const serviceSelect =
+            document.querySelector("#service");
+
+        const staffSelect =
+            document.querySelector("#staff");
+
+        const bookingDate =
+            document.querySelector("#bookingDate");
+
+        const bookingMessage =
+            document.querySelector("#bookingMessage");
+
+        const bookingSubmit =
+            document.querySelector("#bookingSubmit");
+
+
+        // ==========================================
+        // MINIMUM DATE = TODAY
+        // ==========================================
+
+        const today =
+            new Date()
+                .toISOString()
+                .split("T")[0];
+
+        bookingDate.min = today;
+
+
+
+        // ==========================================
+        // LOAD SERVICES
+        // ==========================================
+
+        async function loadBookingServices() {
+
+            try {
+
+                const response =
+                    await fetch(
+                        `${BOOKING_API}/services`
+                    );
+
+
+                const result =
+                    await response.json();
+
+
+                if (
+                    !response.ok ||
+                    !result.success
+                ) {
+
+                    throw new Error(
+                        "Unable to load services"
+                    );
+
+                }
+
+
+                serviceSelect.innerHTML =
+                    `<option value="">
+                        Select a service
+                    </option>`;
+
+
+                result.data.forEach(service => {
+
+                    const option =
+                        document.createElement("option");
+
+                    option.value =
+                        service.id;
+
+                    option.textContent =
+                        `${service.name} - ₹${Number(
+                            service.price || 0
+                        ).toLocaleString("en-IN")}`;
+
+                    serviceSelect.appendChild(option);
+
+                });
+
+
+                // URL service parameter
+
+                const params =
+                    new URLSearchParams(
+                        window.location.search
+                    );
+
+                const serviceId =
+                    params.get("service");
+
+
+                if (serviceId) {
+
+                    serviceSelect.value =
+                        serviceId;
+
+                }
+
+
+            } catch (error) {
+
+                console.error(
+                    "Booking services error:",
+                    error
+                );
+
+
+                serviceSelect.innerHTML =
+                    `<option value="">
+                        Unable to load services
+                    </option>`;
+
+            }
+
+        }
+
+
+
+        // ==========================================
+        // LOAD STAFF
+        // ==========================================
+
+        async function loadBookingStaff() {
+
+            try {
+
+                const response =
+                    await fetch(
+                        `${BOOKING_API}/staff`
+                    );
+
+
+                const result =
+                    await response.json();
+
+
+                if (
+                    !response.ok ||
+                    !result.success
+                ) {
+
+                    throw new Error(
+                        "Unable to load staff"
+                    );
+
+                }
+
+
+                staffSelect.innerHTML =
+                    `<option value="">
+                        No preference
+                    </option>`;
+
+
+                result.data.forEach(staff => {
+
+                    const option =
+                        document.createElement("option");
+
+                    option.value =
+                        staff.id;
+
+                    option.textContent =
+                        staff.designation
+                            ? `${staff.name} - ${staff.designation}`
+                            : staff.name;
+
+                    staffSelect.appendChild(option);
+
+                });
+
+
+            } catch (error) {
+
+                console.error(
+                    "Booking staff error:",
+                    error
+                );
+
+
+                staffSelect.innerHTML =
+                    `<option value="">
+                        No preference
+                    </option>`;
+
+            }
+
+        }
+
+
+
+        // ==========================================
+        // SUBMIT BOOKING
+        // ==========================================
+
+        bookingForm.addEventListener(
+            "submit",
+            async function (event) {
+
+                event.preventDefault();
+
+
+                try {
+
+                    bookingSubmit.disabled =
+                        true;
+
+                    bookingSubmit.textContent =
+                        "CREATING BOOKING...";
+
+
+                    const formData =
+                        new FormData(
+                            bookingForm
+                        );
+
+
+                    const data = {
+
+                        customer_name:
+                            formData.get(
+                                "customer_name"
+                            ),
+
+                        customer_phone:
+                            formData.get(
+                                "customer_phone"
+                            ),
+
+                        customer_email:
+                            formData.get(
+                                "customer_email"
+                            ),
+
+                        service_id:
+                            Number(
+                                formData.get(
+                                    "service_id"
+                                )
+                            ),
+
+                        staff_id:
+                            formData.get(
+                                "staff_id"
+                            )
+                                ? Number(
+                                    formData.get(
+                                        "staff_id"
+                                    )
+                                )
+                                : null,
+
+                        booking_date:
+                            formData.get(
+                                "booking_date"
+                            ),
+
+                        booking_time:
+                            formData.get(
+                                "booking_time"
+                            ),
+
+                        notes:
+                            formData.get(
+                                "notes"
+                            )
+
+                    };
+
+
+                    const response =
+                        await fetch(
+                            `${BOOKING_API}/bookings`,
+                            {
+                                method: "POST",
+
+                                headers: {
+                                    "Content-Type":
+                                        "application/json"
+                                },
+
+                                body:
+                                    JSON.stringify(
+                                        data
+                                    )
+                            }
+                        );
+
+
+                    const result =
+                        await response.json();
+
+
+                    if (
+                        !response.ok ||
+                        !result.success
+                    ) {
+
+                        throw new Error(
+                            result.message ||
+                            "Unable to create booking"
+                        );
+
+                    }
+
+
+                    bookingMessage.className =
+                        "booking-message booking-success show";
+
+
+                    bookingMessage.innerHTML = `
+
+                        <strong>
+                            Booking Request Submitted!
+                        </strong>
+
+                        <br><br>
+
+                        Booking Number:
+                        <strong>
+                            ${result.data.booking_number}
+                        </strong>
+
+                        <br><br>
+
+                        Our team will contact you shortly
+                        to confirm your appointment.
+
+                    `;
+
+
+                    bookingForm.reset();
+
+
+                    bookingDate.min =
+                        today;
+
+
+                } catch (error) {
+
+                    console.error(
+                        "Booking error:",
+                        error
+                    );
+
+
+                    bookingMessage.className =
+                        "booking-message booking-error show";
+
+
+                    bookingMessage.textContent =
+                        error.message ||
+                        "Unable to create booking. Please try again.";
+
+                } finally {
+
+                    bookingSubmit.disabled =
+                        false;
+
+                    bookingSubmit.textContent =
+                        "REQUEST APPOINTMENT";
+
+                }
+
+            }
+        );
+
+
+
+        // ==========================================
+        // INITIALIZE
+        // ==========================================
+
+        loadBookingServices();
+
+        loadBookingStaff();
+
+    </script>
+
+</body>
+
+</html>

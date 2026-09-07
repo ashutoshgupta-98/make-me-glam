@@ -1,0 +1,2151 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <meta name="description" content="Enroll in Make Me Glam Academy makeup courses.">
+
+    <meta name="author" content="Make Me Glam">
+
+    <title>
+        Enroll | Make Me Glam Academy
+    </title>
+
+
+    <!-- =====================================================
+         GOOGLE FONTS
+    ====================================================== -->
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+    <link
+        href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600;700&family=DM+Sans:wght@300;400;500;600;700&display=swap"
+        rel="stylesheet">
+
+
+    <!-- =====================================================
+         MAIN CSS
+    ====================================================== -->
+
+    <link rel="stylesheet" href="css/style.css">
+
+
+    <style>
+        /* =====================================================
+           ENROLL PAGE
+        ===================================================== */
+
+        .enroll-page {
+
+            background: var(--cream);
+
+        }
+
+
+        .enroll-section {
+
+            min-height: 100vh;
+
+            padding:
+                150px 0 100px;
+
+            background: var(--ivory);
+
+        }
+
+
+        .enroll-header {
+
+            max-width: 700px;
+
+            margin:
+                0 auto 60px;
+
+            text-align: center;
+
+        }
+
+
+        .enroll-header .eyebrow {
+
+            color: var(--gold);
+
+        }
+
+
+        .enroll-header h1 {
+
+            margin-top: 15px;
+
+            font-family: var(--serif);
+
+            font-size:
+                clamp(55px,
+                    7vw,
+                    90px);
+
+            font-weight: 500;
+
+            line-height: 0.95;
+
+            color: var(--black);
+
+        }
+
+
+        .enroll-header p {
+
+            max-width: 550px;
+
+            margin:
+                25px auto 0;
+
+            color: var(--muted);
+
+            font-size: 15px;
+
+            line-height: 1.8;
+
+        }
+
+
+        /* =====================================================
+           ENROLL GRID
+        ===================================================== */
+
+        .enroll-grid {
+
+            display: grid;
+
+            grid-template-columns:
+                minmax(0, 0.85fr) minmax(0, 1.15fr);
+
+            gap: 60px;
+
+            align-items: start;
+
+        }
+
+
+        /* =====================================================
+           COURSE SUMMARY
+        ===================================================== */
+
+        .enroll-course {
+
+            background: var(--white);
+
+            border:
+                1px solid var(--border);
+
+        }
+
+
+        .enroll-course-image {
+
+            width: 100%;
+
+            height: 380px;
+
+            overflow: hidden;
+
+            background: var(--blush);
+
+        }
+
+
+        .enroll-course-image img {
+
+            width: 100%;
+
+            height: 100%;
+
+            object-fit: cover;
+
+            display: block;
+
+        }
+
+
+        .enroll-course-content {
+
+            padding: 35px;
+
+        }
+
+
+        .enroll-course-label {
+
+            display: block;
+
+            margin-bottom: 12px;
+
+            color: var(--gold);
+
+            font-size: 9px;
+
+            font-weight: 700;
+
+            letter-spacing: 0.15em;
+
+            text-transform: uppercase;
+
+        }
+
+
+        .enroll-course-content h2 {
+
+            margin: 0;
+
+            font-family: var(--serif);
+
+            font-size: 42px;
+
+            line-height: 1;
+
+            font-weight: 600;
+
+            color: var(--black);
+
+        }
+
+
+        .enroll-course-description {
+
+            margin-top: 20px;
+
+            color: var(--muted);
+
+            font-size: 14px;
+
+            line-height: 1.8;
+
+        }
+
+
+        /* =====================================================
+           COURSE META
+        ===================================================== */
+
+        .enroll-course-meta {
+
+            display: grid;
+
+            grid-template-columns:
+                repeat(2, 1fr);
+
+            gap: 20px;
+
+            margin-top: 30px;
+
+            padding-top: 25px;
+
+            border-top:
+                1px solid var(--border);
+
+        }
+
+
+        .enroll-meta-item {
+
+            display: flex;
+
+            flex-direction: column;
+
+            gap: 7px;
+
+        }
+
+
+        .enroll-meta-item span {
+
+            color: var(--muted);
+
+            font-size: 9px;
+
+            font-weight: 700;
+
+            letter-spacing: 0.12em;
+
+            text-transform: uppercase;
+
+        }
+
+
+        .enroll-meta-item strong {
+
+            font-family: var(--serif);
+
+            font-size: 25px;
+
+            font-weight: 600;
+
+            color: var(--black);
+
+        }
+
+
+        .enroll-meta-item.price strong {
+
+            color: var(--gold);
+
+        }
+
+
+        /* =====================================================
+           FORM
+        ===================================================== */
+
+        .enroll-form-wrapper {
+
+            background: var(--white);
+
+            padding: 45px;
+
+            border:
+                1px solid var(--border);
+
+        }
+
+
+        .enroll-form-header {
+
+            margin-bottom: 35px;
+
+        }
+
+
+        .enroll-form-header h2 {
+
+            margin: 0;
+
+            font-family: var(--serif);
+
+            font-size: 48px;
+
+            line-height: 1;
+
+            font-weight: 500;
+
+            color: var(--black);
+
+        }
+
+
+        .enroll-form-header p {
+
+            margin-top: 12px;
+
+            color: var(--muted);
+
+            font-size: 13px;
+
+            line-height: 1.7;
+
+        }
+
+
+        /* =====================================================
+           FORM GRID
+        ===================================================== */
+
+        .enroll-form-grid {
+
+            display: grid;
+
+            grid-template-columns:
+                repeat(2, 1fr);
+
+            gap: 22px;
+
+        }
+
+
+        .enroll-form-group {
+
+            display: flex;
+
+            flex-direction: column;
+
+            gap: 8px;
+
+        }
+
+
+        .enroll-form-group.full {
+
+            grid-column: 1 / -1;
+
+        }
+
+
+        .enroll-form-group label {
+
+            color: var(--black);
+
+            font-size: 9px;
+
+            font-weight: 700;
+
+            letter-spacing: 0.12em;
+
+            text-transform: uppercase;
+
+        }
+
+
+        .enroll-form-group input,
+        .enroll-form-group textarea,
+        .enroll-form-group select {
+
+            width: 100%;
+
+            padding: 15px 16px;
+
+            border:
+                1px solid var(--border);
+
+            background: var(--ivory);
+
+            color: var(--black);
+
+            font-family: var(--sans);
+
+            font-size: 13px;
+
+            outline: none;
+
+            border-radius: 0;
+
+            transition: var(--transition);
+
+        }
+
+
+        .enroll-form-group input:focus,
+        .enroll-form-group textarea:focus,
+        .enroll-form-group select:focus {
+
+            border-color: var(--gold);
+
+            background: var(--white);
+
+        }
+
+
+        .enroll-form-group textarea {
+
+            min-height: 120px;
+
+            resize: vertical;
+
+        }
+
+
+        /* =====================================================
+           PAYMENT SUMMARY
+        ===================================================== */
+
+        .enroll-payment-summary {
+
+            margin-top: 30px;
+
+            padding: 22px;
+
+            background: var(--ivory);
+
+            border:
+                1px solid var(--border);
+
+        }
+
+
+        .enroll-payment-row {
+
+            display: flex;
+
+            align-items: center;
+
+            justify-content: space-between;
+
+            gap: 20px;
+
+        }
+
+
+        .enroll-payment-row+.enroll-payment-row {
+
+            margin-top: 12px;
+
+        }
+
+
+        .enroll-payment-row span {
+
+            color: var(--muted);
+
+            font-size: 12px;
+
+        }
+
+
+        .enroll-payment-row strong {
+
+            color: var(--black);
+
+            font-size: 13px;
+
+        }
+
+
+        .enroll-payment-total {
+
+            padding-top: 15px;
+
+            margin-top: 15px;
+
+            border-top:
+                1px solid var(--border);
+
+        }
+
+
+        .enroll-payment-total span {
+
+            color: var(--black);
+
+            font-weight: 700;
+
+        }
+
+
+        .enroll-payment-total strong {
+
+            color: var(--gold);
+
+            font-family: var(--serif);
+
+            font-size: 28px;
+
+        }
+
+
+        /* =====================================================
+           SUBMIT BUTTON
+        ===================================================== */
+
+        .enroll-submit {
+
+            width: 100%;
+
+            margin-top: 25px;
+
+            padding: 18px 25px;
+
+            border: none;
+
+            background: var(--black);
+
+            color: var(--white);
+
+            font-family: var(--sans);
+
+            font-size: 10px;
+
+            font-weight: 700;
+
+            letter-spacing: 0.15em;
+
+            text-transform: uppercase;
+
+            cursor: pointer;
+
+            transition: var(--transition);
+
+        }
+
+
+        .enroll-submit:hover {
+
+            background: var(--gold);
+
+        }
+
+
+        .enroll-submit:disabled {
+
+            opacity: 0.6;
+
+            cursor: not-allowed;
+
+        }
+
+
+        /* =====================================================
+           MESSAGE
+        ===================================================== */
+
+        .enroll-message {
+
+            display: none;
+
+            margin-top: 20px;
+
+            padding: 15px;
+
+            font-size: 12px;
+
+            line-height: 1.6;
+
+        }
+
+
+        .enroll-message.show {
+
+            display: block;
+
+        }
+
+
+        .enroll-message.success {
+
+            background: #eef7ee;
+
+            color: #315d31;
+
+            border:
+                1px solid #c9dfc9;
+
+        }
+
+
+        .enroll-message.error {
+
+            background: #fff1f1;
+
+            color: #8a3333;
+
+            border:
+                1px solid #e8caca;
+
+        }
+
+
+        /* =====================================================
+           LOADING
+        ===================================================== */
+
+        .enroll-loading {
+
+            min-height: 500px;
+
+            display: flex;
+
+            align-items: center;
+
+            justify-content: center;
+
+            text-align: center;
+
+        }
+
+
+        .enroll-loading h2 {
+
+            font-family: var(--serif);
+
+            font-size: 50px;
+
+            font-weight: 500;
+
+        }
+
+
+        .enroll-loading p {
+
+            margin-top: 10px;
+
+            color: var(--muted);
+
+        }
+
+
+        /* =====================================================
+           RESPONSIVE
+        ===================================================== */
+
+        @media (max-width: 900px) {
+
+            .enroll-section {
+
+                padding:
+                    130px 0 80px;
+
+            }
+
+
+            .enroll-grid {
+
+                grid-template-columns: 1fr;
+
+                gap: 40px;
+
+            }
+
+
+            .enroll-course-image {
+
+                height: 450px;
+
+            }
+
+        }
+
+
+        @media (max-width: 600px) {
+
+            .enroll-section {
+
+                padding:
+                    110px 0 60px;
+
+            }
+
+
+            .enroll-header {
+
+                margin-bottom: 40px;
+
+            }
+
+
+            .enroll-header h1 {
+
+                font-size: 58px;
+
+            }
+
+
+            .enroll-course-content {
+
+                padding: 25px;
+
+            }
+
+
+            .enroll-course-content h2 {
+
+                font-size: 38px;
+
+            }
+
+
+            .enroll-course-image {
+
+                height: 350px;
+
+            }
+
+
+            .enroll-form-wrapper {
+
+                padding: 25px;
+
+            }
+
+
+            .enroll-form-header h2 {
+
+                font-size: 40px;
+
+            }
+
+
+            .enroll-form-grid {
+
+                grid-template-columns: 1fr;
+
+            }
+
+
+            .enroll-form-group.full {
+
+                grid-column: auto;
+
+            }
+
+
+            .enroll-course-meta {
+
+                grid-template-columns: 1fr;
+
+            }
+
+        }
+    </style>
+
+</head>
+
+
+<body class="enroll-page">
+
+
+    <!-- =====================================================
+         HEADER
+    ====================================================== -->
+
+    <header class="site-header" id="siteHeader">
+
+        <div class="container nav-container">
+
+
+            <!-- LOGO -->
+
+            <a href="index.html" class="brand-logo">
+
+                <span class="brand-main">
+                    MAKE ME GLAM
+                </span>
+
+                <span class="brand-sub">
+                    MAKEUP STUDIO & ACADEMY
+                </span>
+
+            </a>
+
+
+            <!-- NAVIGATION -->
+
+            <nav class="main-nav" id="mainNav">
+
+                <a href="index.html" class="nav-link">
+                    Home
+                </a>
+
+
+                <a href="about.html" class="nav-link">
+                    About
+                </a>
+
+
+                <a href="services.html" class="nav-link">
+                    Services
+                </a>
+
+
+                <a href="courses.html" class="nav-link active">
+                    Courses
+                </a>
+
+
+                <a href="gallery.html" class="nav-link">
+                    Gallery
+                </a>
+
+
+                <a href="contact.html" class="nav-link">
+                    Contact
+                </a>
+
+
+                <a href="booking.html" class="nav-cta">
+                    Book Now
+                </a>
+
+            </nav>
+
+
+            <!-- MOBILE MENU -->
+
+            <button class="menu-toggle" id="menuToggle" aria-label="Open navigation menu" aria-expanded="false">
+
+                <span></span>
+                <span></span>
+                <span></span>
+
+            </button>
+
+        </div>
+
+    </header>
+
+
+    <!-- =====================================================
+         MAIN
+    ====================================================== -->
+
+    <main>
+
+
+        <section class="enroll-section">
+
+            <div class="container">
+
+
+                <!-- PAGE HEADER -->
+
+                <div class="enroll-header">
+
+                    <p class="eyebrow">
+                        MAKE ME GLAM · ACADEMY
+                    </p>
+
+
+                    <h1>
+                        Begin Your
+                        <br>
+                        Beauty Journey
+                    </h1>
+
+
+                    <p>
+                        Take the first step toward becoming a
+                        professional makeup artist. Complete the
+                        enrollment form below and our academy
+                        team will guide you through the next steps.
+                    </p>
+
+                </div>
+
+
+                <!-- =================================================
+                     LOADING
+                ================================================== -->
+
+                <div id="enrollLoading" class="enroll-loading">
+
+                    <div>
+
+                        <h2>
+                            Loading Course...
+                        </h2>
+
+                        <p>
+                            Please wait while we prepare your enrollment.
+                        </p>
+
+                    </div>
+
+                </div>
+
+
+                <!-- =================================================
+                     ENROLL CONTENT
+                ================================================== -->
+
+                <div id="enrollContent" class="enroll-grid" style="display:none;">
+
+
+                    <!-- =============================================
+                         COURSE SUMMARY
+                    ============================================== -->
+
+                    <article class="enroll-course">
+
+
+                        <div class="enroll-course-image">
+
+                            <img id="courseImage" src="" alt="Course">
+
+                        </div>
+
+
+                        <div class="enroll-course-content">
+
+
+                            <span class="enroll-course-label">
+                                Selected Course
+                            </span>
+
+
+                            <h2 id="courseTitle">
+                                Course
+                            </h2>
+
+
+                            <p id="courseDescription" class="enroll-course-description">
+                            </p>
+
+
+                            <div class="enroll-course-meta">
+
+
+                                <div class="enroll-meta-item">
+
+                                    <span>
+                                        Duration
+                                    </span>
+
+                                    <strong id="courseDuration">
+                                        —
+                                    </strong>
+
+                                </div>
+
+
+                                <div class="enroll-meta-item price">
+
+                                    <span>
+                                        Course Fee
+                                    </span>
+
+                                    <strong id="courseFee">
+                                        ₹0
+                                    </strong>
+
+                                </div>
+
+                            </div>
+
+                        </div>
+
+                    </article>
+
+
+                    <!-- =============================================
+                         ENROLLMENT FORM
+                    ============================================== -->
+
+                    <div class="enroll-form-wrapper">
+
+
+                        <div class="enroll-form-header">
+
+                            <h2>
+                                Enrollment Details
+                            </h2>
+
+                            <p>
+                                Please enter your details correctly.
+                                Our team will use this information
+                                to contact you regarding your course.
+                            </p>
+
+                        </div>
+
+
+                        <form id="enrollmentForm">
+
+
+                            <div class="enroll-form-grid">
+
+
+                                <!-- NAME -->
+
+                                <div class="enroll-form-group">
+
+                                    <label for="name">
+                                        Full Name *
+                                    </label>
+
+                                    <input type="text" id="name" name="name" placeholder="Enter your full name"
+                                        required>
+
+                                </div>
+
+
+                                <!-- PHONE -->
+
+                                <div class="enroll-form-group">
+
+                                    <label for="phone">
+                                        Phone Number *
+                                    </label>
+
+                                    <input type="tel" id="phone" name="phone" placeholder="+91 XXXXX XXXXX"
+                                        pattern="[0-9+\-\s]{10,15}" required>
+
+                                </div>
+
+
+                                <!-- EMAIL -->
+
+                                <div class="enroll-form-group">
+
+                                    <label for="email">
+                                        Email Address *
+                                    </label>
+
+                                    <input type="email" id="email" name="email" placeholder="you@example.com" required>
+
+                                </div>
+
+
+                                <!-- CITY -->
+
+                                <div class="enroll-form-group">
+
+                                    <label for="city">
+                                        City
+                                    </label>
+
+                                    <input type="text" id="city" name="city" placeholder="Your city">
+
+                                </div>
+
+
+                                <!-- MESSAGE -->
+
+                                <div class="enroll-form-group full">
+
+                                    <label for="message">
+                                        Message / Requirements
+                                    </label>
+
+                                    <textarea id="message" name="message"
+                                        placeholder="Tell us anything you'd like us to know..."></textarea>
+
+                                </div>
+
+                            </div>
+
+
+                            <!-- PAYMENT SUMMARY -->
+
+                            <div class="enroll-payment-summary">
+
+
+                                <div class="enroll-payment-row">
+
+                                    <span>
+                                        Selected Course
+                                    </span>
+
+                                    <strong id="summaryCourse">
+                                        —
+                                    </strong>
+
+                                </div>
+
+
+                                <div class="enroll-payment-row">
+
+                                    <span>
+                                        Duration
+                                    </span>
+
+                                    <strong id="summaryDuration">
+                                        —
+                                    </strong>
+
+                                </div>
+
+
+                                <div class="enroll-payment-row enroll-payment-total">
+
+                                    <span>
+                                        Total Course Fee
+                                    </span>
+
+                                    <strong id="summaryFee">
+                                        ₹0
+                                    </strong>
+
+                                </div>
+
+                            </div>
+
+
+                            <!-- SUBMIT -->
+
+                            <button type="submit" class="enroll-submit" id="enrollSubmit">
+                                Continue to Enrollment
+                            </button>
+
+
+                            <!-- MESSAGE -->
+
+                            <div id="enrollMessage" class="enroll-message">
+                            </div>
+
+                        </form>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+        </section>
+
+    </main>
+
+
+    <!-- =====================================================
+         FOOTER
+    ====================================================== -->
+
+    <footer class="site-footer">
+
+        <div class="container">
+
+            <div class="footer-grid">
+
+
+                <div class="footer-brand">
+
+                    <a href="index.html" class="brand-logo footer-logo">
+
+                        <span class="brand-main">
+                            MAKE ME GLAM
+                        </span>
+
+                        <span class="brand-sub">
+                            MAKEUP STUDIO & ACADEMY
+                        </span>
+
+                    </a>
+
+
+                    <p>
+                        Where artistry meets your beauty.
+                    </p>
+
+                </div>
+
+
+                <div class="footer-column">
+
+                    <h4>
+                        Explore
+                    </h4>
+
+                    <a href="about.html">
+                        About
+                    </a>
+
+                    <a href="services.html">
+                        Services
+                    </a>
+
+                    <a href="courses.html">
+                        Courses
+                    </a>
+
+                    <a href="gallery.html">
+                        Gallery
+                    </a>
+
+                </div>
+
+
+                <div class="footer-column">
+
+                    <h4>
+                        Quick Links
+                    </h4>
+
+                    <a href="booking.html">
+                        Book Appointment
+                    </a>
+
+                    <a href="courses.html">
+                        Enroll in Academy
+                    </a>
+
+                    <a href="contact.html">
+                        Contact
+                    </a>
+
+                </div>
+
+
+                <div class="footer-column">
+
+                    <h4>
+                        Connect
+                    </h4>
+
+
+                    <div class="footer-phone">
+
+                        <a href="tel:+919794357490">
+                            +91 97943 57490
+                        </a>
+
+                        <span>|</span>
+
+                        <a href="tel:+916393060630">
+                            +91 63930 60630
+                        </a>
+
+                    </div>
+
+
+                    <a href="https://wa.me/919794357490" target="_blank" rel="noopener noreferrer">
+                        WhatsApp
+                    </a>
+
+
+                    <a href="https://www.instagram.com/makemeglamakeupstudio/" target="_blank"
+                        rel="noopener noreferrer">
+                        Instagram
+                    </a>
+
+                </div>
+
+            </div>
+
+
+            <div class="footer-bottom">
+
+                <span>
+                    © 2026 Make Me Glam.
+                    All Rights Reserved.
+                </span>
+
+
+                <div>
+
+                    <a href="privacy-policy.html">
+                        Privacy Policy
+                    </a>
+
+                    <a href="terms.html">
+                        Terms & Conditions
+                    </a>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </footer>
+
+
+    <!-- =====================================================
+         MAIN JS
+    ====================================================== -->
+
+    <script src="js/main.js"></script>
+    <script src="https://checkout.razorpay.com/v1/checkout.js"></script>
+
+    <!-- =====================================================
+         ENROLLMENT JAVASCRIPT
+    ====================================================== -->
+
+    <script>
+
+        // ==========================================
+        // API
+        // ==========================================
+
+        const API_BASE_URL =
+            "http://localhost:5000/api";
+
+
+        // ==========================================
+        // ELEMENTS
+        // ==========================================
+
+        const enrollLoading =
+            document.querySelector(
+                "#enrollLoading"
+            );
+
+
+        const enrollContent =
+            document.querySelector(
+                "#enrollContent"
+            );
+
+
+        const enrollmentForm =
+            document.querySelector(
+                "#enrollmentForm"
+            );
+
+
+        const enrollMessage =
+            document.querySelector(
+                "#enrollMessage"
+            );
+
+
+        const enrollSubmit =
+            document.querySelector(
+                "#enrollSubmit"
+            );
+
+
+        // ==========================================
+        // GET COURSE ID
+        // ==========================================
+
+        const params =
+            new URLSearchParams(
+                window.location.search
+            );
+
+
+        const courseId =
+            params.get("course");
+
+
+        // ==========================================
+        // DEFAULT IMAGE
+        // ==========================================
+
+        const DEFAULT_COURSE_IMAGE =
+            "https://images.unsplash.com/photo-1522335789203-aabd1fc54bc9?auto=format&fit=crop&w=1200&q=85";
+
+
+        // ==========================================
+        // ESCAPE HTML
+        // ==========================================
+
+        function escapeHTML(value) {
+
+            if (
+                value === null ||
+                value === undefined
+            ) {
+
+                return "";
+
+            }
+
+
+            return String(value)
+                .replace(
+                    /&/g,
+                    "&amp;"
+                )
+                .replace(
+                    /</g,
+                    "&lt;"
+                )
+                .replace(
+                    />/g,
+                    "&gt;"
+                )
+                .replace(
+                    /"/g,
+                    "&quot;"
+                )
+                .replace(
+                    /'/g,
+                    "&#039;"
+                );
+
+        }
+
+
+        // ==========================================
+        // SHOW ERROR
+        // ==========================================
+
+        function showEnrollmentError(
+            message
+        ) {
+
+            enrollLoading.innerHTML = `
+
+                <div>
+
+                    <p class="eyebrow">
+                        MAKE ME GLAM · ACADEMY
+                    </p>
+
+                    <h2>
+                        Unable to Load Course
+                    </h2>
+
+                    <p>
+                        ${escapeHTML(message)}
+                    </p>
+
+                    <br>
+
+                    <a
+                        href="courses.html"
+                        class="course-enroll-button"
+                    >
+                        Back To Courses
+                    </a>
+
+                </div>
+
+            `;
+
+        }
+
+
+        // ==========================================
+        // LOAD COURSE
+        // ==========================================
+
+        async function loadEnrollmentCourse() {
+
+            if (!courseId) {
+
+                showEnrollmentError(
+                    "Course ID is missing."
+                );
+
+                return;
+
+            }
+
+
+            try {
+
+                const response =
+                    await fetch(
+                        `${API_BASE_URL}/courses/${courseId}`
+                    );
+
+
+                if (!response.ok) {
+
+                    throw new Error(
+                        `Course API error: ${response.status}`
+                    );
+
+                }
+
+
+                const result =
+                    await response.json();
+
+
+                if (
+                    !result.success ||
+                    !result.data
+                ) {
+
+                    throw new Error(
+                        "Course not found."
+                    );
+
+                }
+
+
+                renderEnrollmentCourse(
+                    result.data
+                );
+
+
+            } catch (error) {
+
+                console.error(
+                    "Enrollment course error:",
+                    error
+                );
+
+
+                showEnrollmentError(
+                    "Unable to load this course. Please try again."
+                );
+
+            }
+
+        }
+
+
+        // ==========================================
+        // RENDER COURSE
+        // ==========================================
+
+        function renderEnrollmentCourse(
+            course
+        ) {
+
+            const image =
+                course.image ||
+                DEFAULT_COURSE_IMAGE;
+
+
+            const feeNumber =
+                Number(
+                    course.fee || 0
+                );
+
+
+            const fee =
+                feeNumber.toLocaleString(
+                    "en-IN"
+                );
+
+
+            const title =
+                course.title ||
+                "Makeup Course";
+
+
+            const duration =
+                course.duration ||
+                "Flexible";
+
+
+            const description =
+                course.description ||
+                "Professional makeup training at Make Me Glam Academy.";
+
+
+            // IMAGE
+
+            document.querySelector(
+                "#courseImage"
+            ).src = image;
+
+
+            document.querySelector(
+                "#courseImage"
+            ).alt = title;
+
+
+            // COURSE DETAILS
+
+            document.querySelector(
+                "#courseTitle"
+            ).textContent =
+                title;
+
+
+            document.querySelector(
+                "#courseDescription"
+            ).textContent =
+                description;
+
+
+            document.querySelector(
+                "#courseDuration"
+            ).textContent =
+                duration;
+
+
+            document.querySelector(
+                "#courseFee"
+            ).textContent =
+                `₹${fee}`;
+
+
+            // SUMMARY
+
+            document.querySelector(
+                "#summaryCourse"
+            ).textContent =
+                title;
+
+
+            document.querySelector(
+                "#summaryDuration"
+            ).textContent =
+                duration;
+
+
+            document.querySelector(
+                "#summaryFee"
+            ).textContent =
+                `₹${fee}`;
+
+
+            // SAVE COURSE DATA
+
+            enrollmentForm.dataset.courseId =
+                course.id;
+
+
+            enrollmentForm.dataset.courseFee =
+                feeNumber;
+
+
+            enrollmentForm.dataset.courseTitle =
+                title;
+
+
+            // SHOW CONTENT
+
+            enrollLoading.style.display =
+                "none";
+
+
+            enrollContent.style.display =
+                "grid";
+
+        }
+
+
+        // ==========================================
+        // FORM SUBMIT + RAZORPAY
+        // ==========================================
+
+        enrollmentForm.addEventListener(
+            "submit",
+            async function (event) {
+
+                event.preventDefault();
+
+                const formData =
+                    new FormData(enrollmentForm);
+
+
+                const name =
+                    formData.get("name");
+
+                const phone =
+                    formData.get("phone");
+
+                const email =
+                    formData.get("email");
+
+                const city =
+                    formData.get("city");
+
+                const message =
+                    formData.get("message");
+
+
+                const selectedCourseId =
+                    enrollmentForm.dataset.courseId;
+
+                const courseFee =
+                    Number(
+                        enrollmentForm.dataset.courseFee
+                    );
+
+                const courseTitle =
+                    enrollmentForm.dataset.courseTitle;
+
+
+                // ==========================================
+                // VALIDATION
+                // ==========================================
+
+                if (!selectedCourseId) {
+
+                    showMessage(
+                        "Course information is missing.",
+                        "error"
+                    );
+
+                    return;
+
+                }
+
+
+                if (!name || !phone || !email) {
+
+                    showMessage(
+                        "Please fill all required fields.",
+                        "error"
+                    );
+
+                    return;
+
+                }
+
+
+                try {
+
+                    // ==========================================
+                    // BUTTON LOADING
+                    // ==========================================
+
+                    enrollSubmit.disabled = true;
+
+                    enrollSubmit.textContent =
+                        "CREATING PAYMENT...";
+
+
+                    // ==========================================
+                    // CREATE RAZORPAY ORDER
+                    // ==========================================
+
+                    const orderResponse =
+                        await fetch(
+                            `${API_BASE_URL}/payments/create-order`,
+                            {
+                                method: "POST",
+
+                                headers: {
+                                    "Content-Type":
+                                        "application/json"
+                                },
+
+                                body: JSON.stringify({
+
+                                    amount:
+                                        courseFee,
+
+                                    course_id:
+                                        selectedCourseId,
+
+                                    course_title:
+                                        courseTitle,
+
+                                    customer_name:
+                                        name,
+
+                                    customer_email:
+                                        email,
+
+                                    customer_phone:
+                                        phone
+
+                                })
+                            }
+                        );
+
+
+                    const orderResult =
+                        await orderResponse.json();
+
+
+                    console.log(
+                        "Razorpay Order:",
+                        orderResult
+                    );
+
+
+                    if (
+                        !orderResponse.ok ||
+                        !orderResult.success
+                    ) {
+
+                        throw new Error(
+                            orderResult.message ||
+                            "Unable to create payment order."
+                        );
+
+                    }
+
+
+                    // ==========================================
+                    // RAZORPAY OPTIONS
+                    // ==========================================
+
+                    const options = {
+
+                        key:
+                            orderResult.key,
+
+                        amount:
+                            orderResult.amount,
+
+                        currency:
+                            orderResult.currency || "INR",
+
+                        name:
+                            "Make Me Glam",
+
+                        description:
+                            courseTitle,
+
+                        order_id:
+                            orderResult.order_id,
+
+
+                        prefill: {
+
+                            name:
+                                name,
+
+                            email:
+                                email,
+
+                            contact:
+                                phone
+
+                        },
+
+
+                        notes: {
+
+                            course_id:
+                                selectedCourseId,
+
+                            course_title:
+                                courseTitle,
+
+                            city:
+                                city || "",
+
+                            message:
+                                message || ""
+
+                        },
+
+
+                        theme: {
+
+                            color:
+                                "#b89b5e"
+
+                        },
+
+
+                        // ==========================================
+                        // PAYMENT SUCCESS
+                        // ==========================================
+
+                        handler:
+                            async function (
+                                razorpayResponse
+                            ) {
+
+                                try {
+
+                                    enrollSubmit.disabled =
+                                        true;
+
+                                    enrollSubmit.textContent =
+                                        "VERIFYING PAYMENT...";
+
+
+                                    // ==========================================
+                                    // VERIFY PAYMENT
+                                    // ==========================================
+
+                                    const verifyResponse =
+                                        await fetch(
+                                            `${API_BASE_URL}/payments/verify`,
+                                            {
+                                                method: "POST",
+
+                                                headers: {
+                                                    "Content-Type":
+                                                        "application/json"
+                                                },
+
+                                                body: JSON.stringify({
+
+                                                    razorpay_order_id:
+                                                        razorpayResponse
+                                                            .razorpay_order_id,
+
+                                                    razorpay_payment_id:
+                                                        razorpayResponse
+                                                            .razorpay_payment_id,
+
+                                                    razorpay_signature:
+                                                        razorpayResponse
+                                                            .razorpay_signature,
+
+                                                    course_id:
+                                                        selectedCourseId,
+
+                                                    course_title:
+                                                        courseTitle,
+
+                                                    course_fee:
+                                                        courseFee,
+
+                                                    name:
+                                                        name,
+
+                                                    phone:
+                                                        phone,
+
+                                                    email:
+                                                        email,
+
+                                                    city:
+                                                        city,
+
+                                                    message:
+                                                        message
+
+                                                })
+                                            }
+                                        );
+
+
+                                    const verifyResult =
+                                        await verifyResponse.json();
+
+
+                                    console.log(
+                                        "Payment Verification:",
+                                        verifyResult
+                                    );
+
+
+                                    if (
+                                        !verifyResponse.ok ||
+                                        !verifyResult.success
+                                    ) {
+
+                                        throw new Error(
+                                            verifyResult.message ||
+                                            "Payment verification failed."
+                                        );
+
+                                    }
+
+
+                                    // ==========================================
+                                    // SUCCESS
+                                    // ==========================================
+
+                                    showMessage(
+                                        "Payment successful! Your course enrollment has been confirmed.",
+                                        "success"
+                                    );
+
+
+                                    enrollmentForm.reset();
+
+
+                                    enrollSubmit.textContent =
+                                        "ENROLLMENT CONFIRMED";
+
+
+                                } catch (error) {
+
+                                    console.error(
+                                        "Payment verification error:",
+                                        error
+                                    );
+
+
+                                    showMessage(
+                                        error.message ||
+                                        "Payment verification failed.",
+                                        "error"
+                                    );
+
+
+                                    enrollSubmit.disabled =
+                                        false;
+
+                                    enrollSubmit.textContent =
+                                        "TRY AGAIN";
+
+                                }
+
+                            },
+
+
+                        // ==========================================
+                        // PAYMENT FAILED / CANCELLED
+                        // ==========================================
+
+                        modal: {
+
+                            ondismiss:
+                                function () {
+
+                                    enrollSubmit.disabled =
+                                        false;
+
+                                    enrollSubmit.textContent =
+                                        "CONTINUE TO ENROLLMENT";
+
+
+                                    showMessage(
+                                        "Payment was cancelled.",
+                                        "error"
+                                    );
+
+                                }
+
+                        }
+
+                    };
+
+
+                    // ==========================================
+                    // OPEN RAZORPAY
+                    // ==========================================
+
+                    const razorpay =
+                        new Razorpay(options);
+
+
+                    razorpay.on(
+                        "payment.failed",
+                        function (response) {
+
+                            console.error(
+                                "Razorpay Payment Failed:",
+                                response.error
+                            );
+
+
+                            showMessage(
+                                response.error.description ||
+                                "Payment failed. Please try again.",
+                                "error"
+                            );
+
+
+                            enrollSubmit.disabled =
+                                false;
+
+                            enrollSubmit.textContent =
+                                "TRY AGAIN";
+
+                        }
+                    );
+
+
+                    razorpay.open();
+
+
+                } catch (error) {
+
+                    console.error(
+                        "Enrollment payment error:",
+                        error
+                    );
+
+
+                    showMessage(
+                        error.message ||
+                        "Unable to start payment. Please try again.",
+                        "error"
+                    );
+
+
+                    enrollSubmit.disabled =
+                        false;
+
+                    enrollSubmit.textContent =
+                        "CONTINUE TO ENROLLMENT";
+
+                }
+
+            }
+        );
+
+
+
+        // ==========================================
+        // MESSAGE
+        // ==========================================
+
+        function showMessage(
+            message,
+            type
+        ) {
+
+            enrollMessage.className =
+                `enroll-message show ${type}`;
+
+
+            enrollMessage.textContent =
+                message;
+
+        }
+
+
+        // ==========================================
+        // START
+        // ==========================================
+
+        loadEnrollmentCourse();
+
+    </script>
+
+</body>
+
+</html>

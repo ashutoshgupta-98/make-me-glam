@@ -1,0 +1,649 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0"
+    >
+
+    <meta
+        name="description"
+        content="Make Me Glam Admin Login"
+    >
+
+    <title>
+        Admin Login | Make Me Glam
+    </title>
+
+
+    <!-- GOOGLE FONTS -->
+
+    <link
+        rel="preconnect"
+        href="https://fonts.googleapis.com"
+    >
+
+    <link
+        rel="preconnect"
+        href="https://fonts.gstatic.com"
+        crossorigin
+    >
+
+    <link
+        href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600;700&family=DM+Sans:wght@300;400;500;600;700&display=swap"
+        rel="stylesheet"
+    >
+
+
+    <style>
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+
+        body {
+
+            min-height: 100vh;
+
+            display: flex;
+
+            align-items: center;
+
+            justify-content: center;
+
+            padding: 30px;
+
+            background: #f7f2ec;
+
+            color: #171717;
+
+            font-family: "DM Sans", sans-serif;
+
+        }
+
+
+        .login-wrapper {
+
+            width: 100%;
+
+            max-width: 460px;
+
+        }
+
+
+        /* BRAND */
+
+        .brand {
+
+            text-align: center;
+
+            margin-bottom: 35px;
+
+        }
+
+
+        .brand-main {
+
+            display: block;
+
+            font-family: "Cormorant Garamond", serif;
+
+            font-size: 38px;
+
+            font-weight: 600;
+
+            letter-spacing: 0.08em;
+
+        }
+
+
+        .brand-sub {
+
+            display: block;
+
+            margin-top: 5px;
+
+            font-size: 9px;
+
+            font-weight: 700;
+
+            letter-spacing: 0.2em;
+
+            color: #b89b5e;
+
+        }
+
+
+        /* LOGIN CARD */
+
+        .login-card {
+
+            background: #ffffff;
+
+            border: 1px solid #e4ddd4;
+
+            padding: 45px;
+
+        }
+
+
+        .login-card h1 {
+
+            font-family: "Cormorant Garamond", serif;
+
+            font-size: 48px;
+
+            font-weight: 500;
+
+            line-height: 1;
+
+        }
+
+
+        .login-card > p {
+
+            margin-top: 12px;
+
+            color: #777;
+
+            font-size: 13px;
+
+            line-height: 1.7;
+
+        }
+
+
+        /* FORM */
+
+        .form-group {
+
+            margin-top: 25px;
+
+        }
+
+
+        .form-group label {
+
+            display: block;
+
+            margin-bottom: 8px;
+
+            font-size: 10px;
+
+            font-weight: 700;
+
+            letter-spacing: 0.12em;
+
+            text-transform: uppercase;
+
+        }
+
+
+        .form-group input {
+
+            width: 100%;
+
+            padding: 15px;
+
+            border: 1px solid #ddd5cc;
+
+            background: #faf8f5;
+
+            color: #171717;
+
+            font-family: "DM Sans", sans-serif;
+
+            font-size: 14px;
+
+            outline: none;
+
+        }
+
+
+        .form-group input:focus {
+
+            border-color: #b89b5e;
+
+            background: #fff;
+
+        }
+
+
+        /* BUTTON */
+
+        .login-button {
+
+            width: 100%;
+
+            margin-top: 30px;
+
+            padding: 17px;
+
+            border: none;
+
+            background: #171717;
+
+            color: #ffffff;
+
+            font-size: 10px;
+
+            font-weight: 700;
+
+            letter-spacing: 0.15em;
+
+            text-transform: uppercase;
+
+            cursor: pointer;
+
+            transition: 0.3s ease;
+
+        }
+
+
+        .login-button:hover {
+
+            background: #b89b5e;
+
+        }
+
+
+        .login-button:disabled {
+
+            opacity: 0.6;
+
+            cursor: not-allowed;
+
+        }
+
+
+        /* MESSAGE */
+
+        .login-message {
+
+            display: none;
+
+            margin-top: 20px;
+
+            padding: 13px;
+
+            font-size: 12px;
+
+            line-height: 1.5;
+
+        }
+
+
+        .login-message.show {
+
+            display: block;
+
+        }
+
+
+        .login-message.error {
+
+            background: #fff1f1;
+
+            color: #8a3333;
+
+            border: 1px solid #e8caca;
+
+        }
+
+
+        .login-message.success {
+
+            background: #eef7ee;
+
+            color: #315d31;
+
+            border: 1px solid #c9dfc9;
+
+        }
+
+
+        .login-footer {
+
+            margin-top: 25px;
+
+            text-align: center;
+
+            color: #888;
+
+            font-size: 11px;
+
+        }
+
+
+        /* MOBILE */
+
+        @media (max-width: 600px) {
+
+            body {
+
+                padding: 20px;
+
+            }
+
+
+            .login-card {
+
+                padding: 30px 25px;
+
+            }
+
+
+            .login-card h1 {
+
+                font-size: 40px;
+
+            }
+
+        }
+
+    </style>
+
+</head>
+
+
+<body>
+
+
+    <div class="login-wrapper">
+
+
+        <!-- BRAND -->
+
+        <div class="brand">
+
+            <span class="brand-main">
+                MAKE ME GLAM
+            </span>
+
+            <span class="brand-sub">
+                ADMINISTRATION PANEL
+            </span>
+
+        </div>
+
+
+        <!-- LOGIN -->
+
+        <div class="login-card">
+
+            <h1>
+                Welcome Back
+            </h1>
+
+            <p>
+                Sign in to manage your Make Me Glam
+                website, bookings, courses and customers.
+            </p>
+
+
+            <form id="adminLoginForm">
+
+
+                <!-- EMAIL -->
+
+                <div class="form-group">
+
+                    <label for="email">
+                        Email Address
+                    </label>
+
+                    <input
+                        type="email"
+                        id="email"
+                        name="email"
+                        placeholder="admin@example.com"
+                        required
+                    >
+
+                </div>
+
+
+                <!-- PASSWORD -->
+
+                <div class="form-group">
+
+                    <label for="password">
+                        Password
+                    </label>
+
+                    <input
+                        type="password"
+                        id="password"
+                        name="password"
+                        placeholder="Enter your password"
+                        required
+                    >
+
+                </div>
+
+
+                <!-- BUTTON -->
+
+                <button
+                    type="submit"
+                    class="login-button"
+                    id="loginButton"
+                >
+                    Sign In
+                </button>
+
+
+                <!-- MESSAGE -->
+
+                <div
+                    id="loginMessage"
+                    class="login-message"
+                ></div>
+
+
+            </form>
+
+        </div>
+
+
+        <div class="login-footer">
+
+            © 2026 Make Me Glam.
+            All Rights Reserved.
+
+        </div>
+
+    </div>
+
+
+    <script>
+
+        const API_BASE_URL =
+            "http://localhost:5000/api";
+
+
+        const loginForm =
+            document.querySelector(
+                "#adminLoginForm"
+            );
+
+
+        const loginButton =
+            document.querySelector(
+                "#loginButton"
+            );
+
+
+        const loginMessage =
+            document.querySelector(
+                "#loginMessage"
+            );
+
+
+        function showMessage(
+            message,
+            type
+        ) {
+
+            loginMessage.textContent =
+                message;
+
+            loginMessage.className =
+                `login-message show ${type}`;
+
+        }
+
+
+        loginForm.addEventListener(
+            "submit",
+            async function (event) {
+
+                event.preventDefault();
+
+
+                const email =
+                    document.querySelector(
+                        "#email"
+                    ).value.trim();
+
+
+                const password =
+                    document.querySelector(
+                        "#password"
+                    ).value;
+
+
+                try {
+
+                    loginButton.disabled =
+                        true;
+
+                    loginButton.textContent =
+                        "SIGNING IN...";
+
+
+                    const response =
+                        await fetch(
+                            `${API_BASE_URL}/auth/login`,
+                            {
+                                method: "POST",
+
+                                headers: {
+                                    "Content-Type":
+                                        "application/json"
+                                },
+
+                                body: JSON.stringify({
+
+                                    email:
+                                        email,
+
+                                    password:
+                                        password
+
+                                })
+
+                            }
+                        );
+
+
+                    const result =
+                        await response.json();
+
+
+                    if (
+                        !response.ok ||
+                        !result.success
+                    ) {
+
+                        throw new Error(
+                            result.message ||
+                            "Invalid email or password."
+                        );
+
+                    }
+
+
+                    /*
+                     * JWT TOKEN SAVE
+                     */
+
+                    localStorage.setItem(
+                        "adminToken",
+                        result.token
+                    );
+
+
+                    /*
+                     * ADMIN DATA SAVE
+                     */
+
+                    if (result.admin) {
+
+                        localStorage.setItem(
+                            "adminData",
+                            JSON.stringify(
+                                result.admin
+                            )
+                        );
+
+                    }
+
+
+                    showMessage(
+                        "Login successful. Redirecting...",
+                        "success"
+                    );
+
+
+                    setTimeout(
+                        function () {
+
+                            window.location.href =
+                                "dashboard.html";
+
+                        },
+                        500
+                    );
+
+
+                } catch (error) {
+
+                    console.error(
+                        "Admin login error:",
+                        error
+                    );
+
+
+                    showMessage(
+                        error.message ||
+                        "Unable to login. Please try again.",
+                        "error"
+                    );
+
+
+                } finally {
+
+                    loginButton.disabled =
+                        false;
+
+                    loginButton.textContent =
+                        "SIGN IN";
+
+                }
+
+            }
+        );
+
+    </script>
+
+</body>
+
+</html>

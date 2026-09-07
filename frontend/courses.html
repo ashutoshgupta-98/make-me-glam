@@ -1,0 +1,1992 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0"
+    >
+
+    <meta
+        name="description"
+        content="Learn professional makeup artistry at Make Me Glam Academy, Lucknow. Explore professional makeup courses, practical training and beauty education."
+    >
+
+    <meta
+        name="keywords"
+        content="makeup course Lucknow, makeup academy Lucknow, professional makeup course, bridal makeup course, makeup training Lucknow, Make Me Glam Academy"
+    >
+
+    <meta
+        name="author"
+        content="Make Me Glam"
+    >
+
+    <meta
+        property="og:title"
+        content="Makeup Courses | Make Me Glam Academy"
+    >
+
+    <meta
+        property="og:description"
+        content="Learn professional makeup artistry with practical training at Make Me Glam Academy, Lucknow."
+    >
+
+    <meta
+        property="og:type"
+        content="website"
+    >
+
+    <title>
+        Courses | Make Me Glam Academy | Lucknow
+    </title>
+
+
+    <!-- =====================================================
+         GOOGLE FONTS
+    ====================================================== -->
+
+    <link
+        rel="preconnect"
+        href="https://fonts.googleapis.com"
+    >
+
+    <link
+        rel="preconnect"
+        href="https://fonts.gstatic.com"
+        crossorigin
+    >
+
+    <link
+        href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600;700&family=DM+Sans:wght@300;400;500;600;700&display=swap"
+        rel="stylesheet"
+    >
+
+
+    <!-- =====================================================
+         MAIN CSS
+    ====================================================== -->
+
+    <link
+        rel="stylesheet"
+        href="css/style.css"
+    >
+
+
+    <!-- =====================================================
+         COURSES PAGE CSS
+    ====================================================== -->
+
+    <style>
+
+        /* =====================================================
+           COURSES HERO
+        ===================================================== */
+
+        .courses-hero {
+
+            position: relative;
+
+            min-height: 72svh;
+
+            display: flex;
+            align-items: center;
+
+            color: var(--white);
+
+            background:
+                linear-gradient(
+                    90deg,
+                    rgba(18, 15, 13, 0.88),
+                    rgba(18, 15, 13, 0.42)
+                ),
+                url("https://images.unsplash.com/photo-1522337360788-8b13dee7a37e?auto=format&fit=crop&w=2200&q=85")
+                center / cover;
+        }
+
+
+        .courses-hero-content {
+
+            position: relative;
+
+            z-index: 2;
+
+            padding-top: 80px;
+        }
+
+
+        .courses-hero .eyebrow {
+
+            color: var(--gold-light);
+        }
+
+
+        .courses-hero-title {
+
+            max-width: 950px;
+
+            font-size: clamp(
+                70px,
+                10vw,
+                145px
+            );
+
+            line-height: 0.92;
+
+            letter-spacing: -0.04em;
+        }
+
+
+        .courses-hero-description {
+
+            max-width: 590px;
+
+            margin-top: 30px;
+
+            color:
+                rgba(
+                    255,
+                    255,
+                    255,
+                    0.78
+                );
+
+            font-size: 15px;
+
+            line-height: 1.9;
+        }
+
+
+        /* =====================================================
+           ACADEMY INTRO
+        ===================================================== */
+
+        .courses-intro {
+
+            background:
+                var(--ivory);
+        }
+
+
+        .courses-intro-content {
+
+            max-width: 850px;
+
+            margin-inline: auto;
+
+            text-align: center;
+        }
+
+
+        .courses-intro-content .eyebrow {
+
+            justify-content: center;
+        }
+
+
+        .courses-intro-content h2 {
+
+            max-width: 800px;
+
+            margin-inline: auto;
+        }
+
+
+        .courses-intro-content p:not(.eyebrow) {
+
+            max-width: 650px;
+
+            margin:
+                28px auto 0;
+
+            font-size: 15px;
+
+            line-height: 1.9;
+        }
+
+
+        /* =====================================================
+           COURSE LIST
+        ===================================================== */
+
+        .courses-section {
+
+            background:
+                var(--cream);
+        }
+
+
+        .courses-grid {
+
+            display: grid;
+
+            grid-template-columns:
+                repeat(2, 1fr);
+
+            gap: 25px;
+        }
+
+
+        .course-card {
+
+            position: relative;
+
+            overflow: hidden;
+
+            background:
+                var(--ivory);
+
+            border:
+                1px solid
+                var(--border);
+
+            transition:
+                transform var(--transition),
+                box-shadow var(--transition);
+        }
+
+
+        .course-card:hover {
+
+            transform:
+                translateY(-8px);
+
+            box-shadow:
+                0 25px 60px
+                rgba(
+                    36,
+                    33,
+                    31,
+                    0.12
+                );
+        }
+
+
+        .course-card-featured {
+
+            border:
+                1px solid
+                var(--gold);
+        }
+
+
+        .course-image {
+
+            position: relative;
+
+            height: 420px;
+
+            overflow: hidden;
+
+            background:
+                var(--blush);
+        }
+
+
+        .course-image img {
+
+            width: 100%;
+
+            height: 100%;
+
+            object-fit: cover;
+
+            transition:
+                transform 0.7s ease;
+        }
+
+
+        .course-card:hover
+        .course-image img {
+
+            transform:
+                scale(1.06);
+        }
+
+
+        .course-image-overlay {
+
+            position: absolute;
+
+            inset: 0;
+
+            display: flex;
+
+            align-items: flex-start;
+
+            justify-content:
+                space-between;
+
+            padding: 25px;
+
+            background:
+                linear-gradient(
+                    180deg,
+                    rgba(0,0,0,0.42),
+                    transparent 45%
+                );
+        }
+
+
+        .course-label {
+
+            color:
+                var(--white);
+
+            font-size: 9px;
+
+            font-weight: 700;
+
+            letter-spacing:
+                0.16em;
+
+            text-transform:
+                uppercase;
+        }
+
+
+        .course-featured-label {
+
+            padding:
+                9px 14px;
+
+            background:
+                var(--gold);
+
+            color:
+                var(--white);
+
+            font-size: 9px;
+
+            font-weight: 700;
+
+            letter-spacing:
+                0.12em;
+
+            text-transform:
+                uppercase;
+        }
+
+
+        .course-info {
+
+            padding:
+                35px;
+        }
+
+
+        .course-info h3 {
+
+            font-size: 42px;
+
+            line-height: 1;
+        }
+
+
+        .course-description {
+
+            max-width: 600px;
+
+            margin-top: 18px;
+
+            font-size: 13px;
+
+            line-height: 1.8;
+        }
+
+
+        .course-meta {
+
+            display: grid;
+
+            grid-template-columns:
+                repeat(2, 1fr);
+
+            gap: 15px;
+
+            margin-top: 30px;
+
+            padding-top: 22px;
+
+            border-top:
+                1px solid
+                var(--border);
+        }
+
+
+        .course-meta-item {
+
+            display: flex;
+
+            flex-direction:
+                column;
+
+            gap: 7px;
+        }
+
+
+        .course-meta-item span {
+
+            color:
+                var(--muted);
+
+            font-size: 9px;
+
+            font-weight: 700;
+
+            letter-spacing:
+                0.12em;
+
+            text-transform:
+                uppercase;
+        }
+
+
+        .course-meta-item strong {
+
+            color:
+                var(--black);
+
+            font-size: 18px;
+        }
+
+
+        .course-price {
+
+            color:
+                var(--gold) !important;
+
+            font-family:
+                var(--serif);
+
+            font-size:
+                28px !important;
+        }
+
+
+        .course-button {
+
+            display: flex;
+
+            justify-content:
+                center;
+
+            align-items:
+                center;
+
+            width: 100%;
+
+            margin-top: 28px;
+
+            padding: 16px;
+
+            background:
+                var(--black);
+
+            color:
+                var(--white);
+
+            font-size: 9px;
+
+            font-weight: 700;
+
+            letter-spacing:
+                0.14em;
+
+            text-transform:
+                uppercase;
+
+            transition:
+                var(--transition);
+        }
+
+
+        .course-button:hover {
+
+            background:
+                var(--gold);
+        }
+
+
+        /* =====================================================
+           WHAT YOU LEARN
+        ===================================================== */
+
+        .course-learning {
+
+            background:
+                var(--black);
+
+            color:
+                var(--white);
+        }
+
+
+        .learning-heading {
+
+            max-width: 850px;
+        }
+
+
+        .learning-heading .eyebrow {
+
+            color:
+                var(--gold-light);
+        }
+
+
+        .learning-heading p {
+
+            max-width: 600px;
+
+            margin-top: 25px;
+
+            color:
+                rgba(
+                    255,
+                    255,
+                    255,
+                    0.62
+                );
+
+            font-size: 14px;
+
+            line-height: 1.9;
+        }
+
+
+        .learning-grid {
+
+            display: grid;
+
+            grid-template-columns:
+                repeat(4, 1fr);
+
+            margin-top: 70px;
+
+            border-top:
+                1px solid
+                rgba(
+                    255,
+                    255,
+                    255,
+                    0.12
+                );
+        }
+
+
+        .learning-item {
+
+            min-height: 250px;
+
+            padding:
+                40px 30px;
+
+            border-right:
+                1px solid
+                rgba(
+                    255,
+                    255,
+                    255,
+                    0.12
+                );
+
+            border-bottom:
+                1px solid
+                rgba(
+                    255,
+                    255,
+                    255,
+                    0.12
+                );
+        }
+
+
+        .learning-item:last-child {
+
+            border-right: 0;
+        }
+
+
+        .learning-number {
+
+            color:
+                var(--gold-light);
+
+            font-size: 10px;
+
+            font-weight: 700;
+
+            letter-spacing:
+                0.15em;
+        }
+
+
+        .learning-item h3 {
+
+            margin-top: 30px;
+
+            font-size: 30px;
+        }
+
+
+        .learning-item p {
+
+            margin-top: 15px;
+
+            color:
+                rgba(
+                    255,
+                    255,
+                    255,
+                    0.58
+                );
+
+            font-size: 12px;
+
+            line-height: 1.8;
+        }
+
+
+        /* =====================================================
+           ACADEMY BENEFITS
+        ===================================================== */
+
+        .academy-benefits {
+
+            background:
+                var(--ivory);
+        }
+
+
+        .academy-benefits-grid {
+
+            display: grid;
+
+            grid-template-columns:
+                0.8fr 1.2fr;
+
+            gap: 100px;
+
+            align-items:
+                center;
+        }
+
+
+        .academy-number {
+
+            font-family:
+                var(--serif);
+
+            font-size:
+                clamp(
+                    120px,
+                    18vw,
+                    220px
+                );
+
+            line-height: 0.8;
+
+            color:
+                var(--blush);
+        }
+
+
+        .academy-benefits-content h2 {
+
+            max-width: 750px;
+        }
+
+
+        .academy-benefits-content >
+        p:not(.eyebrow) {
+
+            max-width: 600px;
+
+            margin-top: 25px;
+
+            font-size: 14px;
+
+            line-height: 1.9;
+        }
+
+
+        .academy-benefit-list {
+
+            display: grid;
+
+            grid-template-columns:
+                repeat(2, 1fr);
+
+            gap: 18px;
+
+            margin-top: 35px;
+        }
+
+
+        .academy-benefit {
+
+            padding:
+                20px;
+
+            background:
+                var(--cream);
+
+            border:
+                1px solid
+                var(--border);
+        }
+
+
+        .academy-benefit strong {
+
+            display: block;
+
+            font-family:
+                var(--serif);
+
+            font-size: 22px;
+        }
+
+
+        .academy-benefit span {
+
+            display: block;
+
+            margin-top: 6px;
+
+            color:
+                var(--muted);
+
+            font-size: 11px;
+
+            line-height: 1.6;
+        }
+
+
+        /* =====================================================
+           ENROLL CTA
+        ===================================================== */
+
+        .courses-cta {
+
+            position: relative;
+
+            min-height: 600px;
+
+            display: flex;
+
+            align-items: center;
+
+            color:
+                var(--white);
+
+            text-align:
+                center;
+
+            background:
+                linear-gradient(
+                    90deg,
+                    rgba(20,17,15,0.86),
+                    rgba(20,17,15,0.45)
+                ),
+                url("https://images.unsplash.com/photo-1596462502278-27bfdc403348?auto=format&fit=crop&w=2200&q=85")
+                center / cover;
+        }
+
+
+        .courses-cta-content {
+
+            width: 100%;
+        }
+
+
+        .courses-cta-content .eyebrow {
+
+            justify-content:
+                center;
+
+            color:
+                var(--gold-light);
+        }
+
+
+        .courses-cta-content h2 {
+
+            max-width: 900px;
+
+            margin-inline:
+                auto;
+
+            font-size:
+                clamp(
+                    55px,
+                    7vw,
+                    100px
+                );
+        }
+
+
+        .courses-cta-content p {
+
+            max-width: 560px;
+
+            margin:
+                25px auto 0;
+
+            color:
+                rgba(
+                    255,
+                    255,
+                    255,
+                    0.72
+                );
+
+            font-size: 14px;
+
+            line-height: 1.8;
+        }
+
+
+        .courses-cta-actions {
+
+            display: flex;
+
+            justify-content:
+                center;
+
+            flex-wrap:
+                wrap;
+
+            gap: 12px;
+
+            margin-top: 35px;
+        }
+
+
+        /* =====================================================
+           EMPTY / LOADING
+        ===================================================== */
+
+        .courses-message {
+
+            grid-column:
+                1 / -1;
+
+            padding:
+                90px 25px;
+
+            text-align:
+                center;
+
+            background:
+                var(--ivory);
+
+            border:
+                1px solid
+                var(--border);
+        }
+
+
+        .courses-message h3 {
+
+            font-size: 38px;
+        }
+
+
+        .courses-message p {
+
+            max-width: 500px;
+
+            margin:
+                15px auto 0;
+
+            font-size: 13px;
+        }
+
+
+        /* =====================================================
+           RESPONSIVE
+        ===================================================== */
+
+        @media (max-width: 1000px) {
+
+            .courses-grid {
+
+                grid-template-columns:
+                    1fr;
+            }
+
+
+            .learning-grid {
+
+                grid-template-columns:
+                    repeat(2, 1fr);
+            }
+
+
+            .academy-benefits-grid {
+
+                gap: 50px;
+            }
+
+        }
+
+
+        @media (max-width: 780px) {
+
+            .courses-hero {
+
+                min-height: 680px;
+
+                background-position:
+                    60% center;
+            }
+
+
+            .courses-hero-content {
+
+                padding-top:
+                    100px;
+            }
+
+
+            .courses-hero-title {
+
+                font-size:
+                    clamp(
+                        65px,
+                        18vw,
+                        105px
+                    );
+            }
+
+
+            .courses-hero-description {
+
+                font-size: 13px;
+            }
+
+
+            .course-image {
+
+                height: 420px;
+            }
+
+
+            .learning-grid {
+
+                grid-template-columns:
+                    1fr;
+            }
+
+
+            .learning-item {
+
+                border-right: 0;
+            }
+
+
+            .academy-benefits-grid {
+
+                grid-template-columns:
+                    1fr;
+            }
+
+
+            .academy-number {
+
+                display: none;
+            }
+
+
+            .academy-benefit-list {
+
+                grid-template-columns:
+                    1fr;
+            }
+
+
+            .courses-cta {
+
+                min-height:
+                    600px;
+            }
+
+
+            .courses-cta-content h2 {
+
+                font-size:
+                    clamp(
+                        52px,
+                        14vw,
+                        82px
+                    );
+            }
+
+        }
+
+
+        @media (max-width: 480px) {
+
+            .courses-hero {
+
+                min-height:
+                    620px;
+            }
+
+
+            .course-image {
+
+                height:
+                    360px;
+            }
+
+
+            .course-info {
+
+                padding:
+                    25px;
+            }
+
+
+            .course-info h3 {
+
+                font-size:
+                    34px;
+            }
+
+
+            .course-meta {
+
+                grid-template-columns:
+                    1fr;
+            }
+
+
+            .courses-cta-actions {
+
+                flex-direction:
+                    column;
+
+                align-items:
+                    stretch;
+            }
+
+
+            .courses-cta-actions .btn {
+
+                width:
+                    100%;
+            }
+
+        }
+
+    </style>
+
+</head>
+
+
+<body>
+
+
+    <!-- =====================================================
+         HEADER
+    ====================================================== -->
+
+    <header
+        class="site-header"
+        id="siteHeader"
+    >
+
+        <div
+            class="container nav-container"
+        >
+
+
+            <a
+                href="index.html"
+                class="brand-logo"
+            >
+
+                <span class="brand-main">
+                    MAKE ME GLAM
+                </span>
+
+                <span class="brand-sub">
+                    MAKEUP STUDIO & ACADEMY
+                </span>
+
+            </a>
+
+
+            <nav
+                class="main-nav"
+                id="mainNav"
+            >
+
+                <a
+                    href="index.html"
+                    class="nav-link"
+                >
+                    Home
+                </a>
+
+
+                <a
+                    href="about.html"
+                    class="nav-link"
+                >
+                    About
+                </a>
+
+
+                <a
+                    href="services.html"
+                    class="nav-link"
+                >
+                    Services
+                </a>
+
+
+                <a
+                    href="courses.html"
+                    class="nav-link active"
+                >
+                    Courses
+                </a>
+
+
+                <a
+                    href="gallery.html"
+                    class="nav-link"
+                >
+                    Gallery
+                </a>
+
+
+                <a
+                    href="index.html#reviews"
+                    class="nav-link"
+                >
+                    Reviews
+                </a>
+
+
+                <a
+                    href="contact.html"
+                    class="nav-link"
+                >
+                    Contact
+                </a>
+
+
+                <a
+                    href="booking.html"
+                    class="nav-cta"
+                >
+                    Book Now
+                </a>
+
+            </nav>
+
+
+            <button
+                class="menu-toggle"
+                id="menuToggle"
+                aria-label="Open navigation menu"
+                aria-expanded="false"
+            >
+
+                <span></span>
+                <span></span>
+                <span></span>
+
+            </button>
+
+        </div>
+
+    </header>
+
+
+    <main>
+
+
+        <!-- =====================================================
+             HERO
+        ====================================================== -->
+
+        <section
+            class="courses-hero"
+        >
+
+            <div
+                class="container courses-hero-content reveal"
+            >
+
+                <p class="eyebrow">
+                    MAKE ME GLAM · ACADEMY
+                </p>
+
+
+                <h1 class="courses-hero-title">
+
+                    Learn The Art
+                    <br>
+
+                    <em>Of Beauty.</em>
+
+                </h1>
+
+
+                <p class="courses-hero-description">
+
+                    Learn professional makeup artistry through
+                    practical training, expert techniques and
+                    real-world beauty education.
+
+                </p>
+
+            </div>
+
+        </section>
+
+
+
+        <!-- =====================================================
+             INTRO
+        ====================================================== -->
+
+        <section
+            class="courses-intro section"
+        >
+
+            <div
+                class="container"
+            >
+
+                <div
+                    class="courses-intro-content reveal"
+                >
+
+                    <p class="eyebrow">
+                        MAKE ME GLAM ACADEMY
+                    </p>
+
+
+                    <h2>
+
+                        Turn Your Passion
+                        Into A
+                        <em>Profession.</em>
+
+                    </h2>
+
+
+                    <p>
+
+                        Whether you are starting your makeup journey
+                        or looking to develop professional skills,
+                        Make Me Glam Academy focuses on practical
+                        learning, confidence and artistry.
+
+                    </p>
+
+                </div>
+
+            </div>
+
+        </section>
+
+
+
+        <!-- =====================================================
+             COURSES
+        ====================================================== -->
+
+        <section
+            class="courses-section section"
+        >
+
+            <div
+                class="container"
+            >
+
+                <div
+                    class="section-heading reveal"
+                >
+
+                    <div>
+
+                        <p class="eyebrow">
+                            OUR COURSES
+                        </p>
+
+
+                        <h2>
+
+                            Learn.
+                            <em>Practice.</em>
+                            Create.
+
+                        </h2>
+
+                    </div>
+
+
+                    <a
+                        href="contact.html"
+                        class="text-link"
+                    >
+
+                        Course Enquiry
+
+                        <span>
+                            →
+                        </span>
+
+                    </a>
+
+                </div>
+
+
+                <!--
+                    Courses will be loaded from
+                    PostgreSQL through backend API.
+                -->
+
+                <div
+                    class="courses-grid"
+                    id="allCoursesContainer"
+                >
+
+                    <div
+                        class="courses-message"
+                    >
+
+                        <h3>
+                            Loading Courses
+                        </h3>
+
+
+                        <p>
+
+                            Please wait while we
+                            load our latest academy
+                            programs.
+
+                        </p>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+        </section>
+
+
+
+        <!-- =====================================================
+             WHAT YOU WILL LEARN
+        ====================================================== -->
+
+        <section
+            class="course-learning section"
+        >
+
+            <div
+                class="container"
+            >
+
+                <div
+                    class="learning-heading reveal"
+                >
+
+                    <p class="eyebrow">
+                        WHAT YOU WILL LEARN
+                    </p>
+
+
+                    <h2>
+
+                        Skills That Go
+                        <em>Beyond Makeup.</em>
+
+                    </h2>
+
+
+                    <p>
+
+                        Our training is designed to help students
+                        understand not only makeup techniques but
+                        also the professional mindset required to
+                        work confidently in the beauty industry.
+
+                    </p>
+
+                </div>
+
+
+                <div
+                    class="learning-grid"
+                >
+
+
+                    <article
+                        class="learning-item reveal"
+                    >
+
+                        <span class="learning-number">
+                            01
+                        </span>
+
+
+                        <h3>
+                            Skin Preparation
+                        </h3>
+
+
+                        <p>
+
+                            Learn skin preparation,
+                            product selection and
+                            creating the right base
+                            for different skin types.
+
+                        </p>
+
+                    </article>
+
+
+
+                    <article
+                        class="learning-item reveal"
+                    >
+
+                        <span class="learning-number">
+                            02
+                        </span>
+
+
+                        <h3>
+                            Base & Complexion
+                        </h3>
+
+
+                        <p>
+
+                            Master foundation,
+                            concealing, contouring,
+                            highlighting and
+                            professional complexion
+                            techniques.
+
+                        </p>
+
+                    </article>
+
+
+
+                    <article
+                        class="learning-item reveal"
+                    >
+
+                        <span class="learning-number">
+                            03
+                        </span>
+
+
+                        <h3>
+                            Eye Makeup
+                        </h3>
+
+
+                        <p>
+
+                            Develop eye makeup skills
+                            including blending,
+                            eyeliner, lashes and
+                            occasion-based looks.
+
+                        </p>
+
+                    </article>
+
+
+
+                    <article
+                        class="learning-item reveal"
+                    >
+
+                        <span class="learning-number">
+                            04
+                        </span>
+
+
+                        <h3>
+                            Bridal Artistry
+                        </h3>
+
+
+                        <p>
+
+                            Understand bridal makeup,
+                            long-lasting techniques,
+                            photography-ready looks
+                            and client preparation.
+
+                        </p>
+
+                    </article>
+
+                </div>
+
+            </div>
+
+        </section>
+
+
+
+        <!-- =====================================================
+             ACADEMY BENEFITS
+        ====================================================== -->
+
+        <section
+            class="academy-benefits section"
+        >
+
+            <div
+                class="container"
+            >
+
+                <div
+                    class="academy-benefits-grid"
+                >
+
+
+                    <div
+                        class="academy-number reveal"
+                    >
+                        360°
+                    </div>
+
+
+                    <div
+                        class="academy-benefits-content reveal"
+                    >
+
+                        <p class="eyebrow">
+                            THE ACADEMY EXPERIENCE
+                        </p>
+
+
+                        <h2>
+
+                            Learn With
+                            <em>Confidence.</em>
+
+                        </h2>
+
+
+                        <p>
+
+                            At Make Me Glam Academy, we believe
+                            students learn best when theory is
+                            combined with practical experience,
+                            personal guidance and continuous practice.
+
+                        </p>
+
+
+                        <div
+                            class="academy-benefit-list"
+                        >
+
+
+                            <div
+                                class="academy-benefit"
+                            >
+
+                                <strong>
+                                    Practical Training
+                                </strong>
+
+                                <span>
+                                    Learn through hands-on
+                                    makeup practice.
+                                </span>
+
+                            </div>
+
+
+                            <div
+                                class="academy-benefit"
+                            >
+
+                                <strong>
+                                    Expert Guidance
+                                </strong>
+
+                                <span>
+                                    Learn professional
+                                    techniques step by step.
+                                </span>
+
+                            </div>
+
+
+                            <div
+                                class="academy-benefit"
+                            >
+
+                                <strong>
+                                    Real Techniques
+                                </strong>
+
+                                <span>
+                                    Understand techniques
+                                    used in real client work.
+                                </span>
+
+                            </div>
+
+
+                            <div
+                                class="academy-benefit"
+                            >
+
+                                <strong>
+                                    Career Focused
+                                </strong>
+
+                                <span>
+                                    Build skills for your
+                                    professional beauty journey.
+                                </span>
+
+                            </div>
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+        </section>
+
+
+
+        <!-- =====================================================
+             CTA
+        ====================================================== -->
+
+        <section
+            class="courses-cta"
+        >
+
+            <div
+                class="container"
+            >
+
+                <div
+                    class="courses-cta-content reveal"
+                >
+
+                    <p class="eyebrow">
+                        START YOUR JOURNEY
+                    </p>
+
+
+                    <h2>
+
+                        Ready To Turn
+                        Your Passion Into
+                        <em>Artistry?</em>
+
+                    </h2>
+
+
+                    <p>
+
+                        Explore our courses, speak with the academy
+                        and take the first step toward your professional
+                        makeup journey.
+
+                    </p>
+
+
+                    <div
+                        class="courses-cta-actions"
+                    >
+
+                        <a
+                            href="contact.html"
+                            class="btn btn-light"
+                        >
+                            Enquire Now
+                        </a>
+
+
+                        <a
+                            href="tel:+919999999999"
+                            class="btn btn-outline-light"
+                        >
+                            Call Academy
+                        </a>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+        </section>
+
+    </main>
+
+
+
+    <!-- =====================================================
+         FOOTER
+    ====================================================== -->
+
+    <footer
+        class="site-footer"
+    >
+
+        <div
+            class="container"
+        >
+
+            <div
+                class="footer-grid"
+            >
+
+
+                <div
+                    class="footer-brand"
+                >
+
+                    <a
+                        href="index.html"
+                        class="brand-logo footer-logo"
+                    >
+
+                        <span class="brand-main">
+                            MAKE ME GLAM
+                        </span>
+
+
+                        <span class="brand-sub">
+                            MAKEUP STUDIO & ACADEMY
+                        </span>
+
+                    </a>
+
+
+                    <p>
+                        Where artistry meets your beauty.
+                    </p>
+
+                </div>
+
+
+
+                <div
+                    class="footer-column"
+                >
+
+                    <h4>
+                        Explore
+                    </h4>
+
+
+                    <a href="about.html">
+                        About
+                    </a>
+
+
+                    <a href="services.html">
+                        Services
+                    </a>
+
+
+                    <a href="courses.html">
+                        Courses
+                    </a>
+
+
+                    <a href="gallery.html">
+                        Gallery
+                    </a>
+
+                </div>
+
+
+
+                <div
+                    class="footer-column"
+                >
+
+                    <h4>
+                        Quick Links
+                    </h4>
+
+
+                    <a href="booking.html">
+                        Book Appointment
+                    </a>
+
+
+                    <a href="courses.html">
+                        Enroll in Academy
+                    </a>
+
+
+                    <a href="contact.html">
+                        Contact
+                    </a>
+
+
+                    <a href="index.html#reviews">
+                        Reviews
+                    </a>
+
+                </div>
+
+
+
+                <div
+                    class="footer-column"
+                >
+
+                    <h4>
+                        Connect
+                    </h4>
+
+
+                    <div class="footer-phone">
+                        <a href="tel:+919794357490">
+                            +91 97943 57490
+                        </a>
+
+                        <span>|</span>
+
+                        <a href="tel:+916393060630">
+                            +91 63930 60630
+                        </a>
+                    </div>
+
+
+                    <a
+                        href="https://wa.me/919794357490"
+                        target="_blank"
+                        rel="noopener noreferrer"
+                    >
+                        WhatsApp
+                    </a>
+
+
+                    <a
+                        href="https://www.instagram.com/makemeglamakeupstudio/"
+                        target="_blank"
+                        rel="noopener noreferrer"
+                    >
+                        Instagram
+                    </a>
+
+                </div>
+
+            </div>
+
+
+
+            <div
+                class="footer-bottom"
+            >
+
+                <span>
+
+                    © 2026 Make Me Glam.
+                    All Rights Reserved.
+
+                </span>
+
+
+                <div>
+
+                    <a href="privacy-policy.html">
+                        Privacy Policy
+                    </a>
+
+
+                    <a href="terms.html">
+                        Terms & Conditions
+                    </a>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </footer>
+
+
+
+    <!-- =====================================================
+         FLOATING ACTIONS
+    ====================================================== -->
+
+    <div
+        class="floating-actions"
+    >
+
+
+        <a
+            href="https://wa.me/919794357490"
+            class="floating-btn whatsapp"
+            target="_blank"
+            rel="noopener noreferrer"
+            aria-label="Chat on WhatsApp"
+        >
+            WA
+        </a>
+
+
+        <a
+            href="tel:+919794357490"
+            class="floating-btn call"
+            aria-label="Call Make Me Glam"
+        >
+            ☎
+        </a>
+
+
+        <a
+            href="contact.html"
+            class="floating-btn booking"
+            aria-label="Enquire about courses"
+        >
+            ✦
+        </a>
+
+    </div>
+
+
+
+    <!-- =====================================================
+         MAIN JAVASCRIPT
+    ====================================================== -->
+
+    <script src="js/main.js"></script>
+
+</body>
+
+</html>
