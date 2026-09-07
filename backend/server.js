@@ -32,10 +32,16 @@ app.use(express.json());
 // FRONTEND
 // ==========================================
 
+// app.use(
+//     "/frontend",
+//     express.static(
+//         path.join(__dirname, "frontend")
+//     )
+// );
 app.use(
     "/frontend",
     express.static(
-        path.join(__dirname, "frontend")
+        path.join(__dirname, "../frontend")
     )
 );
 
