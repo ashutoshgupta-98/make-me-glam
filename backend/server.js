@@ -45,6 +45,13 @@ app.use(
     )
 );
 
+app.use(
+    "/admin",
+    express.static(
+        path.join(__dirname, "../admin")
+    )
+);
+
 app.use("/api/services", servicesRoutes);
 app.use("/api/courses", coursesRoutes);
 app.use("/api/staff", staffRoutes);
