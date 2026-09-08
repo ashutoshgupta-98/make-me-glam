@@ -38,19 +38,20 @@ app.use(express.json());
 //         path.join(__dirname, "frontend")
 //     )
 // );
-// app.use(
-//     "/frontend",
-//     express.static(
-//         path.join(__dirname, "../frontend")
-//     )
-// );
-// Customer website ko direct root par serve karne ke liye
-app.use(express.static(path.join(__dirname, "../frontend")));
+app.use(
+    "/frontend",
+    express.static(
+        path.join(__dirname, "../frontend")
+    )
+);
 
-// Admin panel ko /admin path par serve karne ke liye
+// Admin folder ke liye (Naya add kiya gaya hai)
+// Isse aapka admin panel bhi server se access ho jayega
 app.use(
     "/admin",
-    express.static(path.join(__dirname, "../admin"))
+    express.static(
+        path.join(__dirname, "../admin")
+    )
 );
 
 app.use("/api/services", servicesRoutes);
@@ -68,14 +69,11 @@ app.use("/api/dashboard", dashboardRoutes);
 app.use("/api/customers", customerRoutes);
 app.use("/api/admin/settings", settingsRoutes);
 
-// app.get("/", (req, res) => {
-//     res.json({
-//         success: true,
-//         message: "Make Me Glam API is running"
-//     });
-// });
 app.get("/", (req, res) => {
-    res.sendFile(path.join(__dirname, "../frontend/index.html"));
+    res.json({
+        success: true,
+        message: "Make Me Glam API is running"
+    });
 });
 
 app.get("/api/test-db", async (req, res) => {
