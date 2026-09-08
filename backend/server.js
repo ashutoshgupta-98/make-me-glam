@@ -41,7 +41,7 @@ app.use(express.json());
 app.use(
     "/frontend",
     express.static(
-        path.join(__dirname, "../frontend")
+        path.join(__dirname, "frontend")
     )
 );
 
@@ -50,7 +50,7 @@ app.use(
 app.use(
     "/admin",
     express.static(
-        path.join(__dirname, "../admin")
+        path.join(__dirname, "admin")
     )
 );
 
