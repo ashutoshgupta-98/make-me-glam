@@ -44,20 +44,14 @@ app.use(express.json());
 //         path.join(__dirname, "../frontend")
 //     )
 // );
-
-// app.use(
-//     "/admin",
-//     express.static(
-//         path.join(__dirname, "../admin")
-//     )
-// );
-
-// Customer website ko direct root (/) par serve karne ke liye
+// Customer website ko direct root par serve karne ke liye
 app.use(express.static(path.join(__dirname, "../frontend")));
 
 // Admin panel ko /admin path par serve karne ke liye
-app.use("/admin", express.static(path.resolve(__dirname, "../admin")));
-
+app.use(
+    "/admin",
+    express.static(path.join(__dirname, "../admin"))
+);
 
 app.use("/api/services", servicesRoutes);
 app.use("/api/courses", coursesRoutes);
