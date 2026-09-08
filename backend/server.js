@@ -56,12 +56,8 @@ app.use(express.json());
 app.use(express.static(path.join(__dirname, "../frontend")));
 
 // Admin panel ko /admin path par serve karne ke liye
-app.use(
-    "/admin",
-    express.static(
-        path.join(__dirname, "../admin")
-    )
-);
+app.use("/admin", express.static(path.resolve(__dirname, "../admin")));
+
 
 app.use("/api/services", servicesRoutes);
 app.use("/api/courses", coursesRoutes);
