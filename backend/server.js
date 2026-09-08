@@ -38,13 +38,27 @@ app.use(express.json());
 //         path.join(__dirname, "frontend")
 //     )
 // );
-app.use(
-    "/frontend",
-    express.static(
-        path.join(__dirname, "../frontend")
-    )
-);
+// app.use(
+//     "/frontend",
+//     express.static(
+//         path.join(__dirname, "../frontend")
+//     )
+// );
 
+// app.use(
+//     "/admin",
+//     express.static(
+//         path.join(__dirname, "../admin")
+//     )
+// );
+// ==========================================
+// FRONTEND & ADMIN STATIC FILES
+// ==========================================
+
+// Customer website ko direct root (/) par serve karne ke liye
+app.use(express.static(path.join(__dirname, "../frontend")));
+
+// Admin panel ko /admin path par serve karne ke liye
 app.use(
     "/admin",
     express.static(
@@ -67,11 +81,14 @@ app.use("/api/dashboard", dashboardRoutes);
 app.use("/api/customers", customerRoutes);
 app.use("/api/admin/settings", settingsRoutes);
 
+// app.get("/", (req, res) => {
+//     res.json({
+//         success: true,
+//         message: "Make Me Glam API is running"
+//     });
+// });
 app.get("/", (req, res) => {
-    res.json({
-        success: true,
-        message: "Make Me Glam API is running"
-    });
+    res.sendFile(path.join(__dirname, "../frontend/index.html"));
 });
 
 app.get("/api/test-db", async (req, res) => {
