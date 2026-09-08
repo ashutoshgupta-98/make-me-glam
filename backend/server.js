@@ -51,9 +51,6 @@ app.use(express.json());
 //         path.join(__dirname, "../admin")
 //     )
 // );
-// ==========================================
-// FRONTEND & ADMIN STATIC FILES
-// ==========================================
 
 // Customer website ko direct root (/) par serve karne ke liye
 app.use(express.static(path.join(__dirname, "../frontend")));
