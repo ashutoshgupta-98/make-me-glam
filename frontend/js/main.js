@@ -482,9 +482,175 @@ function createCourseCard(course) {
 }
 
 
+// // ==========================================
+// // LOAD GALLERY
+// // ==========================================
+
+// async function loadGallery() {
+
+//     const container = document.querySelector("#galleryContainer");
+
+//     if (!container) {
+//         return;
+//     }
+
+//     try {
+
+//         container.innerHTML = `
+//             <div class="loading-state">
+//                 <span>Loading our beauty gallery...</span>
+//             </div>
+//         `;
+
+
+//         const response = await fetch(
+//             `${API_BASE_URL}/gallery`
+//         );
+
+
+//         if (!response.ok) {
+
+//             throw new Error(
+//                 `Gallery API error: ${response.status}`
+//             );
+
+//         }
+
+
+//         const result = await response.json();
+
+
+//         if (!result.success || !result.data) {
+
+//             throw new Error(
+//                 "Unable to load gallery"
+//             );
+
+//         }
+
+
+//         if (result.data.length === 0) {
+
+//             container.innerHTML = `
+//                 <div class="empty-state">
+//                     <p>No gallery images available right now.</p>
+//                 </div>
+//             `;
+
+//             return;
+//         }
+
+
+//         container.innerHTML = result.data
+//             .map(item => createGalleryCard(item))
+//             .join("");
+
+
+//         initializeRevealAnimations();
+
+
+//     } catch (error) {
+
+//         console.error(
+//             "Gallery loading error:",
+//             error
+//         );
+
+
+//         container.innerHTML = `
+//             <div class="error-state">
+
+//                 <p>
+//                     Unable to load gallery.
+//                 </p>
+
+//                 <button onclick="loadGallery()">
+//                     Try Again
+//                 </button>
+
+//             </div>
+//         `;
+
+//     }
+
+// }
+
+
+// // gallery-filter //
+
+// document.querySelectorAll(".gallery-filter").forEach(button => {
+
+//     button.addEventListener("click", () => {
+
+//         document.querySelectorAll(".gallery-filter")
+//             .forEach(btn => btn.classList.remove("active"));
+
+//         button.classList.add("active");
+
+//     });
+
+// });
+
+
+// // ==========================================
+// // GALLERY CARD
+// // ==========================================
+
+// function createGalleryCard(item) {
+
+//     const image = item.image_url
+//         ? item.image_url
+//         : "https://images.unsplash.com/photo-1522335789203-aabd1fc54bc9?auto=format&fit=crop&w=1200&q=80";
+
+
+//     const title = item.title
+//         ? item.title
+//         : "Make Me Glam";
+
+
+//     const category = item.category
+//         ? item.category
+//         : "Beauty";
+
+
+//     return `
+//         <article class="gallery-card reveal">
+
+//             <div class="gallery-image">
+
+//                 <img
+//                     src="${escapeHTML(image)}"
+//                     alt="${escapeHTML(title)}"
+//                     loading="lazy"
+//                 >
+
+//                 <div class="gallery-overlay">
+
+//                     <span class="gallery-category">
+//                         ${escapeHTML(category)}
+//                     </span>
+
+//                     <h3>
+//                         ${escapeHTML(title)}
+//                     </h3>
+
+//                 </div>
+
+//             </div>
+
+//         </article>
+//     `;
+// }
+
 // ==========================================
 // LOAD GALLERY
 // ==========================================
+
+let galleryItems = [];
+let filteredGalleryItems = [];
+let currentGalleryIndex = 0;
+let activeGalleryFilter = "all";
+
 
 async function loadGallery() {
 
@@ -497,8 +663,9 @@ async function loadGallery() {
     try {
 
         container.innerHTML = `
-            <div class="loading-state">
-                <span>Loading our beauty gallery...</span>
+            <div class="gallery-message">
+                <h3>Loading Gallery</h3>
+                <p>Please wait while we load our latest beauty moments.</p>
             </div>
         `;
 
@@ -522,17 +689,21 @@ async function loadGallery() {
 
         if (!result.success || !result.data) {
 
-            throw new Error(
-                "Unable to load gallery"
-            );
+            throw new Error("Unable to load gallery");
 
         }
 
 
-        if (result.data.length === 0) {
+        galleryItems = result.data;
+
+        filteredGalleryItems = [...galleryItems];
+
+
+        if (galleryItems.length === 0) {
 
             container.innerHTML = `
-                <div class="empty-state">
+                <div class="gallery-message">
+                    <h3>No Gallery Images</h3>
                     <p>No gallery images available right now.</p>
                 </div>
             `;
@@ -541,9 +712,12 @@ async function loadGallery() {
         }
 
 
-        container.innerHTML = result.data
-            .map(item => createGalleryCard(item))
-            .join("");
+        renderGallery();
+
+
+        initializeGalleryFilters();
+
+        initializeGalleryLightbox();
 
 
         initializeRevealAnimations();
@@ -551,23 +725,24 @@ async function loadGallery() {
 
     } catch (error) {
 
-        console.error(
-            "Gallery loading error:",
-            error
-        );
+        console.error("Gallery loading error:", error);
 
 
         container.innerHTML = `
-            <div class="error-state">
-
+            <div class="gallery-message">
+                <h3>Unable To Load Gallery</h3>
                 <p>
-                    Unable to load gallery.
+                    Something went wrong while loading our gallery.
+                    Please try again.
                 </p>
 
-                <button onclick="loadGallery()">
+                <button
+                    onclick="loadGallery()"
+                    class="gallery-filter"
+                    style="margin-top:20px;"
+                >
                     Try Again
                 </button>
-
             </div>
         `;
 
@@ -577,10 +752,51 @@ async function loadGallery() {
 
 
 // ==========================================
+// RENDER GALLERY
+// ==========================================
+
+function renderGallery() {
+
+    const container = document.querySelector("#galleryContainer");
+
+    if (!container) {
+        return;
+    }
+
+
+    if (filteredGalleryItems.length === 0) {
+
+        container.innerHTML = `
+            <div class="gallery-message">
+                <h3>No Images Found</h3>
+                <p>
+                    No images available in this category yet.
+                </p>
+            </div>
+        `;
+
+        return;
+    }
+
+
+    container.innerHTML = filteredGalleryItems
+        .map((item, index) => createGalleryCard(item, index))
+        .join("");
+
+
+    initializeGalleryItemClicks();
+
+
+    initializeRevealAnimations();
+
+}
+
+
+// ==========================================
 // GALLERY CARD
 // ==========================================
 
-function createGalleryCard(item) {
+function createGalleryCard(item, index) {
 
     const image = item.image_url
         ? item.image_url
@@ -598,33 +814,426 @@ function createGalleryCard(item) {
 
 
     return `
-        <article class="gallery-card reveal">
+        <article
+            class="gallery-item reveal"
+            data-index="${index}"
+            data-category="${escapeHTML(category.toLowerCase())}"
+        >
 
-            <div class="gallery-image">
+            <img
+                src="${escapeHTML(image)}"
+                alt="${escapeHTML(title)}"
+                loading="lazy"
+            >
 
-                <img
-                    src="${escapeHTML(image)}"
-                    alt="${escapeHTML(title)}"
-                    loading="lazy"
-                >
 
-                <div class="gallery-overlay">
+            <div class="gallery-overlay">
 
-                    <span class="gallery-category">
-                        ${escapeHTML(category)}
-                    </span>
+                <span class="gallery-category">
+                    ${escapeHTML(category)}
+                </span>
 
-                    <h3>
-                        ${escapeHTML(title)}
-                    </h3>
 
-                </div>
+                <h3 class="gallery-title">
+                    ${escapeHTML(title)}
+                </h3>
+
+
+                <span class="gallery-view-icon">
+                    +
+                </span>
 
             </div>
 
         </article>
     `;
 }
+
+
+// ==========================================
+// GALLERY FILTERS
+// ==========================================
+
+function initializeGalleryFilters() {
+
+    const filterButtons = document.querySelectorAll(
+        ".gallery-filter"
+    );
+
+
+    if (!filterButtons.length) {
+        return;
+    }
+
+
+    filterButtons.forEach(button => {
+
+        button.addEventListener("click", () => {
+
+            const filter = button.dataset.filter;
+
+
+            activeGalleryFilter = filter;
+
+
+            filterButtons.forEach(btn => {
+                btn.classList.remove("active");
+            });
+
+
+            button.classList.add("active");
+
+
+            // if (filter === "all") {
+
+            //     filteredGalleryItems = [...galleryItems];
+
+            // } else {
+
+            //     filteredGalleryItems = galleryItems.filter(item => {
+
+            //         return item.category &&
+            //             item.category.toLowerCase() === filter.toLowerCase();
+
+            //     });
+
+            // }
+
+            if (filter === "all") {
+
+              filteredGalleryItems = [...galleryItems];
+
+            } else {
+
+            filteredGalleryItems = galleryItems.filter(item => {
+
+            const category = String(
+            item.category || ""
+             ).toLowerCase().trim();
+
+             return category.includes(
+            filter.toLowerCase()
+            );
+
+            });
+
+            }
+
+
+            renderGallery();
+
+        });
+
+    });
+
+}
+
+
+// ==========================================
+// GALLERY ITEM CLICK
+// ==========================================
+
+function initializeGalleryItemClicks() {
+
+    const galleryCards = document.querySelectorAll(
+        ".gallery-item"
+    );
+
+
+    galleryCards.forEach(card => {
+
+        card.addEventListener("click", () => {
+
+            const index = Number(
+                card.dataset.index
+            );
+
+
+            currentGalleryIndex = index;
+
+
+            openGalleryLightbox();
+
+        });
+
+    });
+
+}
+
+
+// ==========================================
+// INITIALIZE LIGHTBOX
+// ==========================================
+
+function initializeGalleryLightbox() {
+
+    const lightbox = document.querySelector("#galleryLightbox");
+
+
+    const closeButton = document.querySelector("#lightboxClose");
+
+    const prevButton = document.querySelector("#lightboxPrev");
+
+    const nextButton = document.querySelector("#lightboxNext");
+
+
+    if (!lightbox || !closeButton || !prevButton || !nextButton) {
+        return;
+    }
+
+
+    // Prevent duplicate event listeners
+
+    if (lightbox.dataset.initialized === "true") {
+        return;
+    }
+
+
+    lightbox.dataset.initialized = "true";
+
+
+    closeButton.addEventListener(
+        "click",
+        closeGalleryLightbox
+    );
+
+
+    prevButton.addEventListener(
+        "click",
+        showPreviousGalleryImage
+    );
+
+
+    nextButton.addEventListener(
+        "click",
+        showNextGalleryImage
+    );
+
+
+    // Close when clicking outside image
+
+    lightbox.addEventListener("click", event => {
+
+        if (event.target === lightbox) {
+
+            closeGalleryLightbox();
+
+        }
+
+    });
+
+
+    // Keyboard navigation
+
+    document.addEventListener("keydown", event => {
+
+        if (!lightbox.classList.contains("open")) {
+            return;
+        }
+
+
+        if (event.key === "Escape") {
+
+            closeGalleryLightbox();
+
+        }
+
+
+        if (event.key === "ArrowLeft") {
+
+            showPreviousGalleryImage();
+
+        }
+
+
+        if (event.key === "ArrowRight") {
+
+            showNextGalleryImage();
+
+        }
+
+    });
+
+}
+
+
+// ==========================================
+// OPEN LIGHTBOX
+// ==========================================
+
+function openGalleryLightbox() {
+
+    const lightbox = document.querySelector("#galleryLightbox");
+
+    const imageElement = document.querySelector("#lightboxImage");
+
+
+    if (!lightbox || !imageElement) {
+        return;
+    }
+
+
+    const item = filteredGalleryItems[currentGalleryIndex];
+
+
+    if (!item) {
+        return;
+    }
+
+
+    const image = item.image_url
+        ? item.image_url
+        : "https://images.unsplash.com/photo-1522335789203-aabd1fc54bc9?auto=format&fit=crop&w=1200&q=80";
+
+
+    const title = item.title || "Make Me Glam Gallery";
+
+
+    imageElement.src = image;
+
+    imageElement.alt = title;
+
+
+    lightbox.classList.add("open");
+
+    lightbox.setAttribute("aria-hidden", "false");
+
+
+    document.body.style.overflow = "hidden";
+
+}
+
+
+// ==========================================
+// CLOSE LIGHTBOX
+// ==========================================
+
+function closeGalleryLightbox() {
+
+    const lightbox = document.querySelector("#galleryLightbox");
+
+
+    if (!lightbox) {
+        return;
+    }
+
+
+    lightbox.classList.remove("open");
+
+    lightbox.setAttribute("aria-hidden", "true");
+
+
+    document.body.style.overflow = "";
+
+}
+
+
+// ==========================================
+// PREVIOUS IMAGE
+// ==========================================
+
+function showPreviousGalleryImage() {
+
+    if (!filteredGalleryItems.length) {
+        return;
+    }
+
+
+    currentGalleryIndex--;
+
+
+    if (currentGalleryIndex < 0) {
+
+        currentGalleryIndex =
+            filteredGalleryItems.length - 1;
+
+    }
+
+
+    openGalleryLightbox();
+
+}
+
+
+// ==========================================
+// NEXT IMAGE
+// ==========================================
+
+function showNextGalleryImage() {
+
+    if (!filteredGalleryItems.length) {
+        return;
+    }
+
+
+    currentGalleryIndex++;
+
+
+    if (currentGalleryIndex >= filteredGalleryItems.length) {
+
+        currentGalleryIndex = 0;
+
+    }
+
+
+    openGalleryLightbox();
+
+}
+
+
+// ==========================================
+// GLOBAL GALLERY FUNCTIONS
+// ==========================================
+
+window.loadGallery = loadGallery;
+window.openGalleryLightbox = openGalleryLightbox;
+window.closeGalleryLightbox = closeGalleryLightbox;
+
+
+document.addEventListener('DOMContentLoaded', function() {
+    const galleryGrid = document.getElementById('galleryContainer');
+    const loadMoreBtn = document.getElementById('loadMoreBtn');
+
+    // 1. Setting: How many images will load at a time
+    const itemsPerPage = 9; 
+    
+    // 2. Get a NodeList of all .gallery-item elements (this uses the 'items' name)
+    const galleryItems = galleryGrid.querySelectorAll('.gallery-item');
+    let visibleItems = 0;
+
+    // 3. Function: Display the initial set of images
+    function showInitialItems() {
+        if (galleryItems.length > itemsPerPage) {
+            for (let i = 0; i < itemsPerPage; i++) {
+                galleryItems[i].style.display = 'block';
+                visibleItems++;
+            }
+            loadMoreBtn.style.display = 'inline-flex'; // Show the button
+        } else {
+            // If fewer images than itemsPerPage, show all and hide the button
+            galleryItems.forEach(item => item.style.display = 'block');
+            loadMoreBtn.style.display = 'none';
+        }
+    }
+
+    // 4. Function: Display the next set of images when the button is clicked
+    loadMoreBtn.addEventListener('click', function() {
+        for (let i = 0; i < itemsPerPage; i++) {
+            if (visibleItems < galleryItems.length) {
+                galleryItems[visibleItems].style.display = 'block';
+                visibleItems++;
+            }
+        }
+
+        // 5. Function: Hide the button if all images have been displayed
+        if (visibleItems >= galleryItems.length) {
+            loadMoreBtn.style.display = 'none';
+        }
+    });
+
+    // 6. Initialization: Run the showInitialItems function when the page loads
+    showInitialItems();
+});
 
 
 // ==========================================

@@ -5,40 +5,22 @@
 
     <meta charset="UTF-8">
 
-    <meta
-        name="viewport"
-        content="width=device-width, initial-scale=1.0"
-    >
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <meta
-        name="description"
-        content="Explore the Make Me Glam beauty gallery featuring bridal makeup, party makeup, beauty transformations, academy training and studio moments in Lucknow."
-    >
+    <meta name="description"
+        content="Explore the Make Me Glam beauty gallery featuring bridal makeup, party makeup, beauty transformations, academy training and studio moments in Lucknow.">
 
-    <meta
-        name="keywords"
-        content="makeup gallery Lucknow, bridal makeup photos Lucknow, makeup artist gallery, Make Me Glam gallery, beauty studio Lucknow"
-    >
+    <meta name="keywords"
+        content="makeup gallery Lucknow, bridal makeup photos Lucknow, makeup artist gallery, Make Me Glam gallery, beauty studio Lucknow">
 
-    <meta
-        name="author"
-        content="Make Me Glam"
-    >
+    <meta name="author" content="Make Me Glam">
 
-    <meta
-        property="og:title"
-        content="Gallery | Make Me Glam | Makeup Studio & Academy"
-    >
+    <meta property="og:title" content="Gallery | Make Me Glam | Makeup Studio & Academy">
 
-    <meta
-        property="og:description"
-        content="Explore beauty transformations, bridal looks and memorable moments from Make Me Glam."
-    >
+    <meta property="og:description"
+        content="Explore beauty transformations, bridal looks and memorable moments from Make Me Glam.">
 
-    <meta
-        property="og:type"
-        content="website"
-    >
+    <meta property="og:type" content="website">
 
     <title>
         Gallery | Make Me Glam | Makeup Studio & Academy
@@ -49,31 +31,20 @@
          GOOGLE FONTS
     ====================================================== -->
 
-    <link
-        rel="preconnect"
-        href="https://fonts.googleapis.com"
-    >
+    <link rel="preconnect" href="https://fonts.googleapis.com">
 
-    <link
-        rel="preconnect"
-        href="https://fonts.gstatic.com"
-        crossorigin
-    >
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 
     <link
         href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600;700&family=DM+Sans:wght@300;400;500;600;700&display=swap"
-        rel="stylesheet"
-    >
+        rel="stylesheet">
 
 
     <!-- =====================================================
          MAIN CSS
     ====================================================== -->
 
-    <link
-        rel="stylesheet"
-        href="css/style.css"
-    >
+    <link rel="stylesheet" href="css/style.css">
 
 
     <!-- =====================================================
@@ -81,7 +52,6 @@
     ====================================================== -->
 
     <style>
-
         /* =====================================================
            GALLERY HERO
         ===================================================== */
@@ -100,14 +70,11 @@
 
             background:
 
-                linear-gradient(
-                    90deg,
+                linear-gradient(90deg,
                     rgba(18, 15, 13, 0.88),
-                    rgba(18, 15, 13, 0.42)
-                ),
+                    rgba(18, 15, 13, 0.42)),
 
-                url("https://images.unsplash.com/photo-1487412720507-e7ab37603c6f?auto=format&fit=crop&w=2200&q=85")
-                center / cover;
+                url("https://images.unsplash.com/photo-1487412720507-e7ab37603c6f?auto=format&fit=crop&w=2200&q=85") center / cover;
         }
 
 
@@ -132,11 +99,9 @@
             max-width: 1000px;
 
             font-size:
-                clamp(
-                    70px,
+                clamp(70px,
                     10vw,
-                    145px
-                );
+                    145px);
 
             line-height: 0.92;
 
@@ -151,12 +116,10 @@
             margin-top: 30px;
 
             color:
-                rgba(
+                rgba(255,
                     255,
                     255,
-                    255,
-                    0.78
-                );
+                    0.78);
 
             font-size: 15px;
 
@@ -273,8 +236,7 @@
                 var(--black);
 
             border:
-                1px solid
-                var(--border);
+                1px solid var(--border);
 
             cursor: pointer;
 
@@ -326,7 +288,7 @@
            MASONRY STYLE GALLERY
         ===================================================== */
 
-        /* .gallery-grid {
+        .gallery-grid-img {
 
             display: grid;
 
@@ -334,25 +296,36 @@
                 repeat(12, 1fr);
 
             gap: 18px;
-        } */
-
-
-        .gallery-item {
-
-            position: relative;
-
-            overflow: hidden;
-
-            min-height: 300px;
-
-            background:
-                var(--blush);
-
-            cursor: pointer;
         }
 
+        /* .gallery-item {
+           position: relative;
+           overflow: hidden;
 
-        .gallery-item:nth-child(1) {
+           width: 100%;
+           height: 280px;
+           min-height: 280px;
+
+           grid-column: span 4;
+
+           background: var(--blush);
+           cursor: pointer;
+         } */
+
+         .gallery-item {
+            position: relative;
+            overflow: hidden;
+            grid-column: span 2; /* Items ab 6-col grid mein 2 spans lenge (3 per row) */
+            background: var(--blush);
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            aspect-ratio: 1 / 1; /* Images ko square rakhne ke liye */
+            min-height: auto;
+        }
+
+        /* .gallery-item:nth-child(1) {
 
             grid-column:
                 span 7;
@@ -414,19 +387,33 @@
             min-height: 500px;
         }
 
-
-        .gallery-item img {
-
-            width: 100%;
-
-            height: 100%;
-
-            object-fit: cover;
-
-            transition:
-                transform 0.7s ease;
+        .gallery-item:nth-child(8) {
+            grid-column: span 4;
+            min-height: 390px;
         }
 
+        .gallery-item:nth-child(9) {
+            grid-column: span 8;
+            min-height: 500px;
+        }
+
+        .gallery-item:nth-child(10) {
+            grid-column: span 6;
+            min-height: 420px;
+        }
+
+        .gallery-item:nth-child(11) {
+            grid-column: span 6;
+            min-height: 420px;
+        } */
+
+        .gallery-item img {
+          display: block;
+          width: 100%;
+          height: 100%;
+          object-fit: cover;
+          transition: transform 0.7s ease;
+        }
 
         .gallery-item:hover img {
 
@@ -452,11 +439,9 @@
 
             background:
 
-                linear-gradient(
-                    180deg,
+                linear-gradient(180deg,
                     transparent 40%,
-                    rgba(0,0,0,0.72)
-                );
+                    rgba(0, 0, 0, 0.72));
 
             opacity: 0;
 
@@ -465,8 +450,7 @@
         }
 
 
-        .gallery-item:hover
-        .gallery-overlay {
+        .gallery-item:hover .gallery-overlay {
 
             opacity: 1;
         }
@@ -522,7 +506,7 @@
             justify-content: center;
 
             background:
-                rgba(255,255,255,0.9);
+                rgba(255, 255, 255, 0.9);
 
             color:
                 var(--black);
@@ -532,6 +516,10 @@
             border-radius: 50%;
         }
 
+
+        .text-center {
+    text-align: center;
+}
 
         /* =====================================================
            EMPTY / LOADING / ERROR
@@ -552,8 +540,7 @@
                 var(--ivory);
 
             border:
-                1px solid
-                var(--border);
+                1px solid var(--border);
         }
 
 
@@ -599,12 +586,10 @@
             padding: 30px;
 
             background:
-                rgba(
-                    10,
+                rgba(10,
                     8,
                     7,
-                    0.94
-                );
+                    0.94);
         }
 
 
@@ -618,10 +603,8 @@
 
             position: relative;
 
-            width: min(
-                1100px,
-                100%
-            );
+            width: min(1100px,
+                    100%);
 
             max-height:
                 90vh;
@@ -646,8 +629,7 @@
             object-fit: contain;
 
             box-shadow:
-                0 30px 80px
-                rgba(0,0,0,0.45);
+                0 30px 80px rgba(0, 0, 0, 0.45);
         }
 
 
@@ -670,24 +652,19 @@
             justify-content: center;
 
             background:
-                rgba(
+                rgba(255,
                     255,
                     255,
-                    255,
-                    0.12
-                );
+                    0.12);
 
             color:
                 var(--white);
 
             border:
-                1px solid
-                rgba(
+                1px solid rgba(255,
                     255,
                     255,
-                    255,
-                    0.25
-                );
+                    0.25);
 
             cursor: pointer;
 
@@ -731,24 +708,19 @@
                 center;
 
             background:
-                rgba(
+                rgba(255,
                     255,
                     255,
-                    255,
-                    0.12
-                );
+                    0.12);
 
             color:
                 var(--white);
 
             border:
-                1px solid
-                rgba(
+                1px solid rgba(255,
                     255,
                     255,
-                    255,
-                    0.2
-                );
+                    0.2);
 
             cursor: pointer;
 
@@ -893,14 +865,11 @@
 
             background:
 
-                linear-gradient(
-                    90deg,
-                    rgba(20,17,15,0.86),
-                    rgba(20,17,15,0.45)
-                ),
+                linear-gradient(90deg,
+                    rgba(20, 17, 15, 0.86),
+                    rgba(20, 17, 15, 0.45)),
 
-                url("https://images.unsplash.com/photo-1596462502278-27bfdc403348?auto=format&fit=crop&w=2200&q=85")
-                center / cover;
+                url("https://images.unsplash.com/photo-1596462502278-27bfdc403348?auto=format&fit=crop&w=2200&q=85") center / cover;
         }
 
 
@@ -929,11 +898,9 @@
                 auto;
 
             font-size:
-                clamp(
-                    55px,
+                clamp(55px,
                     7vw,
-                    100px
-                );
+                    100px);
         }
 
 
@@ -946,12 +913,10 @@
                 25px auto 0;
 
             color:
-                rgba(
+                rgba(255,
                     255,
                     255,
-                    255,
-                    0.72
-                );
+                    0.72);
 
             font-size: 14px;
 
@@ -980,7 +945,7 @@
            RESPONSIVE
         ====================================================== */
 
-        @media (max-width: 1000px) {
+        /* @media (max-width: 1000px) {
 
             .gallery-item:nth-child(n) {
 
@@ -991,7 +956,22 @@
                     420px;
             }
 
-        }
+        } */
+
+        @media (max-width: 1000px) {
+
+    .gallery-grid-img {
+        grid-template-columns: repeat(3, minmax(0, 1fr));
+        gap: 14px;
+    }
+
+    .gallery-item {
+        grid-column: span 1;
+        height: 240px;
+        min-height: 240px;
+    }
+
+}
 
 
         @media (max-width: 780px) {
@@ -1016,11 +996,9 @@
             .gallery-hero-title {
 
                 font-size:
-                    clamp(
-                        65px,
+                    clamp(65px,
                         18vw,
-                        105px
-                    );
+                        105px);
             }
 
 
@@ -1049,16 +1027,26 @@
                 gap: 14px;
             }
 
+            .gallery-grid-img {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 12px;
+}
 
-            .gallery-item:nth-child(n) {
+            /* .gallery-item:nth-child(n) {
 
                 grid-column:
                     1 / -1;
 
                 min-height:
                     430px;
-            }
+                height: 430px;
+            } */
 
+            .gallery-item {
+    grid-column: span 1;
+    height: 220px;
+    min-height: 220px;
+}
 
             .gallery-overlay {
 
@@ -1096,11 +1084,9 @@
             .gallery-cta-content h2 {
 
                 font-size:
-                    clamp(
-                        52px,
+                    clamp(52px,
                         14vw,
-                        82px
-                    );
+                        82px);
             }
 
         }
@@ -1115,12 +1101,22 @@
             }
 
 
-            .gallery-item:nth-child(n) {
+            /* .gallery-item:nth-child(n) {
 
                 min-height:
                     360px;
-            }
+                height: 360px;
+            } */
 
+            .gallery-grid-img {
+    grid-template-columns: 1fr;
+}
+
+.gallery-item {
+    grid-column: span 1;
+    height: 250px;
+    min-height: 250px;
+}
 
             .gallery-cta-actions {
 
@@ -1148,33 +1144,25 @@
                 font-size: 18px;
             }
 
-        }
 
+        }
     </style>
 
 </head>
 
 
-<body>
+<body class="gallery-page">
 
 
     <!-- =====================================================
          HEADER
     ====================================================== -->
 
-    <header
-        class="site-header"
-        id="siteHeader"
-    >
+    <header class="site-header" id="siteHeader">
 
-        <div
-            class="container nav-container"
-        >
+        <div class="container nav-container">
 
-            <a
-                href="index.html"
-                class="brand-logo"
-            >
+            <a href="index.html" class="brand-logo">
 
                 <span class="brand-main">
                     MAKE ME GLAM
@@ -1187,83 +1175,51 @@
             </a>
 
 
-            <nav
-                class="main-nav"
-                id="mainNav"
-            >
+            <nav class="main-nav" id="mainNav">
 
-                <a
-                    href="index.html"
-                    class="nav-link"
-                >
+                <a href="index.html" class="nav-link">
                     Home
                 </a>
 
 
-                <a
-                    href="about.html"
-                    class="nav-link"
-                >
+                <a href="about.html" class="nav-link">
                     About
                 </a>
 
 
-                <a
-                    href="services.html"
-                    class="nav-link"
-                >
+                <a href="services.html" class="nav-link">
                     Services
                 </a>
 
 
-                <a
-                    href="courses.html"
-                    class="nav-link"
-                >
+                <a href="courses.html" class="nav-link">
                     Courses
                 </a>
 
 
-                <a
-                    href="gallery.html"
-                    class="nav-link active"
-                >
+                <a href="gallery.html" class="nav-link active">
                     Gallery
                 </a>
 
 
-                <a
-                    href="index.html#reviews"
-                    class="nav-link"
-                >
+                <a href="index.html#reviews" class="nav-link">
                     Reviews
                 </a>
 
 
-                <a
-                    href="contact.html"
-                    class="nav-link"
-                >
+                <a href="contact.html" class="nav-link">
                     Contact
                 </a>
 
 
-                <a
-                    href="booking.html"
-                    class="nav-cta"
-                >
+                <a href="booking.html" class="nav-cta">
                     Book Now
                 </a>
 
             </nav>
 
 
-            <button
-                class="menu-toggle"
-                id="menuToggle"
-                aria-label="Open navigation menu"
-                aria-expanded="false"
-            >
+            <button class="menu-toggle" id="menuToggle" aria-label="Open navigation menu" aria-expanded="false">
 
                 <span></span>
                 <span></span>
@@ -1284,22 +1240,16 @@
              HERO
         ====================================================== -->
 
-        <section
-            class="gallery-hero"
-        >
+        <section class="gallery-hero">
 
-            <div
-                class="container gallery-hero-content reveal"
-            >
+            <div class="container gallery-hero-content reveal">
 
                 <p class="eyebrow">
                     MAKE ME GLAM · GALLERY
                 </p>
 
 
-                <h1
-                    class="gallery-hero-title"
-                >
+                <h1 class="gallery-hero-title">
 
                     Beauty,
                     <br>
@@ -1309,9 +1259,7 @@
                 </h1>
 
 
-                <p
-                    class="gallery-hero-description"
-                >
+                <p class="gallery-hero-description">
 
                     A collection of beauty transformations,
                     bridal moments, creative artistry and
@@ -1329,17 +1277,11 @@
              INTRO
         ====================================================== -->
 
-        <section
-            class="gallery-intro section"
-        >
+        <section class="gallery-intro section">
 
-            <div
-                class="container"
-            >
+            <div class="container">
 
-                <div
-                    class="gallery-intro-content reveal"
-                >
+                <div class="gallery-intro-content reveal">
 
                     <p class="eyebrow">
                         THE MAKE ME GLAM STORY
@@ -1375,18 +1317,12 @@
              GALLERY
         ====================================================== -->
 
-        <section
-            class="gallery-section section"
-        >
+        <section class="gallery-section section">
 
-            <div
-                class="container"
-            >
+            <div class="container">
 
 
-                <div
-                    class="gallery-heading reveal"
-                >
+                <div class="gallery-heading reveal">
 
                     <div>
 
@@ -1405,10 +1341,7 @@
                     </div>
 
 
-                    <a
-                        href="booking.html"
-                        class="text-link"
-                    >
+                    <a href="booking.html" class="text-link">
 
                         Book Your Look
 
@@ -1426,60 +1359,34 @@
                      FILTERS
                 ================================================== -->
 
-                <div
-                    class="gallery-filters reveal"
-                >
+                <div class="gallery-filters reveal">
 
-                    <button
-                        class="gallery-filter active"
-                        type="button"
-                        data-filter="all"
-                    >
+                    <button class="gallery-filter active" type="button" data-filter="all">
                         All
                     </button>
 
 
-                    <button
-                        class="gallery-filter"
-                        type="button"
-                        data-filter="bridal"
-                    >
+                    <button class="gallery-filter" type="button" data-filter="bridal">
                         Bridal
                     </button>
 
 
-                    <button
-                        class="gallery-filter"
-                        type="button"
-                        data-filter="party"
-                    >
+                    <button class="gallery-filter" type="button" data-filter="party">
                         Party Makeup
                     </button>
 
 
-                    <button
-                        class="gallery-filter"
-                        type="button"
-                        data-filter="hair"
-                    >
+                    <button class="gallery-filter" type="button" data-filter="hair">
                         Hair Styling
                     </button>
 
 
-                    <button
-                        class="gallery-filter"
-                        type="button"
-                        data-filter="academy"
-                    >
+                    <button class="gallery-filter" type="button" data-filter="academy">
                         Academy
                     </button>
 
 
-                    <button
-                        class="gallery-filter"
-                        type="button"
-                        data-filter="studio"
-                    >
+                    <button class="gallery-filter" type="button" data-filter="studio">
                         Studio
                     </button>
 
@@ -1491,30 +1398,22 @@
                      DYNAMIC GALLERY CONTAINER
                 ================================================== -->
 
-                <div
-                    class="gallery-grid"
-                    id="galleryContainer"
-                >
+                <div class="gallery-grid-img" id="galleryContainer">
 
-                    <div
-                        class="gallery-message"
-                    >
-
-                        <h3>
-                            Loading Gallery
-                        </h3>
-
-
-                        <p>
-
-                            Please wait while we load
-                            our latest beauty moments.
-
-                        </p>
+                    <div class="gallery-message">
+                        <h3>Loading Gallery</h3>
+                        <p>Please wait while we load our latest beauty moments.</p>
 
                     </div>
 
                 </div>
+
+                <!-- Add the 'Load More' button here -->
+                    <div class="text-center reveal" style="margin-top: 50px;">
+                        <button id="loadMoreBtn" class="gallery-instagram-button">
+                            Load More
+                        </button>
+                    </div>
 
             </div>
 
@@ -1526,17 +1425,11 @@
              INSTAGRAM
         ====================================================== -->
 
-        <section
-            class="gallery-instagram section"
-        >
+        <section class="gallery-instagram section">
 
-            <div
-                class="container"
-            >
+            <div class="container">
 
-                <div
-                    class="gallery-instagram-content reveal"
-                >
+                <div class="gallery-instagram-content reveal">
 
                     <p class="eyebrow">
                         FOLLOW THE GLAM
@@ -1561,12 +1454,8 @@
                     </p>
 
 
-                    <a
-                        href="https://www.instagram.com/makemeglamakeupstudio/"
-                        class="gallery-instagram-button"
-                        target="_blank"
-                        rel="noopener noreferrer"
-                    >
+                    <a href="https://www.instagram.com/makemeglamakeupstudio/" class="gallery-instagram-button"
+                        target="_blank" rel="noopener noreferrer">
 
                         Follow Us On Instagram
 
@@ -1584,17 +1473,11 @@
              CTA
         ====================================================== -->
 
-        <section
-            class="gallery-cta"
-        >
+        <section class="gallery-cta">
 
-            <div
-                class="container"
-            >
+            <div class="container">
 
-                <div
-                    class="gallery-cta-content reveal"
-                >
+                <div class="gallery-cta-content reveal">
 
                     <p class="eyebrow">
                         YOUR TURN
@@ -1618,22 +1501,14 @@
                     </p>
 
 
-                    <div
-                        class="gallery-cta-actions"
-                    >
+                    <div class="gallery-cta-actions">
 
-                        <a
-                            href="booking.html"
-                            class="btn btn-light"
-                        >
+                        <a href="booking.html" class="btn btn-light">
                             Book Appointment
                         </a>
 
 
-                        <a
-                            href="contact.html"
-                            class="btn btn-outline-light"
-                        >
+                        <a href="contact.html" class="btn btn-outline-light">
                             Contact Us
                         </a>
 
@@ -1653,27 +1528,16 @@
          FOOTER
     ====================================================== -->
 
-    <footer
-        class="site-footer"
-    >
+    <footer class="site-footer">
 
-        <div
-            class="container"
-        >
+        <div class="container">
 
-            <div
-                class="footer-grid"
-            >
+            <div class="footer-grid">
 
 
-                <div
-                    class="footer-brand"
-                >
+                <div class="footer-brand">
 
-                    <a
-                        href="index.html"
-                        class="brand-logo footer-logo"
-                    >
+                    <a href="index.html" class="brand-logo footer-logo">
 
                         <span class="brand-main">
                             MAKE ME GLAM
@@ -1695,9 +1559,7 @@
 
 
 
-                <div
-                    class="footer-column"
-                >
+                <div class="footer-column">
 
                     <h4>
                         Explore
@@ -1727,9 +1589,7 @@
 
 
 
-                <div
-                    class="footer-column"
-                >
+                <div class="footer-column">
 
                     <h4>
                         Quick Links
@@ -1759,9 +1619,7 @@
 
 
 
-                <div
-                    class="footer-column"
-                >
+                <div class="footer-column">
 
                     <h4>
                         Connect
@@ -1781,20 +1639,13 @@
                     </div>
 
 
-                    <a
-                        href="https://wa.me/919794357490"
-                        target="_blank"
-                        rel="noopener noreferrer"
-                    >
+                    <a href="https://wa.me/919794357490" target="_blank" rel="noopener noreferrer">
                         WhatsApp
                     </a>
 
 
-                    <a
-                        href="https://www.instagram.com/makemeglamakeupstudio/"
-                        target="_blank"
-                        rel="noopener noreferrer"
-                    >
+                    <a href="https://www.instagram.com/makemeglamakeupstudio/" target="_blank"
+                        rel="noopener noreferrer">
                         Instagram
                     </a>
 
@@ -1804,9 +1655,7 @@
 
 
 
-            <div
-                class="footer-bottom"
-            >
+            <div class="footer-bottom">
 
                 <span>
 
@@ -1841,36 +1690,21 @@
          FLOATING ACTIONS
     ====================================================== -->
 
-    <div
-        class="floating-actions"
-    >
+    <div class="floating-actions">
 
 
-        <a
-            href="https://wa.me/919794357490"
-            class="floating-btn whatsapp"
-            target="_blank"
-            rel="noopener noreferrer"
-            aria-label="Chat on WhatsApp"
-        >
+        <a href="https://wa.me/919794357490" class="floating-btn whatsapp" target="_blank" rel="noopener noreferrer"
+            aria-label="Chat on WhatsApp">
             WA
         </a>
 
 
-        <a
-            href="tel:+919794357490"
-            class="floating-btn call"
-            aria-label="Call Make Me Glam"
-        >
+        <a href="tel:+919794357490" class="floating-btn call" aria-label="Call Make Me Glam">
             ☎
         </a>
 
 
-        <a
-            href="booking.html"
-            class="floating-btn booking"
-            aria-label="Book appointment"
-        >
+        <a href="booking.html" class="floating-btn booking" aria-label="Book appointment">
             ✦
         </a>
 
@@ -1882,52 +1716,26 @@
          LIGHTBOX
     ====================================================== -->
 
-    <div
-        class="gallery-lightbox"
-        id="galleryLightbox"
-        aria-hidden="true"
-    >
+    <div class="gallery-lightbox" id="galleryLightbox" aria-hidden="true">
 
-        <button
-            class="lightbox-close"
-            id="lightboxClose"
-            type="button"
-            aria-label="Close image"
-        >
+        <button class="lightbox-close" id="lightboxClose" type="button" aria-label="Close image">
             ×
         </button>
 
 
-        <button
-            class="lightbox-prev"
-            id="lightboxPrev"
-            type="button"
-            aria-label="Previous image"
-        >
+        <button class="lightbox-prev" id="lightboxPrev" type="button" aria-label="Previous image">
             ←
         </button>
 
 
-        <div
-            class="lightbox-content"
-        >
+        <div class="lightbox-content">
 
-            <img
-                src=""
-                alt=""
-                class="lightbox-image"
-                id="lightboxImage"
-            >
+            <img src="" alt="" class="lightbox-image" id="lightboxImage">
 
         </div>
 
 
-        <button
-            class="lightbox-next"
-            id="lightboxNext"
-            type="button"
-            aria-label="Next image"
-        >
+        <button class="lightbox-next" id="lightboxNext" type="button" aria-label="Next image">
             →
         </button>
 
