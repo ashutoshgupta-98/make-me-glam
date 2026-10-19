@@ -22,6 +22,7 @@ const authRoutes = require("./routes/authRoutes");
 const dashboardRoutes = require("./routes/dashboardRoutes");
 const customerRoutes = require("./routes/customer.routes");
 const settingsRoutes = require("./routes/settingsRoutes");
+const brandingRoutes = require("./routes/brandingRoutes");
 
 const app = express();
 
@@ -68,6 +69,7 @@ app.use("/api/auth", authRoutes);
 app.use("/api/dashboard", dashboardRoutes);
 app.use("/api/customers", customerRoutes);
 app.use("/api/admin/settings", settingsRoutes);
+app.use("/api", brandingRoutes);
 
 app.get("/", (req, res) => {
     res.json({

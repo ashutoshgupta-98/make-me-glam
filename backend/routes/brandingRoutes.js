@@ -1,0 +1,33 @@
+
+const express = require("express");
+const multer = require("multer");
+
+const router = express.Router();
+
+const {
+    getLogo,
+    uploadLogo
+} = require("../controllers/brandingController");
+
+// Apne existing admin authentication middleware ka path check karna.
+const requireAdmin = require("../middleware/requireAdmin");
+
+const upload = multer({
+    storage: multer.memoryStorage(),
+    limits: {
+        fileSize: 2 * 1024 * 1024
+    }
+});
+
+// Public logo endpoint
+router.get("/branding/logo", getLogo);
+
+// Admin-only logo upload
+router.post(
+    "/admin/branding/logo",
+    requireAdmin,
+    upload.single("logo"),
+    uploadLogo
+);
+
+module.exports = router;
