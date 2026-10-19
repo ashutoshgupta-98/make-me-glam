@@ -26,6 +26,18 @@ const getLogo = async (req, res) => {
 // ADMIN: Upload and save website logo
 const uploadLogo = async (req, res) => {
     try {
+        
+        const dbCheck = await pool.query(`
+            SELECT
+                current_database() AS database_name,
+                current_schema() AS schema_name,
+                current_user AS database_user,
+                to_regclass('public.website_branding') AS branding_table
+        `);
+
+        console.log("Branding DB check:", dbCheck.rows[0]);
+
+
         const allowedTypes = [
             "image/png",
             "image/jpeg",
