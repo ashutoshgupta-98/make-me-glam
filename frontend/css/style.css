@@ -8,7 +8,7 @@
 /* =========================================================
    01. ROOT VARIABLES
 ========================================================= */
-
+/* 
 :root {
     --ivory: #f8f4ef;
     --cream: #efe7df;
@@ -21,6 +21,38 @@
     --white: #ffffff;
     --muted: #77706a;
     --border: rgba(36, 33, 31, 0.12);
+
+    --serif: "Cormorant Garamond", Georgia, serif;
+    --sans: "DM Sans", Arial, sans-serif;
+
+    --container: 1240px;
+
+    --transition: 0.35s ease;
+} */
+
+:root {
+    /* =========================================
+       MAKE ME GLAM - NEW COLOR PALETTE
+       Based on provided reference image
+    ========================================= */
+
+    --ivory: #F4EEEE;
+    --cream: #E8D8D5;
+
+    --blush: #DCC8C8;
+    --blush-light: #EAD9D5;
+
+    --gold: #B44F31;
+    --gold-light: #DA7D5E;
+
+    --charcoal: #702B24;
+    --black: #542019;
+
+    --white: #FFFFFF;
+
+    --muted: #795B54;
+
+    --border: rgba(112, 43, 36, 0.16);
 
     --serif: "Cormorant Garamond", Georgia, serif;
     --sans: "DM Sans", Arial, sans-serif;
@@ -268,10 +300,19 @@ p {
         backdrop-filter var(--transition);
 }
 
-.site-header.scrolled {
+/* .site-header.scrolled {
     padding: 13px 0;
 
     background: rgba(23, 21, 19, 0.78);
+
+    backdrop-filter: blur(18px);
+    -webkit-backdrop-filter: blur(18px);
+} */
+
+.site-header.scrolled {
+    padding: 13px 0;
+
+    background: rgba(84, 32, 25, 0.92);
 
     backdrop-filter: blur(18px);
     -webkit-backdrop-filter: blur(18px);
@@ -282,7 +323,7 @@ p {
     align-items: center;
     justify-content: space-between;
 }
-
+/* 
 .brand-logo {
     display: flex;
     flex-direction: column;
@@ -302,7 +343,55 @@ p {
     font-size: 7px;
     letter-spacing: 0.28em;
     opacity: 0.75;
+} */
+
+.brand-logo {
+    display: inline-flex;
+    align-items: center;
+    gap: 12px;
+    text-decoration: none;
 }
+
+.brand-logo-img {
+    width: 52px;
+    height: 52px;
+    object-fit: contain;
+    flex-shrink: 0;
+}
+
+.brand-text {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.brand-main {
+    display: block;
+}
+
+.brand-sub {
+    display: block;
+}
+
+@media (max-width: 480px) {
+    .brand-logo-img {
+        width: 40px;
+        height: 40px;
+    }
+
+    .brand-logo {
+        gap: 8px;
+    }
+}
+
+
+
+
+
+
+
+
+
 
 .main-nav {
     display: flex;
@@ -338,10 +427,23 @@ p {
     transition: width var(--transition);
 }
 
-.nav-link:hover,
+/* .nav-link:hover,
 .nav-link.active {
     opacity: 1;
+} */
+.nav-link:hover {
+    opacity: 1;
+
+    /* Elegant text glow */
+    text-shadow:
+        0 0 4px rgba(218, 125, 94, 0.55),
+        0 0 9px rgba(218, 125, 94, 0.35),
+        0 0 16px rgba(180, 79, 49, 0.20);
 }
+
+.nav-link.active {
+    opacity: 1;
+} 
 
 .nav-link:hover::after,
 .nav-link.active::after {
@@ -1768,16 +1870,22 @@ p {
 }
 
 .floating-btn.whatsapp {
-    background: #1f9d57;
+    /* background: #1f9d57; */
+     background: var(--gold);
+    color: var(--white);
 }
 
 .floating-btn.call {
-    background: var(--gold);
+    /* background: var(--gold); */
+     background: var(--gold-light);
+    color: var(--black);
 }
 
 .floating-btn.booking {
-    background: var(--white);
-    color: var(--black);
+    /* background: var(--white);
+    color: var(--black); */
+    background: var(--charcoal);
+    color: var(--white);
 }
 
 
@@ -1948,7 +2056,8 @@ p {
 
         padding: 50px;
 
-        background: rgba(23, 21, 19, 0.97);
+        /* background: rgba(23, 21, 19, 0.97); */
+        background: rgba(84, 32, 25, 0.98);
 
         transform: translateX(100%);
 

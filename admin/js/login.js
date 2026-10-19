@@ -178,3 +178,45 @@
 
             }
         );
+
+
+
+
+        
+// logo load  //
+(async function loadSiteLogo() {
+    const logo = document.getElementById("siteLogo");
+    const brandName = document.getElementById("brandName");
+
+    try {
+        const response = await fetch(
+            "/api/branding/logo",
+            { cache: "no-store" }
+        );
+
+        if (!response.ok) return;
+
+        const imageBlob = await response.blob();
+
+        if (!imageBlob.type.startsWith("image/")) return;
+
+        const imageUrl = URL.createObjectURL(imageBlob);
+
+        logo.onload = () => {
+            logo.hidden = false;
+            brandName.hidden = true;
+        };
+
+        logo.onerror = () => {
+            URL.revokeObjectURL(imageUrl);
+            logo.hidden = true;
+            brandName.hidden = false;
+        };
+
+        logo.src = imageUrl;
+
+    } catch (error) {
+        console.error("Unable to load website logo:", error);
+    }
+})();
+//  logo load end //

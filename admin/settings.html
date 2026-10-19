@@ -1,4 +1,3 @@
-
 <!DOCTYPE html>
 <html lang="en">
 
@@ -6,15 +5,9 @@
 
     <meta charset="UTF-8">
 
-    <meta
-        name="viewport"
-        content="width=device-width, initial-scale=1.0"
-    >
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <meta
-        name="description"
-        content="Make Me Glam Admin Settings"
-    >
+    <meta name="description" content="Make Me Glam Admin Settings">
 
     <title>
         Settings | Make Me Glam Admin
@@ -27,20 +20,14 @@
 
     <link rel="preconnect" href="https://fonts.googleapis.com">
 
-    <link
-        rel="preconnect"
-        href="https://fonts.gstatic.com"
-        crossorigin
-    >
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 
     <link
         href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600;700&family=DM+Sans:wght@300;400;500;600;700&display=swap"
-        rel="stylesheet"
-    >
+        rel="stylesheet">
 
 
     <style>
-
         /* =====================================================
            RESET
         ====================================================== */
@@ -173,12 +160,10 @@
                 30px 25px;
 
             border-bottom:
-                1px solid rgba(
+                1px solid rgba(255,
                     255,
                     255,
-                    255,
-                    0.1
-                );
+                    0.1);
 
         }
 
@@ -279,12 +264,10 @@
         .nav-link:hover {
 
             background:
-                rgba(
+                rgba(255,
                     255,
                     255,
-                    255,
-                    0.06
-                );
+                    0.06);
 
             color: var(--white);
 
@@ -320,12 +303,10 @@
             padding: 15px;
 
             border-top:
-                1px solid rgba(
+                1px solid rgba(255,
                     255,
                     255,
-                    255,
-                    0.1
-                );
+                    0.1);
 
         }
 
@@ -371,12 +352,10 @@
             padding: 12px;
 
             border:
-                1px solid rgba(
+                1px solid rgba(255,
                     255,
                     255,
-                    255,
-                    0.15
-                );
+                    0.15);
 
             background: transparent;
 
@@ -416,10 +395,7 @@
         .main-content {
 
             width:
-                calc(
-                    100% -
-                    var(--sidebar-width)
-                );
+                calc(100% - var(--sidebar-width));
 
             margin-left:
                 var(--sidebar-width);
@@ -658,6 +634,68 @@
 
         }
 
+
+
+
+        .logo-upload-content {
+            padding: 30px;
+        }
+
+        .logo-preview-box {
+            width: 220px;
+            height: 160px;
+            background: #faf8f5;
+            border: 1px dashed #d8c8b9;
+
+            display: flex;
+            align-items: center;
+            justify-content: center;
+
+            margin-bottom: 20px;
+        }
+
+        .logo-preview-box img {
+            max-width: 90%;
+            max-height: 135px;
+            object-fit: contain;
+        }
+
+        .logo-preview-box img[hidden] {
+            display: none;
+        }
+
+        #logoPlaceholder {
+            font-size: 11px;
+            color: #999;
+        }
+
+        .logo-description {
+            font-size: 12px;
+            color: #777;
+            line-height: 1.8;
+            margin-bottom: 20px;
+        }
+
+        .logo-actions {
+            display: flex;
+            gap: 12px;
+            flex-wrap: wrap;
+        }
+
+        .logo-status {
+            margin-top: 15px;
+            font-size: 12px;
+        }
+
+        @media (max-width: 600px) {
+            .logo-upload-content {
+                padding: 20px;
+            }
+
+            .logo-preview-box {
+                width: 100%;
+            }
+        }
 
         /* =====================================================
            SETTINGS LIST
@@ -1060,7 +1098,6 @@
             }
 
         }
-
     </style>
 
 </head>
@@ -1076,10 +1113,7 @@
              SIDEBAR
         ================================================== -->
 
-        <aside
-            class="sidebar"
-            id="sidebar"
-        >
+        <aside class="sidebar" id="sidebar">
 
 
             <!-- BRAND -->
@@ -1107,10 +1141,7 @@
                 </div>
 
 
-                <a
-                    href="dashboard.html"
-                    class="nav-link"
-                >
+                <a href="dashboard.html" class="nav-link">
 
                     <span class="nav-icon">
                         ◈
@@ -1121,10 +1152,7 @@
                 </a>
 
 
-                <a
-                    href="bookings.html"
-                    class="nav-link"
-                >
+                <a href="bookings.html" class="nav-link">
 
                     <span class="nav-icon">
                         ◫
@@ -1135,10 +1163,7 @@
                 </a>
 
 
-                <a
-                    href="enrollments.html"
-                    class="nav-link"
-                >
+                <a href="enrollments.html" class="nav-link">
 
                     <span class="nav-icon">
                         ◇
@@ -1149,18 +1174,12 @@
                 </a>
 
 
-                <div
-                    class="nav-section-title"
-                    style="margin-top:25px;"
-                >
+                <div class="nav-section-title" style="margin-top:25px;">
                     Management
                 </div>
 
 
-                <a
-                    href="courses.html"
-                    class="nav-link"
-                >
+                <a href="courses.html" class="nav-link">
 
                     <span class="nav-icon">
                         ✦
@@ -1171,10 +1190,7 @@
                 </a>
 
 
-                <a
-                    href="services.html"
-                    class="nav-link"
-                >
+                <a href="services.html" class="nav-link">
 
                     <span class="nav-icon">
                         ♢
@@ -1185,10 +1201,7 @@
                 </a>
 
 
-                <a
-                    href="staff.html"
-                    class="nav-link"
-                >
+                <a href="staff.html" class="nav-link">
 
                     <span class="nav-icon">
                         ♙
@@ -1199,10 +1212,7 @@
                 </a>
 
 
-                <a
-                    href="customers.html"
-                    class="nav-link"
-                >
+                <a href="customers.html" class="nav-link">
 
                     <span class="nav-icon">
                         ♧
@@ -1213,10 +1223,7 @@
                 </a>
 
 
-                <a
-                    href="gallery.html"
-                    class="nav-link"
-                >
+                <a href="gallery.html" class="nav-link">
 
                     <span class="nav-icon">
                         ▧
@@ -1227,10 +1234,7 @@
                 </a>
 
 
-                <a
-                    href="contacts.html"
-                    class="nav-link"
-                >
+                <a href="contacts.html" class="nav-link">
 
                     <span class="nav-icon">
                         ✉
@@ -1241,18 +1245,12 @@
                 </a>
 
 
-                <div
-                    class="nav-section-title"
-                    style="margin-top:25px;"
-                >
+                <div class="nav-section-title" style="margin-top:25px;">
                     System
                 </div>
 
 
-                <a
-                    href="settings.html"
-                    class="nav-link active"
-                >
+                <a href="settings.html" class="nav-link active">
 
                     <span class="nav-icon">
                         ⚙
@@ -1272,27 +1270,18 @@
 
                 <div class="admin-user">
 
-                    <div
-                        class="admin-user-name"
-                        id="adminName"
-                    >
+                    <div class="admin-user-name" id="adminName">
                         Admin
                     </div>
 
-                    <div
-                        class="admin-user-email"
-                        id="adminEmail"
-                    >
+                    <div class="admin-user-email" id="adminEmail">
                         admin@makemeglam.com
                     </div>
 
                 </div>
 
 
-                <button
-                    class="logout-button"
-                    id="logoutButton"
-                >
+                <button class="logout-button" id="logoutButton">
                     Logout
                 </button>
 
@@ -1316,11 +1305,7 @@
                 <div class="topbar-left">
 
 
-                    <button
-                        class="mobile-menu-button"
-                        id="mobileMenuButton"
-                        aria-label="Open menu"
-                    >
+                    <button class="mobile-menu-button" id="mobileMenuButton" aria-label="Open menu">
                         ☰
                     </button>
 
@@ -1334,10 +1319,7 @@
 
                 <div class="topbar-right">
 
-                    <span
-                        class="date-text"
-                        id="currentDate"
-                    ></span>
+                    <span class="date-text" id="currentDate"></span>
 
 
                     <span class="admin-badge">
@@ -1396,10 +1378,41 @@
                     </div>
 
 
-                    <div
-                        id="settingsContainer"
-                        class="settings-list"
-                    >
+                    <div class="logo-upload-content">
+
+                        <div class="logo-preview-box">
+                            <img id="logoPreview" alt="Website Logo Preview" hidden>
+                            <span id="logoPlaceholder">
+                                No Logo Uploaded
+                            </span>
+                        </div>
+
+                        <p class="logo-description">
+                            Upload your Make Me Glam logo.
+                            It will be used across your website
+                            and administration panel.
+                        </p>
+
+                        <input type="file" id="logoInput" accept="image/png,image/jpeg,image/webp" hidden>
+
+                        <div class="logo-actions">
+
+                            <button type="button" class="save-btn" id="chooseLogoBtn">
+                                Choose Logo
+                            </button>
+
+                            <button type="button" class="save-btn" id="saveLogoBtn" disabled>
+                                Save Logo
+                            </button>
+
+                        </div>
+
+                        <p id="logoMessage" class="logo-status"></p>
+
+                    </div>
+
+
+                    <div id="settingsContainer" class="settings-list">
 
                         <div class="loading">
                             Loading settings...
@@ -1408,10 +1421,7 @@
                     </div>
 
 
-                    <div
-                        id="message"
-                        class="message"
-                    ></div>
+                    <div id="message" class="message"></div>
 
 
                 </section>
@@ -1711,8 +1721,8 @@
                         <br><br>
 
                         ${escapeHTML(
-                            error.message
-                        )}
+                    error.message
+                )}
 
                     </div>
 
@@ -1721,6 +1731,151 @@
             }
 
         }
+
+
+
+
+        // WEBSITE LOGO MANAGEMENT
+
+        const logoInput = document.getElementById("logoInput");
+        const logoPreview = document.getElementById("logoPreview");
+        const logoPlaceholder = document.getElementById("logoPlaceholder");
+        const saveLogoBtn = document.getElementById("saveLogoBtn");
+        const chooseLogoBtn = document.getElementById("chooseLogoBtn");
+        const logoMessage = document.getElementById("logoMessage");
+
+        let previewURL = null;
+
+        chooseLogoBtn.addEventListener("click", () => {
+            logoInput.click();
+        });
+
+        logoInput.addEventListener("change", () => {
+            const file = logoInput.files[0];
+
+            if (!file) return;
+
+            const allowedTypes = [
+                "image/png",
+                "image/jpeg",
+                "image/webp"
+            ];
+
+            if (!allowedTypes.includes(file.type)) {
+                logoMessage.textContent = "Select PNG, JPG or WebP.";
+                logoInput.value = "";
+                return;
+            }
+
+            if (file.size > 2 * 1024 * 1024) {
+                logoMessage.textContent = "Maximum file size is 2MB.";
+                logoInput.value = "";
+                return;
+            }
+
+            if (previewURL) URL.revokeObjectURL(previewURL);
+
+            previewURL = URL.createObjectURL(file);
+
+            logoPreview.src = previewURL;
+            logoPreview.hidden = false;
+            logoPlaceholder.hidden = true;
+
+            saveLogoBtn.disabled = false;
+            logoMessage.textContent = "";
+        });
+
+        async function loadWebsiteLogo() {
+            try {
+                const response = await fetch(
+                    `${API_BASE_URL}/branding/logo`,
+                    { cache: "no-store" }
+                );
+
+                if (!response.ok) return;
+
+                const blob = await response.blob();
+                const url = URL.createObjectURL(blob);
+
+                logoPreview.onload = () => URL.revokeObjectURL(url);
+                logoPreview.src = url;
+                logoPreview.hidden = false;
+                logoPlaceholder.hidden = true;
+
+            } catch (error) {
+                console.error("Logo load error:", error);
+            }
+        }
+
+        saveLogoBtn.addEventListener("click", async () => {
+            const file = logoInput.files[0];
+
+            if (!file) return;
+
+            const formData = new FormData();
+            formData.append("logo", file);
+
+            saveLogoBtn.disabled = true;
+            saveLogoBtn.textContent = "Uploading...";
+
+            try {
+                const response = await fetch(
+                    `${API_BASE_URL}/admin/branding/logo`,
+                    {
+                        method: "POST",
+                        headers: {
+                            Authorization: `Bearer ${getAdminToken()}`
+                        },
+                        body: formData
+                    }
+                );
+
+                // const result = await response.json();
+
+                // if (!response.ok || !result.success) {
+                //     throw new Error(
+                //         result.message || "Logo upload failed"
+                //     );
+                // }
+
+                const responseText = await response.text();
+
+                console.log("Upload status:", response.status);
+                console.log("Upload response:", responseText);
+
+                let result;
+
+                try {
+                    result = JSON.parse(responseText);
+                } catch {
+                    throw new Error(
+                        `Server returned HTML instead of JSON. HTTP ${response.status}. Check the backend route and server logs.`
+                    );
+                }
+
+                if (!response.ok || !result.success) {
+                    throw new Error(
+                        result.message || "Logo upload failed"
+                    );
+                }
+
+
+                logoMessage.textContent =
+                    "Logo updated successfully!";
+
+                logoInput.value = "";
+
+                await loadWebsiteLogo();
+
+            } catch (error) {
+                logoMessage.textContent = error.message;
+            } finally {
+                saveLogoBtn.disabled = false;
+                saveLogoBtn.textContent = "Save Logo";
+            }
+        });
+
+        loadWebsiteLogo();
 
 
         // =====================================================
@@ -1760,8 +1915,8 @@
                                 <div
                                     class="setting-item"
                                     data-id="${escapeHTML(
-                                        setting.id
-                                    )}"
+                                setting.id
+                            )}"
                                 >
 
                                     <div class="setting-top">
@@ -1772,8 +1927,8 @@
                                                 class="setting-label"
                                             >
                                                 ${formatSettingName(
-                                                    setting.setting_key
-                                                )}
+                                setting.setting_key
+                            )}
                                             </span>
 
                                             <span
@@ -1781,8 +1936,8 @@
                                             >
                                                 Key:
                                                 ${escapeHTML(
-                                                    setting.setting_key
-                                                )}
+                                setting.setting_key
+                            )}
                                             </span>
 
                                         </div>
@@ -1796,16 +1951,16 @@
                                             type="text"
                                             class="setting-input"
                                             value="${escapeHTML(
-                                                setting.setting_value || ""
-                                            )}"
+                                setting.setting_value || ""
+                            )}"
                                             data-key="${escapeHTML(
-                                                setting.setting_key
-                                            )}"
+                                setting.setting_key
+                            )}"
                                             aria-label="${escapeHTML(
-                                                formatSettingName(
-                                                    setting.setting_key
-                                                )
-                                            )}"
+                                formatSettingName(
+                                    setting.setting_key
+                                )
+                            )}"
                                         >
 
 
@@ -1814,8 +1969,8 @@
                                             class="save-btn"
                                             onclick="updateSetting(
                                                 '${escapeJS(
-                                                    setting.setting_key
-                                                )}',
+                                setting.setting_key
+                            )}',
                                                 this
                                             )"
                                         >
@@ -2136,4 +2291,3 @@
 </body>
 
 </html>
-
