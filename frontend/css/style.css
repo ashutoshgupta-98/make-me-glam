@@ -11,13 +11,14 @@
 
 :root {
     /* --ivory: #f8f4ef; */
-     --ivory: #FAF7F2;
+    --ivory: #FAF7F2;
     /* --cream: #efe7df; */
-      --cream: #EADBD7;
+    --cream: #EADBD7;
     --blush: #ead5d0;
     --blush-light: #f3e6e2;
     --gold: #b69a6a;
     --gold-light: #d8c29a;
+    --Champagne-Gold: #D4AF37;
     --charcoal: #24211f;
     --black: #171513;
     --white: #ffffff;
@@ -33,7 +34,7 @@
 }
 
 /* :root { */
-    /* =========================================
+/* =========================================
        MAKE ME GLAM - NEW COLOR PALETTE
        Based on provided reference image
     ========================================= */
@@ -297,7 +298,7 @@ p {
 
     padding: 22px 0;
 
-    color: var(--white);
+    color: #D8C29A;
 
     transition:
         background var(--transition),
@@ -328,6 +329,7 @@ p {
     align-items: center;
     justify-content: space-between;
 }
+
 /* 
 .brand-logo {
     display: flex;
@@ -349,7 +351,7 @@ p {
     letter-spacing: 0.28em;
     opacity: 0.75;
 } */
-
+/* 
 .brand-logo {
     display: inline-flex;
     align-items: center;
@@ -388,9 +390,150 @@ p {
         gap: 8px;
     }
 }
+ */
 
+/* =========================================
+   MAKE ME GLAM - BRAND LOGO
+========================================= */
 
+.brand-logo {
+    display: inline-flex;
+    align-items: center;
+    gap: 12px;
+    flex-shrink: 0;
+    text-decoration: none;
+}
 
+.brand-logo-img {
+    width: 52px;
+    height: 52px;
+    object-fit: contain;
+    flex-shrink: 0;
+}
+
+.brand-text {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    gap: 5px;
+    line-height: 1;
+    white-space: nowrap;
+}
+
+.brand-main {
+    display: block;
+    font-family: var(--serif);
+    font-size: 25px;
+    font-weight: 600;
+    letter-spacing: 0.06em;
+    color: var(--white);
+}
+
+.brand-sub {
+    display: block;
+    font-family: var(--sans);
+    font-size: 7px;
+    font-weight: 500;
+    letter-spacing: 0.25em;
+    color: rgba(255, 255, 255, 0.8);
+}
+
+/* TABLET */
+@media (max-width: 1100px) {
+    .brand-logo {
+        gap: 9px;
+    }
+
+    .brand-logo-img {
+        width: 45px;
+        height: 45px;
+    }
+
+    .brand-main {
+        font-size: 21px;
+    }
+
+    .brand-sub {
+        font-size: 6px;
+        letter-spacing: 0.18em;
+    }
+}
+
+/* MOBILE */
+@media (max-width: 480px) {
+    .brand-logo {
+        gap: 8px;
+    }
+
+    .brand-logo-img {
+        width: 40px;
+        height: 40px;
+    }
+
+    .brand-main {
+        font-size: 19px;
+    }
+
+    .brand-sub {
+        font-size: 6px;
+        letter-spacing: 0.12em;
+    }
+}
+
+/* =========================================
+   MAKE ME GLAM - LUXURY GOLD SHINE
+========================================= */
+
+.brand-main.gold-shine {
+    width: fit-content;
+
+    background: linear-gradient(110deg,
+            #B68A35 0%,
+            #E8C778 25%,
+            #FFF3C4 40%,
+            #C79D49 55%,
+            #F5DB95 75%,
+            #B68A35 100%);
+
+    background-size: 250% 100%;
+
+    -webkit-background-clip: text;
+    background-clip: text;
+
+    color: transparent;
+    -webkit-text-fill-color: transparent;
+
+    animation: luxuryGoldShine 6s ease-in-out infinite;
+}
+
+/* Smooth moving gold shine */
+
+@keyframes luxuryGoldShine {
+
+    0%,
+    15% {
+        background-position: 100% center;
+    }
+
+    55%,
+    100% {
+        background-position: 0% center;
+    }
+}
+
+/* Subtitle gold colour */
+
+.brand-text .brand-sub {
+    color: #D8C29A;
+}
+
+/* Accessibility */
+
+@media (prefers-reduced-motion: reduce) {
+    .brand-main.gold-shine {
+        animation: none;
+    }
+}
 
 
 
@@ -436,19 +579,26 @@ p {
 .nav-link.active {
     opacity: 1;
 } */
-.nav-link:hover {
-    opacity: 1;
+/* .nav-link:hover {
+    opacity: 1; */
 
-    /* Elegant text glow */
-    text-shadow:
+/* Elegant text glow */
+/* text-shadow:
         0 0 4px rgba(218, 125, 94, 0.55),
         0 0 9px rgba(218, 125, 94, 0.35),
         0 0 16px rgba(180, 79, 49, 0.20);
+} */
+.nav-link:hover {
+    opacity: 1;
+    color: #E8C778;
+    text-shadow:
+        0 0 6px rgba(232, 199, 120, 0.45),
+        0 0 14px rgba(232, 199, 120, 0.2);
 }
 
 .nav-link.active {
     opacity: 1;
-} 
+}
 
 .nav-link:hover::after,
 .nav-link.active::after {
@@ -477,6 +627,84 @@ p {
     display: none;
 }
 
+/* =========================================
+   LUXURY GOLD SHINING NAVBAR
+========================================= */
+
+.nav-link {
+    transition:
+        color 0.4s ease,
+        text-shadow 0.4s ease,
+        opacity 0.4s ease;
+}
+
+/* Gold shine on hover */
+
+.nav-link:hover {
+    background: linear-gradient(110deg,
+            #B68A35 0%,
+            #FFF3C4 35%,
+            #E8C778 55%,
+            #B68A35 100%);
+
+    background-size: 250% 100%;
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+
+    animation: navGoldShine 2s linear infinite;
+}
+
+/* Active page gold */
+
+.nav-link.active {
+    color: #E8C778;
+    opacity: 1;
+}
+
+/* Moving shine */
+
+@keyframes navGoldShine {
+    from {
+        background-position: 100% center;
+    }
+
+    to {
+        background-position: 0% center;
+    }
+}
+
+/* Gold underline */
+
+.nav-link::after {
+    background: #D8B66A;
+}
+
+/* Book Now button */
+
+.nav-cta:hover {
+    background: linear-gradient(110deg,
+            #B68A35,
+            #FFF3C4,
+            #D8B66A,
+            #B68A35);
+
+    background-size: 250% 100%;
+    color: #24211F;
+
+    animation: navGoldShine 2s linear infinite;
+}
+
+/* Stop animation for reduced motion */
+
+@media (prefers-reduced-motion: reduce) {
+
+    .nav-link:hover,
+    .nav-cta:hover {
+        animation: none;
+    }
+}
+
 
 /* =========================================================
    06. HERO
@@ -493,17 +721,13 @@ p {
     color: var(--white);
 
     background:
-        linear-gradient(
-            90deg,
+        linear-gradient(90deg,
             rgba(18, 15, 13, 0.84) 0%,
             rgba(18, 15, 13, 0.48) 48%,
-            rgba(18, 15, 13, 0.28) 100%
-        ),
-        linear-gradient(
-            180deg,
+            rgba(18, 15, 13, 0.28) 100%),
+        linear-gradient(180deg,
             rgba(0, 0, 0, 0.2),
-            rgba(0, 0, 0, 0.48)
-        ),
+            rgba(0, 0, 0, 0.48)),
         url("https://images.unsplash.com/photo-1487412947147-5cebf100ffc2?auto=format&fit=crop&w=2200&q=85");
 
     background-position: center;
@@ -515,11 +739,9 @@ p {
     inset: 0;
 
     background:
-        radial-gradient(
-            circle at 20% 45%,
+        radial-gradient(circle at 20% 45%,
             rgba(255, 230, 220, 0.12),
-            transparent 35%
-        );
+            transparent 35%);
 }
 
 .hero-content {
@@ -889,7 +1111,7 @@ p {
 
 .brand-intro {
     /* background: var(--ivory); */
-      background: var(--ivory);
+    background: var(--ivory);
 }
 
 .intro-grid {
@@ -911,11 +1133,9 @@ p {
     overflow: hidden;
 
     background:
-        linear-gradient(
-            145deg,
+        linear-gradient(145deg,
             var(--blush),
-            var(--cream)
-        );
+            var(--cream));
 }
 
 .placeholder-image {
@@ -929,11 +1149,9 @@ p {
     padding: 35px;
 
     background:
-        linear-gradient(
-            180deg,
+        linear-gradient(180deg,
             transparent 45%,
-            rgba(0, 0, 0, 0.38)
-        ),
+            rgba(0, 0, 0, 0.38)),
         url("https://images.unsplash.com/photo-1516975080664-ed2fc6a32937?auto=format&fit=crop&w=1300&q=85");
 
     background-position: center;
@@ -961,7 +1179,7 @@ p {
     max-width: 650px;
 }
 
-.intro-content > p:not(.eyebrow) {
+.intro-content>p:not(.eyebrow) {
     max-width: 550px;
 
     margin-top: 25px;
@@ -1196,7 +1414,7 @@ p {
     max-width: 570px;
 }
 
-.academy-content > p:not(.eyebrow) {
+.academy-content>p:not(.eyebrow) {
     max-width: 490px;
 
     margin-top: 30px;
@@ -1220,11 +1438,9 @@ p {
     padding: 55px;
 
     background:
-        linear-gradient(
-            180deg,
+        linear-gradient(180deg,
             rgba(0, 0, 0, 0.05),
-            rgba(0, 0, 0, 0.6)
-        ),
+            rgba(0, 0, 0, 0.6)),
         url("https://images.unsplash.com/photo-1522337360788-8b13dee7a37e?auto=format&fit=crop&w=1600&q=85");
 
     background-position: center;
@@ -1564,21 +1780,17 @@ p {
 
 .before-image {
     background-image:
-        linear-gradient(
-            180deg,
+        linear-gradient(180deg,
             transparent 50%,
-            rgba(0, 0, 0, 0.5)
-        ),
+            rgba(0, 0, 0, 0.5)),
         url("https://images.unsplash.com/photo-1529139574466-a303027c1d8b?auto=format&fit=crop&w=1000&q=85");
 }
 
 .after-image {
     background-image:
-        linear-gradient(
-            180deg,
+        linear-gradient(180deg,
             transparent 50%,
-            rgba(0, 0, 0, 0.5)
-        ),
+            rgba(0, 0, 0, 0.5)),
         url("https://images.unsplash.com/photo-1487412720507-e7ab37603c6f?auto=format&fit=crop&w=1000&q=85");
 }
 
@@ -1756,11 +1968,9 @@ p {
     padding: 25px;
 
     background:
-        linear-gradient(
-            180deg,
+        linear-gradient(180deg,
             transparent 50%,
-            rgba(0, 0, 0, 0.55)
-        );
+            rgba(0, 0, 0, 0.55));
 
     background-color: var(--blush);
 
@@ -1774,46 +1984,34 @@ p {
 
 .gallery-item:nth-child(1) .gallery-placeholder {
     background:
-        linear-gradient(
-            180deg,
+        linear-gradient(180deg,
             transparent 50%,
-            rgba(0, 0, 0, 0.55)
-        ),
-        url("https://images.unsplash.com/photo-1519741497674-611481863552?auto=format&fit=crop&w=1400&q=85")
-        center / cover;
+            rgba(0, 0, 0, 0.55)),
+        url("https://images.unsplash.com/photo-1519741497674-611481863552?auto=format&fit=crop&w=1400&q=85") center / cover;
 }
 
 .gallery-item:nth-child(2) .gallery-placeholder {
     background:
-        linear-gradient(
-            180deg,
+        linear-gradient(180deg,
             transparent 50%,
-            rgba(0, 0, 0, 0.55)
-        ),
-        url("https://images.unsplash.com/photo-1596462502278-27bfdc403348?auto=format&fit=crop&w=1000&q=85")
-        center / cover;
+            rgba(0, 0, 0, 0.55)),
+        url("https://images.unsplash.com/photo-1596462502278-27bfdc403348?auto=format&fit=crop&w=1000&q=85") center / cover;
 }
 
 .gallery-item:nth-child(3) .gallery-placeholder {
     background:
-        linear-gradient(
-            180deg,
+        linear-gradient(180deg,
             transparent 50%,
-            rgba(0, 0, 0, 0.55)
-        ),
-        url("https://images.unsplash.com/photo-1522335789203-aabd1fc54bc9?auto=format&fit=crop&w=1000&q=85")
-        center / cover;
+            rgba(0, 0, 0, 0.55)),
+        url("https://images.unsplash.com/photo-1522335789203-aabd1fc54bc9?auto=format&fit=crop&w=1000&q=85") center / cover;
 }
 
 .gallery-item:nth-child(4) .gallery-placeholder {
     background:
-        linear-gradient(
-            180deg,
+        linear-gradient(180deg,
             transparent 50%,
-            rgba(0, 0, 0, 0.55)
-        ),
-        url("https://images.unsplash.com/photo-1487412912498-0447578fcca8?auto=format&fit=crop&w=1000&q=85")
-        center / cover;
+            rgba(0, 0, 0, 0.55)),
+        url("https://images.unsplash.com/photo-1487412912498-0447578fcca8?auto=format&fit=crop&w=1000&q=85") center / cover;
 }
 
 .gallery-item:hover .gallery-placeholder {
@@ -1836,13 +2034,10 @@ p {
     color: var(--white);
 
     background:
-        linear-gradient(
-            90deg,
+        linear-gradient(90deg,
             rgba(20, 17, 15, 0.82),
-            rgba(20, 17, 15, 0.45)
-        ),
-        url("https://images.unsplash.com/photo-1522337360788-8b13dee7a37e?auto=format&fit=crop&w=2200&q=85")
-        center / cover;
+            rgba(20, 17, 15, 0.45)),
+        url("https://images.unsplash.com/photo-1522337360788-8b13dee7a37e?auto=format&fit=crop&w=2200&q=85") center / cover;
 }
 
 .booking-cta-overlay {
@@ -1905,7 +2100,7 @@ p {
     max-width: 600px;
 }
 
-.contact-content > p:not(.eyebrow) {
+.contact-content>p:not(.eyebrow) {
     max-width: 500px;
 
     margin-top: 25px;
@@ -1926,7 +2121,7 @@ p {
     flex-direction: column;
 }
 
-.contact-details > div > span:first-child  {
+.contact-details>div>span:first-child {
     margin-bottom: 5px;
 
     color: var(--gold);
@@ -1971,13 +2166,10 @@ p {
     padding: 30px;
 
     background:
-        linear-gradient(
-            180deg,
+        linear-gradient(180deg,
             transparent,
-            rgba(0, 0, 0, 0.55)
-        ),
-        url("https://images.unsplash.com/photo-1449824913935-59a10b8d2000?auto=format&fit=crop&w=1400&q=85")
-        center / cover;
+            rgba(0, 0, 0, 0.55)),
+        url("https://images.unsplash.com/photo-1449824913935-59a10b8d2000?auto=format&fit=crop&w=1400&q=85") center / cover;
 
     color: var(--white);
 
@@ -2010,7 +2202,7 @@ p {
     color: var(--white);
 }
 
-.footer-brand > p {
+.footer-brand>p {
     max-width: 250px;
 
     margin-top: 25px;
@@ -2124,13 +2316,13 @@ p {
 
 .floating-btn.whatsapp {
     /* background: #1f9d57; */
-     background: var(--gold);
+    background: var(--gold);
     color: var(--white);
 }
 
 .floating-btn.call {
     /* background: var(--gold); */
-     background: var(--gold-light);
+    background: var(--gold-light);
     color: var(--black);
 }
 
@@ -2268,7 +2460,7 @@ p {
         align-items: center;
         gap: 5px;
 
-        color: var(--white);
+        color: #D8C29A;
     }
 
     .menu-toggle span {
@@ -2294,7 +2486,7 @@ p {
         transform: translateY(-6px) rotate(-45deg);
     }
 
-    .main-nav {
+    /* .main-nav {
         position: fixed;
         top: 0;
         right: 0;
@@ -2308,9 +2500,16 @@ p {
         justify-content: center;
 
         padding: 50px;
+         */
 
-        /* background: rgba(23, 21, 19, 0.97); */
-        background: rgba(84, 32, 25, 0.98);
+    /* Frosted Champagne Glass */
+    /* Soft Cream Glass */
+    /* background: rgba(248, 244, 239, 0.82);
+-webkit-backdrop-filter: blur(18px);
+backdrop-filter: blur(18px);
+
+border-left: 1px solid rgba(182, 154, 106, 0.35);
+box-shadow: -12px 0 40px rgba(36, 33, 31, 0.12);
 
         transform: translateX(100%);
 
@@ -2323,11 +2522,41 @@ p {
 
     .nav-link {
         font-family: var(--serif);
-        font-size: 30px;
+        font-size: 28px;
         font-weight: 500;
         letter-spacing: 0;
         text-transform: none;
+
+         color: #9C7B45;
+    -webkit-text-fill-color: #9C7B45;
+
+    opacity: 1;
+    transition: color 0.4s ease, text-shadow 0.4s ease;
+        
     }
+
+    .nav-link:hover {
+    background: linear-gradient(
+        110deg,
+        #B68A35 0%,
+        #FFF3C4 35%,
+        #E8C778 55%,
+        #B68A35 100%
+    );
+
+    background-size: 250% 100%;
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+
+    animation: navGoldShine 2s linear infinite;
+}
+
+.nav-link.active {
+    color: #B68A35;
+    -webkit-text-fill-color: #B68A35;
+}
+
 
     .nav-link::after {
         display: none;
@@ -2335,7 +2564,200 @@ p {
 
     .nav-cta {
         margin-top: 15px;
+          background: var(--gold);
+    color: #ffffff;
+    -webkit-text-fill-color: #ffffff;
     }
+     */
+
+
+    /* PREMIUM CREAM GLASS MOBILE MENU */
+    .main-nav {
+        position: fixed;
+        top: 0;
+        right: 0;
+
+        width: min(86%, 380px);
+        height: 100vh;
+        height: 100dvh;
+
+        display: flex;
+        flex-direction: column;
+        align-items: flex-start;
+        justify-content: center;
+        gap: 25px;
+
+        padding: 45px 38px;
+        overflow: hidden;
+        isolation: isolate;
+
+        /* Soft cream glass background */
+        background:
+            radial-gradient(ellipse at 85% 15%,
+                rgba(255, 255, 255, 0.85),
+                transparent 42%),
+            radial-gradient(ellipse at 100% 85%,
+                rgba(216, 194, 154, 0.25),
+                transparent 35%),
+            linear-gradient(145deg,
+                rgba(248, 244, 239, 0.96),
+                rgba(239, 231, 223, 0.91),
+                rgba(255, 250, 242, 0.96));
+
+        -webkit-backdrop-filter: blur(22px);
+        backdrop-filter: blur(22px);
+
+        border-left: 1px solid rgba(182, 154, 106, 0.45);
+
+        box-shadow:
+            -15px 0 45px rgba(36, 33, 31, 0.12),
+            inset 1px 0 0 rgba(255, 255, 255, 0.8);
+
+        transform: translateX(100%);
+        transition: transform 0.45s ease;
+
+        z-index: 1001;
+    }
+
+    /* Fine golden curve at the top */
+    .main-nav::before {
+        content: "";
+        position: absolute;
+        top: -100px;
+        right: -95px;
+
+        width: 240px;
+        height: 330px;
+
+        border: 1px solid rgba(182, 138, 53, 0.55);
+        border-radius: 48% 0 48% 50%;
+
+        transform: rotate(28deg);
+
+        box-shadow:
+            0 0 0 9px rgba(255, 255, 255, 0.12),
+            inset 0 0 25px rgba(182, 154, 106, 0.08);
+
+        pointer-events: none;
+        z-index: -1;
+    }
+
+    /* Elegant botanical gold decoration at bottom */
+    .main-nav::after {
+        content: "";
+        position: absolute;
+        right: -35px;
+        bottom: -35px;
+
+        width: 190px;
+        height: 250px;
+
+        opacity: 0.5;
+        pointer-events: none;
+        z-index: -1;
+
+        background:
+            /* Leaves */
+            radial-gradient(ellipse 20px 65px at 75% 68%,
+                rgba(182, 138, 53, 0.28) 0 48%,
+                transparent 52%),
+            radial-gradient(ellipse 18px 55px at 48% 78%,
+                rgba(182, 138, 53, 0.23) 0 48%,
+                transparent 52%),
+            radial-gradient(ellipse 17px 48px at 83% 43%,
+                rgba(216, 194, 154, 0.65) 0 48%,
+                transparent 52%),
+            radial-gradient(ellipse 15px 42px at 32% 57%,
+                rgba(182, 138, 53, 0.2) 0 48%,
+                transparent 52%);
+
+        transform: rotate(-22deg);
+    }
+
+    .main-nav.open {
+        transform: translateX(0);
+    }
+
+    /* Small uppercase luxury navigation */
+    .main-nav .nav-link {
+        position: relative;
+        z-index: 1;
+
+        font-family: var(--sans);
+        font-size: 12px;
+        font-weight: 600;
+        letter-spacing: 0.18em;
+        text-transform: uppercase;
+
+        color: #9C7535;
+        -webkit-text-fill-color: #9C7535;
+
+        line-height: 1.6;
+        opacity: 1;
+
+        transition: color 0.3s ease, text-shadow 0.3s ease;
+    }
+
+    /* Gold shine hover effect */
+    .main-nav .nav-link:hover {
+        background: linear-gradient(110deg,
+                #B68A35 0%,
+                #FFF3C4 35%,
+                #E8C778 55%,
+                #B68A35 100%);
+
+        background-size: 250% 100%;
+        -webkit-background-clip: text;
+        background-clip: text;
+        -webkit-text-fill-color: transparent;
+
+        animation: navGoldShine 2s linear infinite;
+    }
+
+    .main-nav .nav-link.active {
+        color: #B68A35;
+        -webkit-text-fill-color: #B68A35;
+    }
+
+    .main-nav .nav-link::after {
+        display: none;
+    }
+
+    /* Book Appointment button */
+    .main-nav .nav-cta {
+        position: relative;
+        z-index: 1;
+
+        margin-top: 10px;
+        padding: 14px 19px;
+
+        background: linear-gradient(110deg,
+                #A98245,
+                #D8BC83,
+                #B68A35);
+
+        border: 1px solid rgba(255, 255, 255, 0.65);
+        color: #fff;
+        -webkit-text-fill-color: #fff;
+
+        font-size: 9px;
+        font-weight: 600;
+        letter-spacing: 0.13em;
+        text-transform: uppercase;
+
+        box-shadow: 0 6px 18px rgba(156, 117, 53, 0.18);
+    }
+
+    /* Respect reduced motion settings */
+    @media (prefers-reduced-motion: reduce) {
+
+        .main-nav,
+        .main-nav .nav-link {
+            transition: none;
+            animation: none;
+        }
+    }
+
 
     .hero {
         min-height: 850px;
