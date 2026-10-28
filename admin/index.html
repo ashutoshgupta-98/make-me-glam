@@ -65,16 +65,16 @@
 
         /* BRAND */
 
-        .brand {
+        /* .brand {
 
             text-align: center;
 
             margin-bottom: 35px;
 
-        }
+        } */
 
 
-        .brand-main {
+        /* .brand-main {
 
             display: block;
 
@@ -86,30 +86,57 @@
 
             letter-spacing: 0.08em;
 
-        }
+        } */
 
 
         /*  */
 
+        .brand {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-wrap: wrap;
+            column-gap: 10px;
+            margin-bottom: 35px;
+            text-align: center;
+        }
+
         .site-logo {
             display: block;
-            max-width: 220px;
-            max-height: 100px;
-            width: auto;
-            height: auto;
+            width: 45px;
+            height: 45px;
             object-fit: contain;
-            margin: 0 auto 12px;
+            flex-shrink: 0;
+            margin: 0;
         }
 
         .site-logo[hidden] {
             display: none;
         }
 
+        .brand-main {
+            display: inline-block;
+            font-family: "Cormorant Garamond", serif;
+            font-size: 30px;
+            font-weight: 600;
+            letter-spacing: 0.06em;
+        }
+
+        .brand-sub {
+            flex-basis: 100%;
+            display: block;
+            margin-top: 5px;
+            font-size: 9px;
+            font-weight: 700;
+            letter-spacing: 0.2em;
+            color: #b89b5e;
+        }
+
 
         /*  */
 
 
-        .brand-sub {
+        /* .brand-sub {
 
             display: block;
 
@@ -123,7 +150,7 @@
 
             color: #b89b5e;
 
-        }
+        } */
 
 
         /* LOGIN CARD */
@@ -349,6 +376,21 @@
 
                 font-size: 40px;
 
+            }
+
+            /*  */
+
+            .brand {
+                column-gap: 7px;
+            }
+
+            .site-logo {
+                width: 36px;
+                height: 36px;
+            }
+
+            .brand-main {
+                font-size: 25px;
             }
 
         }

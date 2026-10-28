@@ -176,6 +176,37 @@
 
         }
 
+        /*  */
+
+        .sidebar-brand-row {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .sidebar-logo {
+            width: 34px;
+            height: 34px;
+            object-fit: contain;
+            flex-shrink: 0;
+        }
+
+        .sidebar-logo[hidden] {
+            display: none;
+        }
+
+        .sidebar-brand-row .brand-main {
+            font-size: 23px;
+            letter-spacing: 0.04em;
+            line-height: 1.1;
+        }
+
+        .sidebar-brand .brand-sub {
+            margin-top: 8px;
+        }
+
+
+        /*  */
 
         .brand-sub {
 
@@ -1069,7 +1100,7 @@
 
             <!-- BRAND -->
 
-            <div class="sidebar-brand">
+            <!-- <div class="sidebar-brand">
 
                 <span class="brand-main">
                     MAKE ME GLAM
@@ -1079,7 +1110,25 @@
                     ADMINISTRATION PANEL
                 </span>
 
+            </div> -->
+
+
+            <div class="sidebar-brand">
+
+                <div class="sidebar-brand-row">
+                    <img id="siteLogo" class="sidebar-logo" alt="Make Me Glam Logo" hidden>
+
+                    <span class="brand-main" id="brandName">
+                        MAKE ME GLAM
+                    </span>
+                </div>
+
+                <span class="brand-sub">
+                    ADMINISTRATION PANEL
+                </span>
+
             </div>
+
 
 
             <!-- NAVIGATION -->

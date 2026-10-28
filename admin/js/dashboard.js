@@ -1,290 +1,290 @@
 // =====================================================
-        // API
-        // =====================================================
+// API
+// =====================================================
 
-        // const API_BASE_URL =
-        //     "http://localhost:5000/api";
-        const API_BASE_URL = 'https://make-me-glam.onrender.com/api';
+// const API_BASE_URL =
+//     "http://localhost:5000/api";
+const API_BASE_URL = 'https://make-me-glam.onrender.com/api';
 
 
-        // =====================================================
-        // AUTHENTICATION CHECK
-        // =====================================================
+// =====================================================
+// AUTHENTICATION CHECK
+// =====================================================
 
-        const adminToken =
-            localStorage.getItem(
-                "adminToken"
+const adminToken =
+    localStorage.getItem(
+        "adminToken"
+    );
+
+
+if (!adminToken) {
+
+    window.location.href =
+        "index.html";
+
+}
+
+
+// =====================================================
+// ADMIN DATA
+// =====================================================
+
+const adminData =
+    JSON.parse(
+        localStorage.getItem(
+            "adminData"
+        ) || "{}"
+    );
+
+
+const adminName =
+    document.querySelector(
+        "#adminName"
+    );
+
+
+const adminEmail =
+    document.querySelector(
+        "#adminEmail"
+    );
+
+
+const welcomeTitle =
+    document.querySelector(
+        "#welcomeTitle"
+    );
+
+
+if (adminData.name) {
+
+    adminName.textContent =
+        adminData.name;
+
+    welcomeTitle.textContent =
+        `Welcome Back, ${adminData.name}`;
+
+}
+
+
+if (adminData.email) {
+
+    adminEmail.textContent =
+        adminData.email;
+
+}
+
+
+// =====================================================
+// CURRENT DATE
+// =====================================================
+
+const currentDate =
+    document.querySelector(
+        "#currentDate"
+    );
+
+
+currentDate.textContent =
+    new Date().toLocaleDateString(
+        "en-IN",
+        {
+            weekday: "short",
+            day: "2-digit",
+            month: "short",
+            year: "numeric"
+        }
+    );
+
+
+// =====================================================
+// LOGOUT
+// =====================================================
+
+const logoutButton =
+    document.querySelector(
+        "#logoutButton"
+    );
+
+
+logoutButton.addEventListener(
+    "click",
+    function () {
+
+        localStorage.removeItem(
+            "adminToken"
+        );
+
+        localStorage.removeItem(
+            "adminData"
+        );
+
+        window.location.href =
+            "index.html";
+
+    }
+);
+
+
+// =====================================================
+// MOBILE MENU
+// =====================================================
+
+const mobileMenuButton =
+    document.querySelector(
+        "#mobileMenuButton"
+    );
+
+
+const sidebar =
+    document.querySelector(
+        "#sidebar"
+    );
+
+
+mobileMenuButton.addEventListener(
+    "click",
+    function () {
+
+        sidebar.classList.toggle(
+            "open"
+        );
+
+    }
+);
+
+
+// =====================================================
+// LOAD DASHBOARD DATA
+// =====================================================
+
+async function loadDashboardData() {
+
+    try {
+
+        const response =
+            await fetch(
+                `${API_BASE_URL}/dashboard`,
+                {
+                    method: "GET",
+
+                    headers: {
+
+                        "Content-Type":
+                            "application/json",
+
+                        "Authorization":
+                            `Bearer ${adminToken}`
+
+                    }
+
+                }
             );
 
 
-        if (!adminToken) {
+        const result =
+            await response.json();
+
+
+        console.log(
+            "Dashboard API:",
+            result
+        );
+
+
+        // =============================================
+        // TOKEN INVALID / EXPIRED
+        // =============================================
+
+        if (
+            response.status === 401 ||
+            response.status === 403
+        ) {
+
+            localStorage.removeItem(
+                "adminToken"
+            );
+
+            localStorage.removeItem(
+                "adminData"
+            );
 
             window.location.href =
                 "index.html";
 
-        }
-
-
-        // =====================================================
-        // ADMIN DATA
-        // =====================================================
-
-        const adminData =
-            JSON.parse(
-                localStorage.getItem(
-                    "adminData"
-                ) || "{}"
-            );
-
-
-        const adminName =
-            document.querySelector(
-                "#adminName"
-            );
-
-
-        const adminEmail =
-            document.querySelector(
-                "#adminEmail"
-            );
-
-
-        const welcomeTitle =
-            document.querySelector(
-                "#welcomeTitle"
-            );
-
-
-        if (adminData.name) {
-
-            adminName.textContent =
-                adminData.name;
-
-            welcomeTitle.textContent =
-                `Welcome Back, ${adminData.name}`;
+            return;
 
         }
 
 
-        if (adminData.email) {
+        // =============================================
+        // API ERROR
+        // =============================================
 
-            adminEmail.textContent =
-                adminData.email;
+        if (
+            !response.ok ||
+            !result.success
+        ) {
+
+            throw new Error(
+                result.message ||
+                "Unable to load dashboard."
+            );
 
         }
 
 
-        // =====================================================
-        // CURRENT DATE
-        // =====================================================
+        // =============================================
+        // STATS
+        // =============================================
 
-        const currentDate =
-            document.querySelector(
-                "#currentDate"
-            );
+        const stats =
+            result.data.stats;
 
 
-        currentDate.textContent =
-            new Date().toLocaleDateString(
-                "en-IN",
-                {
-                    weekday: "short",
-                    day: "2-digit",
-                    month: "short",
-                    year: "numeric"
-                }
-            );
+        document.querySelector(
+            "#totalBookings"
+        ).textContent =
+            stats.totalBookings;
 
 
-        // =====================================================
-        // LOGOUT
-        // =====================================================
-
-        const logoutButton =
-            document.querySelector(
-                "#logoutButton"
-            );
+        document.querySelector(
+            "#totalCourses"
+        ).textContent =
+            stats.totalCourses;
 
 
-        logoutButton.addEventListener(
-            "click",
-            function () {
+        document.querySelector(
+            "#totalServices"
+        ).textContent =
+            stats.totalServices;
 
-                localStorage.removeItem(
-                    "adminToken"
-                );
 
-                localStorage.removeItem(
-                    "adminData"
-                );
+        document.querySelector(
+            "#totalEnrollments"
+        ).textContent =
+            stats.totalEnrollments;
 
-                window.location.href =
-                    "index.html";
 
-            }
+        // =============================================
+        // RECENT BOOKINGS
+        // =============================================
+
+        renderRecentBookings(
+            result.data.recentBookings
         );
 
 
-        // =====================================================
-        // MOBILE MENU
-        // =====================================================
+    } catch (error) {
 
-        const mobileMenuButton =
-            document.querySelector(
-                "#mobileMenuButton"
-            );
-
-
-        const sidebar =
-            document.querySelector(
-                "#sidebar"
-            );
-
-
-        mobileMenuButton.addEventListener(
-            "click",
-            function () {
-
-                sidebar.classList.toggle(
-                    "open"
-                );
-
-            }
+        console.error(
+            "Dashboard loading error:",
+            error
         );
 
 
-        // =====================================================
-        // LOAD DASHBOARD DATA
-        // =====================================================
-
-        async function loadDashboardData() {
-
-            try {
-
-                const response =
-                    await fetch(
-                        `${API_BASE_URL}/dashboard`,
-                        {
-                            method: "GET",
-
-                            headers: {
-
-                                "Content-Type":
-                                    "application/json",
-
-                                "Authorization":
-                                    `Bearer ${adminToken}`
-
-                            }
-
-                        }
-                    );
-
-
-                const result =
-                    await response.json();
-
-
-                console.log(
-                    "Dashboard API:",
-                    result
-                );
-
-
-                // =============================================
-                // TOKEN INVALID / EXPIRED
-                // =============================================
-
-                if (
-                    response.status === 401 ||
-                    response.status === 403
-                ) {
-
-                    localStorage.removeItem(
-                        "adminToken"
-                    );
-
-                    localStorage.removeItem(
-                        "adminData"
-                    );
-
-                    window.location.href =
-                        "index.html";
-
-                    return;
-
-                }
-
-
-                // =============================================
-                // API ERROR
-                // =============================================
-
-                if (
-                    !response.ok ||
-                    !result.success
-                ) {
-
-                    throw new Error(
-                        result.message ||
-                        "Unable to load dashboard."
-                    );
-
-                }
-
-
-                // =============================================
-                // STATS
-                // =============================================
-
-                const stats =
-                    result.data.stats;
-
-
-                document.querySelector(
-                    "#totalBookings"
-                ).textContent =
-                    stats.totalBookings;
-
-
-                document.querySelector(
-                    "#totalCourses"
-                ).textContent =
-                    stats.totalCourses;
-
-
-                document.querySelector(
-                    "#totalServices"
-                ).textContent =
-                    stats.totalServices;
-
-
-                document.querySelector(
-                    "#totalEnrollments"
-                ).textContent =
-                    stats.totalEnrollments;
-
-
-                // =============================================
-                // RECENT BOOKINGS
-                // =============================================
-
-                renderRecentBookings(
-                    result.data.recentBookings
-                );
-
-
-            } catch (error) {
-
-                console.error(
-                    "Dashboard loading error:",
-                    error
-                );
-
-
-                document.querySelector(
-                    "#recentBookingsWrapper"
-                ).innerHTML = `
+        document.querySelector(
+            "#recentBookingsWrapper"
+        ).innerHTML = `
 
             <div class="empty-state">
 
@@ -293,37 +293,37 @@
                 <br><br>
 
                 ${escapeHTML(
-                    error.message
-                )}
+            error.message
+        )}
 
             </div>
 
         `;
 
-            }
+    }
 
-        }
+}
 
-        // =====================================================
-        // RENDER RECENT BOOKINGS
-        // =====================================================
+// =====================================================
+// RENDER RECENT BOOKINGS
+// =====================================================
 
-        function renderRecentBookings(
-            bookings
-        ) {
+function renderRecentBookings(
+    bookings
+) {
 
-            const wrapper =
-                document.querySelector(
-                    "#recentBookingsWrapper"
-                );
+    const wrapper =
+        document.querySelector(
+            "#recentBookingsWrapper"
+        );
 
 
-            if (
-                !bookings ||
-                bookings.length === 0
-            ) {
+    if (
+        !bookings ||
+        bookings.length === 0
+    ) {
 
-                wrapper.innerHTML = `
+        wrapper.innerHTML = `
 
             <div class="empty-state">
 
@@ -333,43 +333,43 @@
 
         `;
 
-                return;
+        return;
 
-            }
-
-
-            let rows = "";
+    }
 
 
-            bookings.forEach(
-                function (booking) {
-
-                    const status =
-                        String(
-                            booking.status || "pending"
-                        ).toLowerCase();
+    let rows = "";
 
 
-                    rows += `
+    bookings.forEach(
+        function (booking) {
+
+            const status =
+                String(
+                    booking.status || "pending"
+                ).toLowerCase();
+
+
+            rows += `
 
                 <tr>
 
                     <td>
                         ${escapeHTML(
-                        booking.customer_name
-                    )}
+                booking.customer_name
+            )}
                     </td>
 
                     <td>
                         ${escapeHTML(
-                        booking.booking_number
-                    )}
+                booking.booking_number
+            )}
                     </td>
 
                     <td>
                         ${escapeHTML(
-                        booking.booking_date
-                    )}
+                booking.booking_date
+            )}
                     </td>
 
                     <td>
@@ -386,11 +386,11 @@
 
             `;
 
-                }
-            );
+        }
+    );
 
 
-            wrapper.innerHTML = `
+    wrapper.innerHTML = `
 
         <table>
 
@@ -429,52 +429,92 @@
 
     `;
 
-        }
+}
 
 
-        // =====================================================
-        // ESCAPE HTML
-        // =====================================================
+// =====================================================
+// ESCAPE HTML
+// =====================================================
 
-        function escapeHTML(value) {
+function escapeHTML(value) {
 
-            if (
-                value === null ||
-                value === undefined
-            ) {
+    if (
+        value === null ||
+        value === undefined
+    ) {
 
-                return "";
+        return "";
 
-            }
+    }
 
 
-            return String(value)
+    return String(value)
 
-                .replace(
-                    /&/g,
-                    "&amp;"
-                )
+        .replace(
+            /&/g,
+            "&amp;"
+        )
 
-                .replace(
-                    /</g,
-                    "&lt;"
-                )
+        .replace(
+            /</g,
+            "&lt;"
+        )
 
-                .replace(
-                    />/g,
-                    "&gt;"
-                )
+        .replace(
+            />/g,
+            "&gt;"
+        )
 
-                .replace(
-                    /"/g,
-                    "&quot;"
-                )
+        .replace(
+            /"/g,
+            "&quot;"
+        )
 
-                .replace(
-                    /'/g,
-                    "&#039;"
-                );
+        .replace(
+            /'/g,
+            "&#039;"
+        );
 
-        }
+}
 
-        loadDashboardData();
+loadDashboardData();
+
+
+
+// load logo //
+
+(async function loadSiteLogo() {
+    const logo = document.getElementById("siteLogo");
+    const brandName = document.getElementById("brandName");
+
+    try {
+        const response = await fetch("/api/branding/logo", {
+            cache: "no-store"
+        });
+
+        if (!response.ok) return;
+
+        const blob = await response.blob();
+
+        if (!blob.type.startsWith("image/")) return;
+
+        const imageUrl = URL.createObjectURL(blob);
+
+        logo.onload = () => {
+            logo.hidden = false;
+            brandName.hidden = true;
+        };
+
+        logo.onerror = () => {
+            URL.revokeObjectURL(imageUrl);
+            logo.hidden = true;
+            brandName.hidden = false;
+        };
+
+        logo.src = imageUrl;
+    } catch (error) {
+        console.error("Unable to load website logo:", error);
+    }
+})();
+
+// load logo end //

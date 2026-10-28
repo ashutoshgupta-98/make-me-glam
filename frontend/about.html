@@ -1,46 +1,36 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
 
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <meta
-        name="description"
-        content="Discover the story behind Make Me Glam – a premium makeup studio and professional beauty academy in Gole Market, Mahanagar, Lucknow."
-    >
+    <meta name="description"
+        content="Discover the story behind Make Me Glam – a premium makeup studio and professional beauty academy in Gole Market, Mahanagar, Lucknow.">
 
-    <meta
-        name="keywords"
-        content="Make Me Glam Lucknow, makeup studio Lucknow, makeup academy Lucknow, bridal makeup Lucknow, professional makeup training"
-    >
+    <meta name="keywords"
+        content="Make Me Glam Lucknow, makeup studio Lucknow, makeup academy Lucknow, bridal makeup Lucknow, professional makeup training">
 
     <meta name="author" content="Make Me Glam">
 
     <meta property="og:title" content="About Make Me Glam | Makeup Studio & Academy">
-    <meta
-        property="og:description"
-        content="Discover the story, philosophy and vision behind Make Me Glam."
-    >
+    <meta property="og:description" content="Discover the story, philosophy and vision behind Make Me Glam.">
     <meta property="og:type" content="website">
 
     <title>About Us | Make Me Glam | Makeup Studio & Academy</title>
 
     <!-- Google Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link
-        rel="preconnect"
-        href="https://fonts.gstatic.com"
-        crossorigin
-    >
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 
     <link
         href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600;700&family=DM+Sans:wght@300;400;500;600;700&display=swap"
-        rel="stylesheet"
-    >
+        rel="stylesheet">
 
     <!-- Main CSS -->
     <link rel="stylesheet" href="css/style.css">
+    <script src="https://unpkg.com/lenis@1.3.11/dist/lenis.min.js"></script>
 
     <!-- About Page CSS -->
     <style>
@@ -58,13 +48,10 @@
             color: var(--white);
 
             background:
-                linear-gradient(
-                    90deg,
+                linear-gradient(90deg,
                     rgba(18, 15, 13, 0.84),
-                    rgba(18, 15, 13, 0.42)
-                ),
-                url("https://images.unsplash.com/photo-1516975080664-ed2fc6a32937?auto=format&fit=crop&w=2200&q=85")
-                center / cover;
+                    rgba(18, 15, 13, 0.42)),
+                url("https://images.unsplash.com/photo-1516975080664-ed2fc6a32937?auto=format&fit=crop&w=2200&q=85") center / cover;
         }
 
         .about-hero-content {
@@ -116,13 +103,10 @@
             min-height: 650px;
 
             background:
-                linear-gradient(
-                    180deg,
+                linear-gradient(180deg,
                     transparent 45%,
-                    rgba(0, 0, 0, 0.45)
-                ),
-                url("https://images.unsplash.com/photo-1522337360788-8b13dee7a37e?auto=format&fit=crop&w=1400&q=85")
-                center / cover;
+                    rgba(0, 0, 0, 0.45)),
+                url("https://images.unsplash.com/photo-1522337360788-8b13dee7a37e?auto=format&fit=crop&w=1400&q=85") center / cover;
         }
 
         .about-story-content h2 {
@@ -260,13 +244,10 @@
             min-height: 650px;
 
             background:
-                linear-gradient(
-                    180deg,
+                linear-gradient(180deg,
                     rgba(0, 0, 0, 0.04),
-                    rgba(0, 0, 0, 0.58)
-                ),
-                url("https://images.unsplash.com/photo-1487412720507-e7ab37603c6f?auto=format&fit=crop&w=1600&q=85")
-                center / cover;
+                    rgba(0, 0, 0, 0.58)),
+                url("https://images.unsplash.com/photo-1487412720507-e7ab37603c6f?auto=format&fit=crop&w=1600&q=85") center / cover;
         }
 
 
@@ -398,13 +379,10 @@
             text-align: center;
 
             background:
-                linear-gradient(
-                    90deg,
+                linear-gradient(90deg,
                     rgba(20, 17, 15, 0.82),
-                    rgba(20, 17, 15, 0.48)
-                ),
-                url("https://images.unsplash.com/photo-1596462502278-27bfdc403348?auto=format&fit=crop&w=2200&q=85")
-                center / cover;
+                    rgba(20, 17, 15, 0.48)),
+                url("https://images.unsplash.com/photo-1596462502278-27bfdc403348?auto=format&fit=crop&w=2200&q=85") center / cover;
         }
 
         .about-cta-content {
@@ -611,12 +589,19 @@
 
             <a href="index.html" class="brand-logo">
 
-                <span class="brand-main">
+                <img src="https://make-me-glam.onrender.com/api/branding/logo" alt="Make Me Glam Logo"
+                    class="brand-logo-img" onerror="this.style.display='none'">
+
+                <!-- <span class="brand-main">
                     MAKE ME GLAM
                 </span>
 
                 <span class="brand-sub">
                     MAKEUP STUDIO & ACADEMY
+                </span> -->
+                <span class="brand-text">
+                    <span class="brand-main">MAKE ME GLAM</span>
+                    <span class="brand-sub">MAKEUP STUDIO &amp; ACADEMY</span>
                 </span>
 
             </a>
@@ -659,12 +644,7 @@
             </nav>
 
 
-            <button
-                class="menu-toggle"
-                id="menuToggle"
-                aria-label="Open navigation menu"
-                aria-expanded="false"
-            >
+            <button class="menu-toggle" id="menuToggle" aria-label="Open navigation menu" aria-expanded="false">
                 <span></span>
                 <span></span>
                 <span></span>
@@ -1104,10 +1084,7 @@
                             Book Your Appointment
                         </a>
 
-                        <a
-                            href="courses.html"
-                            class="btn btn-outline-light"
-                        >
+                        <a href="courses.html" class="btn btn-outline-light">
                             Explore Courses
                         </a>
 
@@ -1134,16 +1111,20 @@
 
                 <div class="footer-brand">
 
-                    <a
-                        href="index.html"
-                        class="brand-logo footer-logo"
-                    >
-                        <span class="brand-main">
+                    <a href="index.html" class="brand-logo footer-logo">
+                        <img src="https://make-me-glam.onrender.com/api/branding/logo" alt="Make Me Glam Logo"
+                            class="brand-logo-img" onerror="this.style.display='none'">
+                        <!-- <span class="brand-main">
                             MAKE ME GLAM
                         </span>
 
                         <span class="brand-sub">
                             MAKEUP STUDIO & ACADEMY
+                        </span> -->
+
+                        <span class="brand-text">
+                            <span class="brand-main">MAKE ME GLAM</span>
+                            <span class="brand-sub">MAKEUP STUDIO &amp; ACADEMY</span>
                         </span>
                     </a>
 
@@ -1210,7 +1191,7 @@
                         Connect
                     </h4>
 
-                     <div class="footer-phone">
+                    <div class="footer-phone">
                         <a href="tel:+919794357490">
                             +91 97943 57490
                         </a>
@@ -1222,19 +1203,12 @@
                         </a>
                     </div>
 
-                    <a
-                        href="https://wa.me/919794357490"
-                        target="_blank"
-                        rel="noopener noreferrer"
-                    >
+                    <a href="https://wa.me/919794357490" target="_blank" rel="noopener noreferrer">
                         WhatsApp
                     </a>
 
-                    <a
-                        href="https://www.instagram.com/makemeglamakeupstudio/"
-                        target="_blank"
-                        rel="noopener noreferrer"
-                    >
+                    <a href="https://www.instagram.com/makemeglamakeupstudio/" target="_blank"
+                        rel="noopener noreferrer">
                         Instagram
                     </a>
 
@@ -1274,29 +1248,16 @@
 
     <div class="floating-actions">
 
-        <a
-            href="https://wa.me/919794357490"
-            class="floating-btn whatsapp"
-            target="_blank"
-            rel="noopener noreferrer"
-            aria-label="Chat on WhatsApp"
-        >
+        <a href="https://wa.me/919794357490" class="floating-btn whatsapp" target="_blank" rel="noopener noreferrer"
+            aria-label="Chat on WhatsApp">
             WA
         </a>
 
-        <a
-            href="tel:+919794357490"
-            class="floating-btn call"
-            aria-label="Call Make Me Glam"
-        >
+        <a href="tel:+919794357490" class="floating-btn call" aria-label="Call Make Me Glam">
             ☎
         </a>
 
-        <a
-            href="booking.html"
-            class="floating-btn booking"
-            aria-label="Book appointment"
-        >
+        <a href="booking.html" class="floating-btn booking" aria-label="Book appointment">
             ✦
         </a>
 
@@ -1307,4 +1268,5 @@
     <script src="js/main.js"></script>
 
 </body>
+
 </html>

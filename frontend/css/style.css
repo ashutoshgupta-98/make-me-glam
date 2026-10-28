@@ -8,10 +8,12 @@
 /* =========================================================
    01. ROOT VARIABLES
 ========================================================= */
-/* 
+
 :root {
-    --ivory: #f8f4ef;
-    --cream: #efe7df;
+    /* --ivory: #f8f4ef; */
+     --ivory: #FAF7F2;
+    /* --cream: #efe7df; */
+      --cream: #EADBD7;
     --blush: #ead5d0;
     --blush-light: #f3e6e2;
     --gold: #b69a6a;
@@ -28,14 +30,14 @@
     --container: 1240px;
 
     --transition: 0.35s ease;
-} */
+}
 
-:root {
+/* :root { */
     /* =========================================
        MAKE ME GLAM - NEW COLOR PALETTE
        Based on provided reference image
     ========================================= */
-
+/* 
     --ivory: #F4EEEE;
     --cream: #E8D8D5;
 
@@ -60,7 +62,7 @@
     --container: 1240px;
 
     --transition: 0.35s ease;
-}
+} */
 
 
 /* =========================================================
@@ -75,6 +77,7 @@
 
 html {
     scroll-behavior: smooth;
+    scroll-padding-top: 90px;
 }
 
 body {
@@ -83,6 +86,7 @@ body {
     color: var(--charcoal);
     line-height: 1.6;
     overflow-x: hidden;
+    overscroll-behavior-y: none;
 }
 
 body,
@@ -167,6 +171,7 @@ h2 em,
 h1 em {
     font-style: italic;
     font-weight: 400;
+    color: #D4AF37;
 }
 
 p {
@@ -300,23 +305,23 @@ p {
         backdrop-filter var(--transition);
 }
 
-/* .site-header.scrolled {
+.site-header.scrolled {
     padding: 13px 0;
 
-    background: rgba(23, 21, 19, 0.78);
+    /* background: rgba(23, 21, 19, 0.78); */
 
     backdrop-filter: blur(18px);
     -webkit-backdrop-filter: blur(18px);
-} */
+}
 
-.site-header.scrolled {
+/* .site-header.scrolled {
     padding: 13px 0;
 
     background: rgba(84, 32, 25, 0.92);
 
     backdrop-filter: blur(18px);
     -webkit-backdrop-filter: blur(18px);
-}
+} */
 
 .nav-container {
     display: flex;
@@ -631,12 +636,260 @@ p {
 }
 
 
+
+/* =========================================
+   QUICK BOOKING SECTION
+========================================= */
+
+.quick-booking-section {
+    position: relative;
+    z-index: 5;
+    margin-top: -65px;
+    padding: 0 0 70px;
+}
+
+.quick-booking-box {
+    display: grid;
+    grid-template-columns: 290px minmax(0, 1fr);
+    background: #fcfaf7;
+    border: 1px solid #e4d4bd;
+    box-shadow: 0 22px 55px rgba(45, 32, 25, 0.10);
+    overflow: hidden;
+}
+
+.quick-booking-intro {
+    padding: 38px 28px;
+    background: #f3ece3;
+    border-right: 1px solid #e4d4bd;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+}
+
+.quick-booking-intro .eyebrow {
+    margin: 0 0 14px;
+    color: #a77c48;
+    font-size: 10px;
+    letter-spacing: 2px;
+}
+
+.quick-booking-intro h2 {
+    margin: 0 0 12px;
+    color: #30241f;
+    font-family: "Cormorant Garamond", serif;
+    font-size: clamp(30px, 3vw, 42px);
+    font-weight: 500;
+    line-height: 1;
+}
+
+.quick-booking-intro h2 em {
+    display: block;
+    color: #b18455;
+    font-weight: 400;
+}
+
+.booking-intro-text {
+    color: #786c63;
+    font-size: 13px;
+    line-height: 1.7;
+    margin: 8px 0 28px;
+}
+
+.quick-booking-intro .btn {
+    width: 100%;
+    min-height: 50px;
+    justify-content: space-between;
+    font-size: 10px;
+    letter-spacing: 1px;
+}
+
+.quick-booking-form {
+    padding: 28px 35px 22px;
+    min-width: 0;
+}
+
+.quick-booking-fields {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    column-gap: 25px;
+    row-gap: 22px;
+}
+
+.booking-field {
+    min-width: 0;
+    display: flex;
+    flex-direction: column;
+}
+
+.booking-field label {
+    color: #a17a56;
+    font-size: 9px;
+    letter-spacing: 1.8px;
+    margin-bottom: 10px;
+    font-weight: 500;
+}
+
+.booking-field input,
+.booking-field select {
+    width: 100%;
+    min-width: 0;
+    height: 37px;
+    padding: 0 2px 9px;
+    border: 0;
+    border-bottom: 1px solid #d8cbbd;
+    border-radius: 0;
+    outline: none;
+    background: transparent;
+    color: #342821;
+    font-family: "DM Sans", sans-serif;
+    font-size: 12px;
+}
+
+.booking-field select {
+    cursor: pointer;
+}
+
+.booking-field input::placeholder {
+    color: #a99a8d;
+    opacity: 1;
+}
+
+.booking-field input:focus,
+.booking-field select:focus {
+    border-bottom-color: #b18455;
+}
+
+.quick-booking-bottom {
+    margin-top: 20px;
+    padding-top: 16px;
+    border-top: 1px solid #eee4d9;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 20px;
+}
+
+.booking-note {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    margin: 0;
+    color: #9b8878;
+    font-size: 10px;
+    letter-spacing: 1px;
+    line-height: 1.7;
+}
+
+.booking-note-dot {
+    width: 7px;
+    height: 7px;
+    flex-shrink: 0;
+    border-radius: 50%;
+    background: #b18455;
+}
+
+.quick-submit {
+    min-width: 175px;
+    min-height: 46px;
+    border: 0;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 15px;
+    font-family: "DM Sans", sans-serif;
+    font-size: 10px;
+    letter-spacing: 1.5px;
+}
+
+.quick-booking-message {
+    margin: 12px 0 0;
+    font-size: 12px;
+    color: #786c63;
+}
+
+/* Tablet */
+@media (max-width: 900px) {
+    .quick-booking-section {
+        margin-top: -35px;
+        padding-bottom: 50px;
+    }
+
+    .quick-booking-box {
+        grid-template-columns: 220px minmax(0, 1fr);
+    }
+
+    .quick-booking-intro {
+        padding: 28px 20px;
+    }
+
+    .quick-booking-form {
+        padding: 26px 22px;
+    }
+
+    .quick-booking-fields {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+        gap: 22px;
+    }
+}
+
+/* Mobile */
+@media (max-width: 600px) {
+    .quick-booking-section {
+        margin-top: -20px;
+        padding-bottom: 40px;
+    }
+
+    .quick-booking-box {
+        grid-template-columns: 1fr;
+    }
+
+    .quick-booking-intro {
+        padding: 26px 22px;
+        border-right: 0;
+        border-bottom: 1px solid #e4d4bd;
+    }
+
+    .quick-booking-intro h2 {
+        font-size: 35px;
+    }
+
+    .booking-intro-text {
+        margin-bottom: 18px;
+    }
+
+    .quick-booking-intro .btn {
+        max-width: 280px;
+    }
+
+    .quick-booking-form {
+        padding: 25px 22px;
+    }
+
+    .quick-booking-fields {
+        grid-template-columns: 1fr;
+        gap: 22px;
+    }
+
+    .quick-booking-bottom {
+        align-items: stretch;
+        flex-direction: column;
+    }
+
+    .quick-submit {
+        width: 100%;
+    }
+}
+
+
+
 /* =========================================================
    07. BRAND INTRO
 ========================================================= */
 
 .brand-intro {
-    background: var(--ivory);
+    /* background: var(--ivory); */
+      background: var(--ivory);
 }
 
 .intro-grid {
