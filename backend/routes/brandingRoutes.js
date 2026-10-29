@@ -40,7 +40,9 @@ const router = express.Router();
 
 const {
     getLogo,
-    uploadLogo
+    uploadLogo,
+    getFooterImage,
+    uploadFooterImage
 } = require("../controllers/brandingController");
 
 const authenticateAdmin = require("../middleware/authMiddleware");
@@ -61,6 +63,17 @@ router.post(
     authenticateAdmin,
     upload.single("logo"),
     uploadLogo
+);
+
+// Public footer image endpoint
+router.get("/branding/footer-image", getFooterImage);
+
+// Admin-only footer image upload
+router.post(
+    "/admin/branding/footer-image",
+    authenticateAdmin,
+    upload.single("footerImage"),
+    uploadFooterImage
 );
 
 module.exports = router;

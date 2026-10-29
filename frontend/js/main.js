@@ -1668,3 +1668,30 @@ function initializeContactForm() {
     );
 
 }
+
+
+/* Load the footer background image */
+
+(async function loadFooterBackground() {
+    const footer = document.getElementById("siteFooter");
+    if (!footer) return;
+
+    try {
+        const response = await fetch(
+            "https://make-me-glam.onrender.com/api/branding/footer-image",
+            { cache: "no-store" }
+        );
+
+        if (!response.ok) return;
+
+        const imageBlob = await response.blob();
+
+        if (!imageBlob.type.startsWith("image/")) return;
+
+        const imageUrl = URL.createObjectURL(imageBlob);
+        footer.style.backgroundImage = `url("${imageUrl}")`;
+    } catch (error) {
+        console.error("Footer background loading error:", error);
+    }
+})();
+

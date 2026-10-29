@@ -76,7 +76,77 @@ const uploadLogo = async (req, res) => {
     }
 };
 
+
+// PUBLIC: Load footer background image
+const getFooterImage = async (req, res) => {
+    try {
+        const result = await pool.query(
+            `SELECT image_data, mime_type
+             FROM website_footer_branding
+             WHERE id = 1`
+        );
+
+        if (result.rows.length === 0) {
+            return res.sendStatus(404);
+        }
+
+        const image = result.rows[0];
+
+        res.setHeader("Content-Type", image.mime_type);
+        res.setHeader("Cache-Control", "no-store");
+
+        return res.send(image.image_data);
+    } catch (error) {
+        console.error("Get footer image error:", error);
+        return res.sendStatus(500);
+    }
+};
+
+// ADMIN: Upload and save footer background image
+const uploadFooterImage = async (req, res) => {
+    try {
+        const allowedTypes = [
+            "image/png",
+            "image/jpeg",
+            "image/webp"
+        ];
+
+        if (!req.file || !allowedTypes.includes(req.file.mimetype)) {
+            return res.status(400).json({
+                success: false,
+                message: "Select a PNG, JPG or WebP image."
+            });
+        }
+
+        await pool.query(
+            `INSERT INTO website_footer_branding
+                (id, image_data, mime_type)
+             VALUES (1, $1, $2)
+             ON CONFLICT (id)
+             DO UPDATE SET
+                image_data = EXCLUDED.image_data,
+                mime_type = EXCLUDED.mime_type,
+                updated_at = NOW()`,
+            [req.file.buffer, req.file.mimetype]
+        );
+
+        return res.json({
+            success: true,
+            message: "Footer background image saved successfully."
+        });
+    } catch (error) {
+        console.error("Upload footer image error:", error);
+
+        return res.status(500).json({
+            success: false,
+            message: "Footer image upload failed."
+        });
+    }
+};
+
 module.exports = {
     getLogo,
-    uploadLogo
+    uploadLogo,
+    getFooterImage,
+    uploadFooterImage
 };

@@ -4,6 +4,10 @@
    Main Stylesheet
 ========================================================= */
 
+/* =========================================
+       MAKE ME GLAM - NEW COLOR PALETTE
+       Based on provided reference image
+    ========================================= */
 
 /* =========================================================
    01. ROOT VARIABLES
@@ -33,37 +37,6 @@
     --transition: 0.35s ease;
 }
 
-/* :root { */
-/* =========================================
-       MAKE ME GLAM - NEW COLOR PALETTE
-       Based on provided reference image
-    ========================================= */
-/* 
-    --ivory: #F4EEEE;
-    --cream: #E8D8D5;
-
-    --blush: #DCC8C8;
-    --blush-light: #EAD9D5;
-
-    --gold: #B44F31;
-    --gold-light: #DA7D5E;
-
-    --charcoal: #702B24;
-    --black: #542019;
-
-    --white: #FFFFFF;
-
-    --muted: #795B54;
-
-    --border: rgba(112, 43, 36, 0.16);
-
-    --serif: "Cormorant Garamond", Georgia, serif;
-    --sans: "DM Sans", Arial, sans-serif;
-
-    --container: 1240px;
-
-    --transition: 0.35s ease;
-} */
 
 
 /* =========================================================
@@ -215,7 +188,7 @@ p {
 /* =========================================================
    04. BUTTONS
 ========================================================= */
-
+/* 
 .btn {
     display: inline-flex;
     justify-content: center;
@@ -281,7 +254,160 @@ p {
 .btn-outline-light:hover {
     background: var(--white);
     color: var(--black);
+} */
+
+
+/* ========================================
+   LUXURY BUTTONS — GOLD SHINE HOVER
+======================================== */
+
+.btn {
+    position: relative;
+    isolation: isolate;
+    overflow: hidden;
+
+    display: inline-flex;
+    justify-content: center;
+    align-items: center;
+    gap: 8px;
+
+    min-height: 54px;
+    padding: 0 30px;
+
+    font-family: var(--sans);
+    font-size: 11px;
+    font-weight: 600;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    text-decoration: none;
+
+    cursor: pointer;
+
+    transition:
+        transform var(--transition),
+        box-shadow var(--transition),
+        border-color var(--transition);
 }
+
+/* Moving gold shine overlay */
+.btn::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+
+    background: linear-gradient(
+        110deg,
+        transparent 0%,
+        rgba(255, 255, 255, 0.08) 25%,
+        #FFF3C4 45%,
+        #E8C778 52%,
+        rgba(255, 255, 255, 0.15) 60%,
+        transparent 78%
+    );
+
+    background-size: 250% 100%;
+    background-position: 100% 0;
+
+    transition: background-position 0.65s ease;
+
+    z-index: -1;
+    pointer-events: none;
+}
+
+/* All buttons */
+.btn:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 8px 22px rgba(156, 117, 53, 0.2);
+}
+
+.btn:hover::before {
+    background-position: 0 0;
+}
+
+/* PRIMARY BUTTON */
+.btn-primary {
+    background: var(--white);
+    color: var(--black);
+    border: 1px solid rgba(182, 154, 106, 0.35);
+}
+
+.btn-primary:hover {
+    background: var(--gold);
+    color: #fff;
+    border-color: var(--gold);
+}
+
+/* OUTLINE BUTTON */
+.btn-outline {
+    background: transparent;
+    border: 1px solid rgba(255, 255, 255, 0.7);
+    color: var(--white);
+}
+
+.btn-outline:hover {
+    background: var(--gold);
+    color: #fff;
+    border-color: var(--gold);
+}
+
+/* DARK BUTTON */
+.btn-dark {
+    background: var(--black);
+    color: var(--white);
+    border: 1px solid var(--black);
+}
+
+.btn-dark:hover {
+    background: var(--gold);
+    color: #fff;
+    border-color: var(--gold);
+}
+
+/* LIGHT BUTTON */
+.btn-light {
+    background: var(--white);
+    color: var(--black);
+    border: 1px solid rgba(182, 154, 106, 0.3);
+}
+
+.btn-light:hover {
+    background: var(--gold);
+    color: #fff;
+    border-color: var(--gold);
+}
+
+/* OUTLINE LIGHT BUTTON */
+.btn-outline-light {
+    background: transparent;
+    border: 1px solid rgba(255, 255, 255, 0.7);
+    color: var(--white);
+}
+
+.btn-outline-light:hover {
+    background: var(--gold);
+    color: #fff;
+    border-color: var(--gold);
+}
+
+/* Keyboard accessibility */
+.btn:focus-visible {
+    outline: 2px solid var(--gold);
+    outline-offset: 4px;
+}
+
+/* Touch devices and reduced-motion accessibility */
+@media (prefers-reduced-motion: reduce) {
+    .btn,
+    .btn::before {
+        transition: none;
+    }
+
+    .btn:hover {
+        transform: none;
+    }
+}
+
+
 
 
 /* =========================================================
@@ -626,6 +752,8 @@ p {
 .menu-toggle {
     display: none;
 }
+
+
 
 /* =========================================
    LUXURY GOLD SHINING NAVBAR
@@ -2184,10 +2312,30 @@ p {
 ========================================================= */
 
 .site-footer {
+
+    position: relative;
+    isolation: isolate;
+    overflow: hidden;
+
     padding: 80px 0 25px;
 
-    background: var(--black);
-    color: var(--white);
+    /* background: var(--black);
+    color: var(--white); */
+    background:
+        linear-gradient(
+            90deg,
+            rgba(35, 18, 20, 0.94),
+            rgba(35, 18, 20, 0.78),
+            rgba(35, 18, 20, 0.90)
+        ),
+        url("../images/academy-banner.png") center / cover no-repeat;
+
+    color: #fff;
+}
+
+.site-footer .container {
+    position: relative;
+    z-index: 1;
 }
 
 .footer-grid {
@@ -2461,6 +2609,9 @@ p {
         gap: 5px;
 
         color: #D8C29A;
+        position: relative;
+        z-index: 1005;
+        cursor: pointer;
     }
 
     .menu-toggle span {
@@ -2485,91 +2636,6 @@ p {
     .menu-toggle.active span:nth-child(3) {
         transform: translateY(-6px) rotate(-45deg);
     }
-
-    /* .main-nav {
-        position: fixed;
-        top: 0;
-        right: 0;
-
-        width: min(86%, 380px);
-        height: 100svh;
-
-        display: flex;
-        flex-direction: column;
-        align-items: flex-start;
-        justify-content: center;
-
-        padding: 50px;
-         */
-
-    /* Frosted Champagne Glass */
-    /* Soft Cream Glass */
-    /* background: rgba(248, 244, 239, 0.82);
--webkit-backdrop-filter: blur(18px);
-backdrop-filter: blur(18px);
-
-border-left: 1px solid rgba(182, 154, 106, 0.35);
-box-shadow: -12px 0 40px rgba(36, 33, 31, 0.12);
-
-        transform: translateX(100%);
-
-        transition: transform 0.45s ease;
-    }
-
-    .main-nav.open {
-        transform: translateX(0);
-    }
-
-    .nav-link {
-        font-family: var(--serif);
-        font-size: 28px;
-        font-weight: 500;
-        letter-spacing: 0;
-        text-transform: none;
-
-         color: #9C7B45;
-    -webkit-text-fill-color: #9C7B45;
-
-    opacity: 1;
-    transition: color 0.4s ease, text-shadow 0.4s ease;
-        
-    }
-
-    .nav-link:hover {
-    background: linear-gradient(
-        110deg,
-        #B68A35 0%,
-        #FFF3C4 35%,
-        #E8C778 55%,
-        #B68A35 100%
-    );
-
-    background-size: 250% 100%;
-    -webkit-background-clip: text;
-    background-clip: text;
-    -webkit-text-fill-color: transparent;
-
-    animation: navGoldShine 2s linear infinite;
-}
-
-.nav-link.active {
-    color: #B68A35;
-    -webkit-text-fill-color: #B68A35;
-}
-
-
-    .nav-link::after {
-        display: none;
-    }
-
-    .nav-cta {
-        margin-top: 15px;
-          background: var(--gold);
-    color: #ffffff;
-    -webkit-text-fill-color: #ffffff;
-    }
-     */
-
 
     /* PREMIUM CREAM GLASS MOBILE MENU */
     .main-nav {
@@ -2616,7 +2682,7 @@ box-shadow: -12px 0 40px rgba(36, 33, 31, 0.12);
         transform: translateX(100%);
         transition: transform 0.45s ease;
 
-        z-index: 1001;
+        z-index: 1000;
     }
 
     /* Fine golden curve at the top */

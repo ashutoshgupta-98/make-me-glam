@@ -1098,6 +1098,92 @@
             }
 
         }
+
+        .footer-image-section {
+            padding: 30px;
+            border-top: 1px solid var(--border);
+            background: var(--white);
+        }
+
+        .footer-image-section h3 {
+            font-family: "Cormorant Garamond", serif;
+            font-size: 28px;
+            font-weight: 500;
+            color: var(--black);
+            margin-bottom: 10px;
+        }
+
+        .footer-image-section p {
+            font-family: "DM Sans", sans-serif;
+            color: var(--muted);
+            font-size: 12px;
+            line-height: 1.8;
+        }
+
+        .footer-image-preview {
+            width: 100%;
+            max-width: 600px;
+            height: 180px;
+            margin: 20px 0;
+            border: 1px dashed var(--border);
+            border-radius: 0;
+            background: var(--ivory);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            overflow: hidden;
+            color: var(--muted);
+            font-size: 11px;
+        }
+
+        .footer-image-preview img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .footer-image-buttons {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 12px;
+        }
+
+        .footer-image-buttons .save-btn {
+            min-width: 150px;
+        }
+
+
+        .footer-image-buttons button:disabled {
+            opacity: 0.5;
+            cursor: not-allowed;
+        }
+
+        #footerImageStatus {
+            margin-top: 15px;
+            font-size: 12px;
+        }
+
+        @media (max-width: 600px) {
+            .footer-image-section {
+                padding: 20px;
+            }
+
+            .footer-image-section h3 {
+                font-size: 25px;
+            }
+
+            .footer-image-preview {
+                height: 150px;
+            }
+
+            .footer-image-buttons {
+                flex-direction: column;
+            }
+
+            .footer-image-buttons .save-btn {
+                width: 100%;
+            }
+        }
     </style>
 
 </head>
@@ -1422,6 +1508,49 @@
 
 
                     <div id="message" class="message"></div>
+
+
+
+                    <!-- =========================
+                         FOOTER BACKGROUND IMAGE
+                        ========================== -->
+
+                    <div class="settings-section footer-image-section">
+
+                        <h3>Footer Background Image</h3>
+
+                        <p>
+                            Upload an image to change the background
+                            of the footer on your customer website.
+                        </p>
+
+                        <!-- Image Preview -->
+                        <div class="footer-image-preview">
+                            <img id="footerImagePreview" src="" alt="Footer Background Preview" style="display: none;">
+
+                            <span id="footerImagePlaceholder">
+                                No image selected
+                            </span>
+                        </div>
+
+                        <!-- Select Image -->
+                        <input type="file" id="footerImageInput" accept="image/png,image/jpeg,image/webp" hidden>
+
+                        <div class="footer-image-buttons">
+
+                            <button type="button" id="chooseFooterImage" class="save-btn">
+                                Choose Image
+                            </button>
+
+                            <button type="button" id="saveFooterImage" class="save-btn" disabled>
+                                Save Footer Image
+                            </button>
+
+                        </div>
+
+                        <p id="footerImageStatus" role="status"></p>
+
+                    </div>
 
 
                 </section>
@@ -2285,6 +2414,157 @@
         // =====================================================
 
         loadSettings();
+
+
+
+
+        
+const imageInput = document.getElementById("footerImageInput");
+const preview = document.getElementById("footerImagePreview");
+const placeholder = document.getElementById("footerImagePlaceholder");
+const chooseBtn = document.getElementById("chooseFooterImage");
+const saveBtn = document.getElementById("saveFooterImage");
+const status = document.getElementById("footerImageStatus");
+
+let selectedFooterImage = null;
+let footerPreviewURL = null;
+
+function showFooterPreview(src) {
+    if (footerPreviewURL) {
+        URL.revokeObjectURL(footerPreviewURL);
+        footerPreviewURL = null;
+    }
+
+    preview.src = src;
+    preview.style.display = "block";
+    placeholder.style.display = "none";
+}
+
+chooseBtn.addEventListener("click", () => {
+    imageInput.click();
+});
+
+imageInput.addEventListener("change", () => {
+    const file = imageInput.files[0];
+    if (!file) return;
+
+    if (!["image/jpeg", "image/png", "image/webp"].includes(file.type)) {
+        status.textContent = "Please select a JPG, PNG or WebP image.";
+        imageInput.value = "";
+        return;
+    }
+
+    if (file.size > 2 * 1024 * 1024) {
+        status.textContent = "Image size must be 2 MB or less.";
+        imageInput.value = "";
+        return;
+    }
+
+    selectedFooterImage = file;
+
+    if (footerPreviewURL) {
+        URL.revokeObjectURL(footerPreviewURL);
+    }
+
+    footerPreviewURL = URL.createObjectURL(file);
+    preview.src = footerPreviewURL;
+    preview.style.display = "block";
+    placeholder.style.display = "none";
+
+    saveBtn.disabled = false;
+    status.textContent = "Image selected. Click Save Footer Image.";
+});
+
+// Load the previously saved image
+async function loadFooterImage() {
+    try {
+        const response = await fetch(
+            `${API_BASE_URL}/branding/footer-image`,
+            { cache: "no-store" }
+        );
+
+        if (response.status === 404) return;
+        if (!response.ok) {
+            throw new Error("Could not load saved footer image.");
+        }
+
+        const blob = await response.blob();
+
+        if (!blob.type.startsWith("image/")) {
+            throw new Error("The server did not return an image.");
+        }
+
+        const savedURL = URL.createObjectURL(blob);
+
+        preview.onload = () => URL.revokeObjectURL(savedURL);
+        preview.onerror = () => URL.revokeObjectURL(savedURL);
+        preview.src = savedURL;
+        preview.style.display = "block";
+        placeholder.style.display = "none";
+    } catch (error) {
+        console.error("Footer image loading error:", error);
+        status.textContent = error.message;
+    }
+}
+
+saveBtn.addEventListener("click", async () => {
+    if (!selectedFooterImage) {
+        status.textContent = "Please choose an image first.";
+        return;
+    }
+
+    saveBtn.disabled = true;
+    saveBtn.textContent = "Uploading...";
+    status.textContent = "Uploading footer image...";
+
+    try {
+        const formData = new FormData();
+        formData.append("footerImage", selectedFooterImage);
+
+        const response = await fetch(
+            `${API_BASE_URL}/admin/branding/footer-image`,
+            {
+                method: "POST",
+                headers: {
+                    Authorization: `Bearer ${getAdminToken()}`
+                },
+                body: formData
+            }
+        );
+
+        const responseText = await response.text();
+
+let result;
+
+try {
+    result = JSON.parse(responseText);
+} catch (error) {
+    console.error("Server response:", responseText);
+
+    throw new Error(
+        `Server ne valid JSON nahi diya. HTTP status: ${response.status}. Backend route aur Render logs check karein.`
+    );
+}
+
+        if (!response.ok || !result.success) {
+            throw new Error(result.message || "Footer image upload failed.");
+        }
+
+        status.textContent = "Footer image saved successfully.";
+        selectedFooterImage = null;
+        imageInput.value = "";
+
+        await loadFooterImage();
+    } catch (error) {
+        console.error("Footer image upload error:", error);
+        status.textContent = error.message || "Could not save footer image.";
+    } finally {
+        saveBtn.textContent = "Save Footer Image";
+        saveBtn.disabled = !selectedFooterImage;
+    }
+});
+
+loadFooterImage();
 
     </script>
 
